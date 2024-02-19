@@ -39,8 +39,6 @@ class M_transaksi extends Model
 	{
 		return $this->db->table($table1)
 		->join($table2, $on, 'left')
-		->where("$table1.deleted_at", null)
-		->where("$table2.deleted_at", null)
 		->orderBy('transaksi.created_at', 'DESC')
 		->get()
 		->getResult();

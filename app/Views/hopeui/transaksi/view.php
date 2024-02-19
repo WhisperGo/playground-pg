@@ -40,7 +40,7 @@
                              if ($riz->status == 1) {
                                echo '<span class="badge rounded-pill bg-primary">Masih Bermain</span>';
                             } elseif ($riz->status == 2) {
-                               echo '<span class="badge rounded-pill bg-success">Sudah Selesai</span>';
+                               echo '<span class="badge rounded-pill bg-success">Selesai Bermain</span>';
                             }
                             ?>
                          </td>

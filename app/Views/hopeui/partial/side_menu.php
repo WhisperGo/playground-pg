@@ -107,7 +107,7 @@ $uri = service('uri');
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Aktivitas Playground</span>
+            <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Aktivitas Playground</span>
             </a>
           </li>
 
