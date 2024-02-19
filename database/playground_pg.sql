@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 06:03 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 19 Feb 2024 pada 16.56
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -36,7 +36,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -45,48 +45,59 @@ INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `dele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengunjung`
+-- Struktur dari tabel `pelanggan`
 --
 
-CREATE TABLE `pengunjung` (
-  `id_pengunjung` int(11) NOT NULL,
-  `nama_pengunjung` varchar(255) NOT NULL,
-  `alamat_pengunjung` text NOT NULL,
-  `nama_orangtua_pengunjung` varchar(255) NOT NULL,
-  `no_telepon` varchar(15) NOT NULL,
+CREATE TABLE `pelanggan` (
+  `PelangganID` int(11) NOT NULL,
+  `NamaPelanggan` varchar(255) NOT NULL,
+  `Alamat` text NOT NULL,
+  `NomorTelepon` varchar(15) NOT NULL,
+  `NamaOrangtua` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengunjung`
+-- Dumping data untuk tabel `pelanggan`
 --
 
-INSERT INTO `pengunjung` (`id_pengunjung`, `nama_pengunjung`, `alamat_pengunjung`, `nama_orangtua_pengunjung`, `no_telepon`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Aldi', 'Perumahan Aldi', 'Orang Tua Aldi', '0245789', '2024-02-19 11:38:59', NULL, NULL);
+INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon`, `NamaOrangtua`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Thomas', 'Perumahan Orchid', '084597651452', 'Orang Tua Thomas', '2024-02-01 21:32:30', '2024-02-02 18:15:04', NULL),
+(2, 'Kevin', 'Perumahan Kevin', '08154722', 'Orang Tua Kevin', '2024-02-02 20:14:38', '2024-02-02 21:09:58', NULL),
+(3, 'Doni', 'Perumahan Doni', '0147965', 'Orang tua Doni', '2024-02-19 18:32:08', '2024-02-19 18:34:59', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `pengunjung_id` int(11) NOT NULL,
+  `pelanggan_id` int(11) NOT NULL,
   `tanggal_transaksi` datetime NOT NULL DEFAULT current_timestamp(),
   `jam_mulai` time NOT NULL,
   `jam_selesai` time NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, '2024-02-19 19:48:34', '21:00:00', '22:55:00', 1, '2024-02-19 19:48:34', NULL, NULL),
+(2, 2, '2024-02-19 20:25:24', '12:00:00', '13:00:00', 2, '2024-02-19 20:25:24', '2024-02-19 20:40:19', '2024-02-19 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -101,67 +112,109 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-19 11:39:27', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `website`
+--
+
+CREATE TABLE `website` (
+  `id_website` int(11) NOT NULL,
+  `nama_website` varchar(255) NOT NULL,
+  `logo_website` text DEFAULT NULL,
+  `logo_pdf` text DEFAULT NULL,
+  `favicon_website` text DEFAULT NULL,
+  `komplek` text DEFAULT NULL,
+  `jalan` text DEFAULT NULL,
+  `kelurahan` text DEFAULT NULL,
+  `kecamatan` text DEFAULT NULL,
+  `kota` text DEFAULT NULL,
+  `kode_pos` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `website`
+--
+
+INSERT INTO `website` (`id_website`, `nama_website`, `logo_website`, `logo_pdf`, `favicon_website`, `komplek`, `jalan`, `kelurahan`, `kecamatan`, `kota`, `kode_pos`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'GT Playground', 'logo_contoh.svg', 'logo_pdf_contoh.svg', 'favicon_contoh.svg', 'Komp. Pahlawan Mas', 'Jl. Raya Pahlawan No. 123', 'Kel. Sukajadi', 'Kec. Sukasari', 'Kota Batam', '29424', '2023-05-01 16:33:53', NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `level`
+-- Indeks untuk tabel `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `pengunjung`
+-- Indeks untuk tabel `pelanggan`
 --
-ALTER TABLE `pengunjung`
-  ADD PRIMARY KEY (`id_pengunjung`);
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`PelangganID`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `website`
+--
+ALTER TABLE `website`
+  ADD PRIMARY KEY (`id_website`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pengunjung`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
-ALTER TABLE `pengunjung`
-  MODIFY `id_pengunjung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `pelanggan`
+  MODIFY `PelangganID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `website`
+--
+ALTER TABLE `website`
+  MODIFY `id_website` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
