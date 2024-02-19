@@ -1,0 +1,6 @@
+ERROR - 2024-02-19 11:40:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-19 11:40:53 --> Table 'playground_pg.pelanggan' doesn't exist
+ERROR - 2024-02-19 11:40:53 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-19 11:40:59 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-19 11:40:59 --> Table 'playground_pg.pelanggan' doesn't exist
+ERROR - 2024-02-19 11:40:59 --> Table 'playground_pg.detailpenjualan' doesn't exist
