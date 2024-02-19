@@ -1,0 +1,70 @@
+ERROR - 2024-02-01 21:14:20 --> Table 'pos_kasir.kategori_buku' doesn't exist
+CRITICAL - 2024-02-01 21:14:20 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Kategori_buku.php(13): App\Models\M_kategori_buku->tampil('kategori_buku')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Kategori_buku->index()
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kategori_buku))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-01 21:17:14 --> Table 'pos_kasir.buku' doesn't exist
+CRITICAL - 2024-02-01 21:17:14 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Buku.php(15): App\Models\M_buku->join2('buku', 'kategori_buku', 'buku.kategori_b...')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Buku->index()
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-01 21:55:33 --> Class 'App\Models\M_produk' not found
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->index()
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-01 21:58:15 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\pos-kasir\app\Views\hopeui\produk\create.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 28, Array)
+#1 C:\xampp\htdocs\pos-kasir\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos-kasir\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/produk/c...', Array, true)
+#4 C:\xampp\htdocs\pos-kasir\app\Controllers\Produk.php(41): view('hopeui/produk/c...', Array)
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->create()
+#6 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#7 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-01 21:58:41 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\pos-kasir\app\Views\hopeui\produk\create.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 23, Array)
+#1 C:\xampp\htdocs\pos-kasir\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos-kasir\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/produk/c...', Array, true)
+#4 C:\xampp\htdocs\pos-kasir\app\Controllers\Produk.php(41): view('hopeui/produk/c...', Array)
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->create()
+#6 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#7 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+ERROR - 2024-02-01 22:11:32 --> Unknown column 'id_produk' in 'where clause'
+CRITICAL - 2024-02-01 22:11:32 --> Call to a member function getRow() on bool
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Produk.php(77): App\Models\M_produk->getWhere('produk', Array)
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->edit('1')
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-01 22:11:41 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\pos-kasir\app\Views\hopeui\produk\edit.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 38, Array)
+#1 C:\xampp\htdocs\pos-kasir\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos-kasir\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/produk/e...', Array, true)
+#4 C:\xampp\htdocs\pos-kasir\app\Controllers\Produk.php(86): view('hopeui/produk/e...', Array)
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->edit('1')
+#6 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#7 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

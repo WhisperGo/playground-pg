@@ -1,0 +1,19 @@
+/*CSS Custom*/
+
+/*Logo Tombol Agar Berjarak*/
+.faj-button {
+  margin-right: 8px;
+}
+
+.my-custom-header {
+  height: 65px;
+}
+
+/* Tambahkan CSS untuk pagination yang sedang aktif (active) */
+.dataTables_wrapper .pagination .page-item.active .page-link {
+    background-color: #5c6bc0 !important;
+    border-color: #5c6bc0 !important;
+    color: #fff !important;
+}
+
+

@@ -1,0 +1,127 @@
+CRITICAL - 2024-02-03 00:27:16 --> Call to undefined method App\Models\M_penjualan::getPeminjamanById
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(40): CodeIgniter\Model->__call('getPeminjamanBy...', Array)
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->detail_penjualan('1')
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-03 00:28:45 --> Call to undefined method App\Models\M_produk::getProdukMasukById
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Produk.php(139): CodeIgniter\Model->__call('getProdukMasukB...', Array)
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->info_stok_masuk('1')
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-03 00:31:07 --> Too few arguments to function App\Controllers\Produk::info_stok_masuk(), 0 passed in C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->info_stok_masuk()
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-03 00:31:10 --> Too few arguments to function App\Controllers\Produk::info_stok_masuk(), 0 passed in C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Produk->info_stok_masuk()
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-03 11:18:05 --> Class 'App\Controllers\M_penjualan' not found
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Detail_penjualan->index('1')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_penjualan))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-03 11:27:10 --> Class 'App\Controllers\M_penjualan' not found
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Detail_penjualan->index('1')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_penjualan))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-03 11:27:11 --> Class 'App\Controllers\M_penjualan' not found
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Detail_penjualan->index('1')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_penjualan))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-03 11:27:17 --> Unknown column 'detailpenjualan.user' in 'on clause'
+CRITICAL - 2024-02-03 11:27:17 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Detail_penjualan.php(19): App\Models\M_detail_penjualan->join3('detailpenjualan', 'pelanggan', 'user', 'detailpenjualan...', 'detailpenjualan...')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Detail_penjualan->index('1')
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_penjualan))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-03 13:02:20 --> Invalid file: hopeui/laporan_peminjaman/menu_laporan.php
+#0 C:\xampp\htdocs\pos-kasir\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('hopeui/laporan_...')
+#1 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#2 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(131): view('hopeui/laporan_...', Array)
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->menu_laporan()
+#4 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2024-02-03 13:45:59 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\pos-kasir\app\Views\hopeui\laporan_penjualan\menu_laporan.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 43, Array)
+#1 C:\xampp\htdocs\pos-kasir\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos-kasir\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#4 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(131): view('hopeui/laporan_...', Array)
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->menu_laporan()
+#6 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#7 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-03 13:57:29 --> Call to undefined method App\Models\M_penjualan::getAllPeminjamanInRange
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(150): CodeIgniter\Model->__call('getAllPeminjama...', Array)
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->export_windows()
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-03 21:00:48 --> Invalid file: hopeui/laporan_penjualan/print_per_hari_view.php
+#0 C:\xampp\htdocs\pos-kasir\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('hopeui/laporan_...')
+#1 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#2 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(176): view('hopeui/laporan_...', Array)
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->export_per_hari()
+#4 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+ERROR - 2024-02-03 21:01:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`=` = '2024-02-01'
+AND `detailpenjualan`.`deleted_at` IS NULL' at line 5
+CRITICAL - 2024-02-03 21:01:52 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(171): App\Models\M_penjualan->getAllPenjualanPerHari('2024-02-01')
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->export_per_hari()
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-03 22:01:04 --> Invalid file: hopeui/laporan_penjualan_/print_pdf_view.php
+#0 C:\xampp\htdocs\pos-kasir\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('hopeui/laporan_...')
+#1 C:\xampp\htdocs\pos-kasir\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#2 C:\xampp\htdocs\pos-kasir\app\Controllers\Penjualan.php(181): view('hopeui/laporan_...', Array)
+#3 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->export_pdf()
+#4 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#5 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2024-02-03 22:32:27 --> Class 'Dompdf\Dompdf' not found
+#0 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(832): App\Controllers\Penjualan->export_pdf()
+#1 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penjualan))
+#2 C:\xampp\htdocs\pos-kasir\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos-kasir\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\pos-kasir\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
