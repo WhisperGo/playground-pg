@@ -1,53 +1,51 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\M_penjualan;
+use App\Models\M_transaksi;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class Penjualan extends BaseController
+class Transaksi extends BaseController
 {
 
     public function index()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $model = new M_penjualan();
+        if (session()->get('level') == 1) {
+            $model = new M_transaksi();
 
-            $on='penjualan.PelangganID = pelanggan.PelangganID';
-            $on2='penjualan.user = user.id_user';
-            $data['jojo'] = $model->join3('penjualan', 'pelanggan', 'user', $on, $on2);
+            $on='transaksi.pelanggan_id = pelanggan.PelangganID';
+            $data['jojo'] = $model->join2('transaksi', 'pelanggan', $on);
 
-            $data['title'] = 'Data Penjualan';
-            $data['desc'] = 'Anda dapat melihat Data Penjualan di Menu ini.';
+            $data['title'] = 'Data Transaksi';
+            $data['desc'] = 'Anda dapat melihat Data Transaksi di Menu ini.';
 
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/partial/side_menu');
             echo view('hopeui/partial/top_menu');
-            echo view('hopeui/penjualan/view', $data);
+            echo view('hopeui/transaksi/view', $data);
             echo view('hopeui/partial/footer');
         } else {
             return redirect()->to('/');
         }
     }
 
-    public function create($id)
+    public function create()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $model=new M_penjualan();
+        if (session()->get('level') == 1) {
+            $model=new M_transaksi();
 
-            $data['title'] = 'Data Peminjaman';
-            $data['desc'] = 'Anda dapat menambah Data Peminjaman di Menu ini.';  
-            $data['subtitle'] = 'Tambah Peminjaman';
+            $data['title'] = 'Data Transaksi';
+            $data['desc'] = 'Anda dapat menambah Data Transaksi di Menu ini.';  
+            $data['subtitle'] = 'Tambah Transaksi';
 
-            $data['user'] = $model->tampil('user');
-            $data['jojo2'] = $id;
+            $data['pelanggan'] = $model->tampil('pelanggan');
 
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/partial/side_menu');
             echo view('hopeui/partial/top_menu');
-            echo view('hopeui/peminjaman/create', $data);
+            echo view('hopeui/transaksi/create', $data);
             echo view('hopeui/partial/footer');
         }else {
             return redirect()->to('/');
@@ -56,25 +54,23 @@ class Penjualan extends BaseController
 
     public function aksi_create()
     { 
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $a = $this->request->getPost('jumlah_peminjaman');
-            $b = $this->request->getPost('user_peminjam');
-            $c = $this->request->getPost('tgl_pengembalian');
-            $id = $this->request->getPost('id');
+        if (session()->get('level') == 1) {
+            $a = $this->request->getPost('nama_pelanggan');
+            $b = $this->request->getPost('jam_mulai');
+            $c = $this->request->getPost('jam_selesai');
 
             // Data yang akan disimpan
             $data1 = array(
-                'buku' => $id,
-                'stok_buku' => $a,
-                'user' => $b,
-                'tgl_pengembalian' => $c
+                'pelanggan_id' => $a,
+                'jam_mulai' => $b,
+                'jam_selesai' => $c
             );
 
             // Simpan data ke dalam database
-            $model = new M_penjualan();
-            $model->simpan('peminjaman', $data1);
+            $model = new M_transaksi();
+            $model->simpan('transaksi', $data1);
 
-            return redirect()->to('peminjaman');
+            return redirect()->to('transaksi');
         } else {
             return redirect()->to('/');
         }
@@ -82,22 +78,19 @@ class Penjualan extends BaseController
 
     public function aksi_edit($id)
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
+        if (session()->get('level') == 1) {
 
             // Data yang akan disimpan
             $data1 = array(
-                'status_peminjaman' => '2',
+                'status' => '2',
             );
 
-            $where = array('id_peminjaman' => $id);
-            $model = new M_penjualan();
+            $where = array('id_transaksi' => $id);
+            $model = new M_transaksi();
 
-            $stok_keluar = $model->getBukuByIdPeminjaman($id);
-            $id_buku = $stok_keluar->buku;
+            $model->qedit('transaksi', $data1, $where);
 
-            $model->qedit('peminjaman', $data1, $where);
-
-            return redirect()->to('peminjaman/menu_peminjaman/' . $id_buku);
+            return redirect()->to('transaksi');
         } else {
             return redirect()->to('/');
         }
@@ -106,9 +99,9 @@ class Penjualan extends BaseController
     public function delete($id)
     { 
         if(session()->get('level')== 1 || session()->get('level')== 2) {
-            $model=new M_penjualan();
+            $model=new M_transaksi();
             $model->deletee($id);
-            return redirect()->to('penjualan');
+            return redirect()->to('transaksi');
         }else {
             return redirect()->to('/');
         }
@@ -119,8 +112,8 @@ class Penjualan extends BaseController
 
     public function menu_laporan()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $model=new M_penjualan();
+        if (session()->get('level') == 1) {
+            $model=new M_transaksi();
 
             $data['title'] = 'Laporan Penjualan';
             $data['desc'] = 'Anda dapat mengprint Data Penjualan di Menu ini.';      
@@ -138,8 +131,8 @@ class Penjualan extends BaseController
 
     public function export_windows()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $model = new M_penjualan();
+        if (session()->get('level') == 1) {
+            $model = new M_transaksi();
 
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
@@ -160,8 +153,8 @@ class Penjualan extends BaseController
 
     public function export_pdf()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $model = new M_penjualan();
+        if (session()->get('level') == 1) {
+            $model = new M_transaksi();
 
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
@@ -193,8 +186,8 @@ class Penjualan extends BaseController
 
     public function export_excel()
     {
-        if (session()->get('level') == 1 || session()->get('level') == 2) {
-            $model = new M_penjualan();
+        if (session()->get('level') == 1) {
+            $model = new M_transaksi();
 
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
@@ -312,8 +305,8 @@ class Penjualan extends BaseController
 
 public function export_windows_per_hari()
 {
-    if (session()->get('level') == 1 || session()->get('level') == 2) {
-        $model = new M_penjualan();
+    if (session()->get('level') == 1) {
+        $model = new M_transaksi();
 
         $tanggal = $this->request->getPost('tanggal');
 
@@ -332,8 +325,8 @@ public function export_windows_per_hari()
 
 public function export_pdf_per_hari()
 {
-    if (session()->get('level') == 1 || session()->get('level') == 2) {
-        $model = new M_penjualan();
+    if (session()->get('level') == 1) {
+        $model = new M_transaksi();
 
         $tanggal = $this->request->getPost('tanggal');
 
@@ -362,8 +355,8 @@ public function export_pdf_per_hari()
 
 public function export_excel_per_hari()
 {
-    if (session()->get('level') == 1 || session()->get('level') == 2) {
-        $model = new M_penjualan();
+    if (session()->get('level') == 1) {
+        $model = new M_transaksi();
 
         $tanggal = $this->request->getPost('tanggal');
 

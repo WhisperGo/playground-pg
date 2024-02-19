@@ -3,11 +3,11 @@
 namespace App\Models;
 use CodeIgniter\Model;
 
-class M_penjualan extends Model
+class M_transaksi extends Model
 {		
-	protected $table      = 'penjualan';
-	protected $primaryKey = 'PenjualanID';
-	protected $allowedFields = ['TanggalPenjualan', 'TotalHarga', 'PelangganID'];
+	protected $table      = 'transaksi';
+	protected $primaryKey = 'id_transaksi';
+	protected $allowedFields = ['pelanggan_id', 'tanggal_transaksi', 'jam_mulai', 'jam_selesai'];
 	protected $useSoftDeletes = true;
 	protected $useTimestamps = true;
 
@@ -41,8 +41,7 @@ class M_penjualan extends Model
 		->join($table2, $on, 'left')
 		->where("$table1.deleted_at", null)
 		->where("$table2.deleted_at", null)
-		->where("buku.kategori_buku !=", 10)
-		->orderBy('produk_masuk.created_at', 'DESC')
+		->orderBy('transaksi.created_at', 'DESC')
 		->get()
 		->getResult();
 	}
