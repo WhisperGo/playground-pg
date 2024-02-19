@@ -17,6 +17,7 @@
                         <th>No.</th>
                         <th>Nama Pelanggan</th>
                         <th>Alamat</th>
+                        <th>Nama Orangtua</th>
                         <th>No. Telepon</th>
                         <th>Aksi</th>
                      </tr>
@@ -31,6 +32,7 @@
                         <td><?= $no++ ?></td>
                         <td><?php echo $riz->NamaPelanggan ?></td>
                         <td><?php echo $riz->Alamat ?></td>
+                        <td><?php echo $riz->NamaOrangtua ?></td>
                         <td><?php echo $riz->NomorTelepon ?></td>
                         <td>
                            <a href="<?php echo base_url('pelanggan/edit/'. $riz->PelangganID)?>" class="btn btn-warning my-1"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>

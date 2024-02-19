@@ -88,11 +88,6 @@ $uri = service('uri');
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "produk"){echo "active";}?>" href="<?=base_url('produk')?>"><i class="fa-regular fa-database"></i><span class="item-name">Data Produk</span>
-            </a>
-          </li>
-
           <li><hr class="hr-horizontal"></li>
           <li class="nav-item static-item">
             <a class="nav-link static-item disabled" tabindex="-1">

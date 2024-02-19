@@ -31,7 +31,9 @@
                         <td>
                            <a href="<?php echo base_url('data_level/edit/'. $riz->id_level)?>" class="btn btn-warning my-1"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
 
+                           <?php if ($riz->id_level != 1) { ?>
                            <a href="<?php echo base_url('data_level/delete/'. $riz->id_level)?>" class="btn btn-danger my-1"><i class="fa-solid fa-trash"></i></a>
+                        <?php } ?>
                         </td>
                      </tr>
                   <?php } ?>
