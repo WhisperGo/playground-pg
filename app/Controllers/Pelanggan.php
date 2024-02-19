@@ -49,13 +49,15 @@ class Pelanggan extends BaseController
         if (session()->get('level') == 1) {
             $a = $this->request->getPost('nama_pelanggan');
             $b = $this->request->getPost('alamat');
-            $c = $this->request->getPost('no_telepon');
+            $c = $this->request->getPost('nama_orangtua');
+            $d = $this->request->getPost('no_telepon');
 
             // Data yang akan disimpan
             $data1 = array(
                 'NamaPelanggan' => $a,
                 'Alamat' => $b,
-                'NomorTelepon' => $c
+                'NamaOrangtua' => $c,
+                'NomorTelepon' => $d
             );
 
             // Simpan data ke dalam database
@@ -94,14 +96,16 @@ class Pelanggan extends BaseController
         if (session()->get('level') == 1) {
             $a = $this->request->getPost('nama_pelanggan');
             $b = $this->request->getPost('alamat');
-            $c = $this->request->getPost('no_telepon');
+            $c = $this->request->getPost('nama_orangtua');
+            $d = $this->request->getPost('no_telepon');
             $id = $this->request->getPost('id');
 
             // Data yang akan disimpan
             $data1 = array(
                 'NamaPelanggan' => $a,
                 'Alamat' => $b,
-                'NomorTelepon' => $c,
+                'NamaOrangtua' => $c,
+                'NomorTelepon' => $d,
                 'updated_at'=>date('Y-m-d H:i:s')
             );
 

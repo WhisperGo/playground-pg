@@ -26,6 +26,11 @@
                        </div>
 
                        <div class="form-group">
+                           <label class="form-label" for="fname">Nama Orangtua <small class="text-danger text-sm">*</small></label>
+                           <input type="text" class="form-control" id="nama_orangtua" name="nama_orangtua" placeholder="Masukkan Nama Orangtua" value="<?= $jojo->NamaOrangtua?>" required>
+                        </div>
+
+                       <div class="form-group">
                         <label class="form-label" for="fname">No. Telepon <small class="text-danger text-sm">*</small></label>
                         <input type="text" class="form-control" id="no_telepon" name="no_telepon" placeholder="Masukkan No. Telepon (Max 15 Digit)" value="<?= $jojo->NomorTelepon?>" required>
                      </div>

@@ -13,7 +13,11 @@ class M_pelanggan extends Model
 
 	public function tampil($table1)	
 	{
-		return $this->db->table($table1)->where('deleted_at', null)->get()->getResult();
+		return $this->db->table($table1)
+		->where('deleted_at', null)
+		->orderBy($table1 . '.created_at', 'DESC')
+		->get()
+		->getResult();
 	}
 	public function simpan($table, $data)
 	{
