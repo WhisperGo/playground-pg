@@ -80,7 +80,7 @@ public function edit($id)
         echo view('hopeui/level/edit', $data);
         echo view('hopeui/partial/footer');
     }else {
-        return redirect()->to('home');
+        return redirect()->to('/');
     }
 }
 

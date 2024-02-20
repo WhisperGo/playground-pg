@@ -7,128 +7,112 @@ class Permainan extends BaseController
 {
     public function index()
     {
-        if(session()->get('level')== 1) {
-            $model=new M_permainan();
-            $data['jojo']=$model->tampil('pelanggan');
+     if(session()->get('level')== 1) {
+        $model=new M_permainan();
+        $data['jojo']=$model->tampil('permainan');
 
-            $data['title']='Data Permainan';
-            $data['desc']='Anda dapat melihat Data Permainan di Menu ini.';
+        $data['title']='Data Permainan';
+        $data['desc']='Anda dapat melihat Data Permainan di Menu ini.';
 
-            echo view('hopeui/partial/header', $data);
-            echo view('hopeui/partial/side_menu');
-            echo view('hopeui/partial/top_menu', $data);
-            echo view('hopeui/pelanggan/view', $data);
-            echo view('hopeui/partial/footer');
-        }else {
-            return redirect()->to('/');
-
-        }
+        echo view('hopeui/partial/header', $data);
+        echo view('hopeui/partial/side_menu');
+        echo view('hopeui/partial/top_menu', $data);
+        echo view('hopeui/permainan/view', $data);  
+        echo view('hopeui/partial/footer');
+    }else {
+        return redirect()->to('/');
     }
+}
 
-    public function create()
-    {
-        if (session()->get('level') == 1) {
-            $model=new M_permainan();
+public function create()
+{
+    if(session()->get('level')== 1) {
+        $model=new M_permainan();
 
-            $data['title']='Data Permainan';
-            $data['desc']='Anda dapat tambah Data Permainan di Menu ini.'; 
-            $data['subtitle'] = 'Tambah Data Pelanggan';
+        $data['title']='Data Permainan';
+        $data['desc']='Anda dapat tambah Data Permainan di Menu ini.'; 
+        $data['subtitle'] = 'Tambah Data Permainan';
 
-            echo view('hopeui/partial/header', $data);
-            echo view('hopeui/partial/side_menu');
-            echo view('hopeui/partial/top_menu');
-            echo view('hopeui/pelanggan/create', $data);
-            echo view('hopeui/partial/footer');
-        }else {
-            return redirect()->to('/');
-        }
+        echo view('hopeui/partial/header', $data);
+        echo view('hopeui/partial/side_menu');
+        echo view('hopeui/partial/top_menu');
+        echo view('hopeui/permainan/create', $data);
+        echo view('hopeui/partial/footer');
+    }else {
+        return redirect()->to('/');
     }
+}
 
-    public function aksi_create()
-    { 
-        if (session()->get('level') == 1) {
-            $a = $this->request->getPost('nama_pelanggan');
-            $b = $this->request->getPost('alamat');
-            $c = $this->request->getPost('nama_orangtua');
-            $d = $this->request->getPost('no_telepon');
+public function aksi_create()
+{ 
+    if(session()->get('level')== 1) {
+        $a= $this->request->getPost('nama_permainan');
 
-            // Data yang akan disimpan
-            $data1 = array(
-                'NamaPelanggan' => $a,
-                'Alamat' => $b,
-                'NamaOrangtua' => $c,
-                'NomorTelepon' => $d
-            );
+        //Yang ditambah ke user
+        $data1=array(
+            'nama_permainan'=>$a
+        );
 
-            // Simpan data ke dalam database
-            $model = new M_permainan();
-            $model->simpan('pelanggan', $data1);
+        $model=new M_permainan();
+        $model->simpan('permainan', $data1);
 
-            return redirect()->to('pelanggan');
-        } else {
-            return redirect()->to('/');
-        }
+        return redirect()->to('permainan');
+    }else {
+        return redirect()->to('/');
     }
+}
+public function edit($id)
+{ 
+    if(session()->get('level')== 1) {
+        $model=new M_permainan();
+        $where=array('id_permainan'=>$id);
+        $data['jojo']=$model->getWhere('permainan',$where);
+        
+        $data['title'] = 'Data Permainan';
+        $data['desc'] = 'Anda dapat mengedit Data Permainan di Menu ini.';      
+        $data['subtitle'] = 'Edit Data Permainan';  
 
-    public function edit($id)
-    { 
-        if (session()->get('level') == 1) {
-            $model=new M_permainan();
-            $where=array('PelangganID'=>$id);
-            $data['jojo']=$model->getWhere('pelanggan',$where);
-
-            $data['title'] = 'Data Pelanggan';
-            $data['desc'] = 'Anda dapat mengedit Data Permainan di Menu ini.';      
-            $data['subtitle'] = 'Edit Data Pelanggan';  
-
-            echo view('hopeui/partial/header', $data);
-            echo view('hopeui/partial/side_menu');
-            echo view('hopeui/partial/top_menu');
-            echo view('hopeui/pelanggan/edit', $data);
-            echo view('hopeui/partial/footer');
-        }else {
-            return redirect()->to('/');
-        }
+        echo view('hopeui/partial/header', $data);
+        echo view('hopeui/partial/side_menu');
+        echo view('hopeui/partial/top_menu');
+        echo view('hopeui/permainan/edit', $data);
+        echo view('hopeui/partial/footer');
+    }else {
+        return redirect()->to('/');
     }
+}
 
-    public function aksi_edit()
-    {
-        if (session()->get('level') == 1) {
-            $a = $this->request->getPost('nama_pelanggan');
-            $b = $this->request->getPost('alamat');
-            $c = $this->request->getPost('nama_orangtua');
-            $d = $this->request->getPost('no_telepon');
-            $id = $this->request->getPost('id');
+public function aksi_edit()
+{ 
+    if(session()->get('level')== 1) {
+       $a= $this->request->getPost('nama_permainan');
+       $id= $this->request->getPost('id');
 
-            // Data yang akan disimpan
-            $data1 = array(
-                'NamaPelanggan' => $a,
-                'Alamat' => $b,
-                'NamaOrangtua' => $c,
-                'NomorTelepon' => $d,
-                'updated_at'=>date('Y-m-d H:i:s')
-            );
+       //Yang ditambah ke user
+       $where=array('id_permainan'=>$id);
+       $data1=array(
+        'nama_permainan'=>$a,
+        'updated_at'=>date('Y-m-d H:i:s')
+    );
+       $model=new M_permainan();
+       $model->qedit('permainan', $data1, $where);
+       return redirect()->to('permainan');
 
-            // Simpan data ke dalam database
-            $model = new M_permainan();
-            $where=array('PelangganID'=>$id);
-            $model->qedit('pelanggan', $data1, $where);
+   }else {
+    return redirect()->to('/');
+}
+}
 
-            return redirect()->to('pelanggan');
-        } else {
-            return redirect()->to('/');
-        }
-    }
+public function delete($id)
+{ 
+   if(session()->get('level')== 1) {
+    $model=new M_permainan();
+    $model->deletee($id);
+    return redirect()->to('permainan');
+}else {
+    return redirect()->to('/');
+}
 
-    public function delete($id)
-    { 
-        if(session()->get('level')== 1) {
-            $model=new M_permainan();
-            $model->deletee($id);
-            return redirect()->to('pelanggan');
-        }else {
-            return redirect()->to('/');
-        }
-    }
+}
 
 }
