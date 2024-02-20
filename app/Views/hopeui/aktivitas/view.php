@@ -18,6 +18,7 @@
                                 <th>Nama Anak</th>
                                 <th>Permainan</th>
                                 <th>Durasi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +59,9 @@
                                             ?>
 
                                             <td><span id="countdown_<?php echo $riz->id_transaksi; ?>"><?php echo $hoursFormatted . ":" . $minutesFormatted . ":" . $secondsFormatted; ?></span></td>
+
+                                            <td><a href="<?php echo base_url('transaksi/aksi_edit/' . $riz->id_transaksi) ?>" class="btn btn-success my-1"><i class="fa-regular fa-arrows-rotate" style="color: #ffffff;"></i></a></td>
+                                            
                                         </tr>
                                         <?php
                                         $masih_bermain[] = $riz;
@@ -123,34 +127,34 @@
 
     <script>
         <?php foreach ($masih_bermain as $riz): ?>
-    var endTime_<?= $riz->id_transaksi ?> = <?= $waktu_selesai ?> * 1000; // Convert to milliseconds
-    startCountdownTimer(<?= $riz->id_transaksi ?>, endTime_<?= $riz->id_transaksi ?>);
-<?php endforeach; ?>
+            var endTime_<?= $riz->id_transaksi ?> = <?= $waktu_selesai ?> * 1000; // Convert to milliseconds
+            startCountdownTimer(<?= $riz->id_transaksi ?>, endTime_<?= $riz->id_transaksi ?>);
+        <?php endforeach; ?>
 
-    // Fungsi untuk memulai timer countdown
-function startCountdownTimer(id, endTime) {
-    var timerId;
+            // Fungsi untuk memulai timer countdown
+        function startCountdownTimer(id, endTime) {
+            var timerId;
 
-    function updateCountdown() {
-        var now = new Date().getTime();
-        var distance = endTime - now;
+            function updateCountdown() {
+                var now = new Date().getTime();
+                var distance = endTime - now;
 
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Format angka jam, menit, dan detik agar menampilkan dua digit
-        var hoursFormatted = hours.toString().padStart(2, '0');
-        var minutesFormatted = minutes.toString().padStart(2, '0');
-        var secondsFormatted = seconds.toString().padStart(2, '0');
+                var hoursFormatted = hours.toString().padStart(2, '0');
+                var minutesFormatted = minutes.toString().padStart(2, '0');
+                var secondsFormatted = seconds.toString().padStart(2, '0');
 
-        document.getElementById('countdown_' + id).innerHTML = hoursFormatted + ":" + minutesFormatted + ":" + secondsFormatted;
-    }
+                document.getElementById('countdown_' + id).innerHTML = hoursFormatted + ":" + minutesFormatted + ":" + secondsFormatted;
+            }
 
         // Panggil fungsi updateCountdown setiap detik
-    timerId = setInterval(updateCountdown, 1000);
+            timerId = setInterval(updateCountdown, 1000);
 
         // Mulai countdown saat halaman dimuat
-    updateCountdown();
-}
-</script>
+            updateCountdown();
+        }
+    </script>

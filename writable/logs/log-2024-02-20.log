@@ -101,3 +101,5 @@ ERROR - 2024-02-20 11:53:18 --> Table 'playground_pg.produk' doesn't exist
 ERROR - 2024-02-20 11:53:18 --> Table 'playground_pg.detailpenjualan' doesn't exist
 ERROR - 2024-02-20 11:55:39 --> Table 'playground_pg.produk' doesn't exist
 ERROR - 2024-02-20 11:55:39 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 12:35:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 12:35:53 --> Table 'playground_pg.detailpenjualan' doesn't exist
