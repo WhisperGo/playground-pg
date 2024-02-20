@@ -1,0 +1,49 @@
+ERROR - 2024-02-20 09:20:12 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 09:20:12 --> Table 'playground_pg.detailpenjualan' doesn't exist
+CRITICAL - 2024-02-20 09:28:13 --> Call to undefined method App\Models\M_transaksi::join2aktivitas
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(15): CodeIgniter\Model->__call('join2aktivitas', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2024-02-20 09:39:36 --> Call to undefined method App\Models\M_transaksi::join2aktivitas
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(15): CodeIgniter\Model->__call('join2aktivitas', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2024-02-20 09:50:49 --> syntax error, unexpected end of file
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Common.php(1089): CodeIgniter\View\View->render('hopeui/aktivita...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(25): view('hopeui/aktivita...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2024-02-20 09:53:33 --> syntax error, unexpected end of file
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Common.php(1089): CodeIgniter\View\View->render('hopeui/aktivita...', Array, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(25): view('hopeui/aktivita...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+CRITICAL - 2024-02-20 10:02:48 --> Call to undefined function toString()
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/View/View.php(210): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Common.php(1089): CodeIgniter\View\View->render('hopeui/aktivita...', Array, true)
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(25): view('hopeui/aktivita...', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#9 {main}

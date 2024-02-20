@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 19 Feb 2024 pada 16.56
--- Versi server: 10.4.24-MariaDB
+-- Host: localhost
+-- Waktu pembuatan: 20 Feb 2024 pada 04.22
+-- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -77,7 +77,7 @@ INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `pelanggan_id` int(11) NOT NULL,
-  `tanggal_transaksi` datetime NOT NULL DEFAULT current_timestamp(),
+  `tanggal_transaksi` date NOT NULL DEFAULT current_timestamp(),
   `jam_mulai` time NOT NULL,
   `jam_selesai` time NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
@@ -91,8 +91,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2024-02-19 19:48:34', '21:00:00', '22:55:00', 1, '2024-02-19 19:48:34', NULL, NULL),
-(2, 2, '2024-02-19 20:25:24', '12:00:00', '13:00:00', 2, '2024-02-19 20:25:24', '2024-02-19 20:40:19', '2024-02-19 00:00:00');
+(1, 2, '2024-02-20', '09:00:00', '11:00:00', 1, '2024-02-20 09:39:32', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -202,7 +201,7 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

@@ -39,6 +39,17 @@ class M_transaksi extends Model
 	{
 		return $this->db->table($table1)
 		->join($table2, $on, 'left')
+		->where("$table1.deleted_at", null)
+		->where("$table2.deleted_at", null)
+		->orderBy('transaksi.created_at', 'DESC')
+		->get()
+		->getResult();
+	}
+
+	public function join2aktivitas($table1, $table2, $on)
+	{
+		return $this->db->table($table1)
+		->join($table2, $on, 'left')
 		->orderBy('transaksi.created_at', 'DESC')
 		->get()
 		->getResult();
@@ -63,7 +74,7 @@ class M_transaksi extends Model
 	{
 		return $this->db->table('detailpenjualan')
 		->select('detailpenjualan.*, penjualan.*, produk.*, user.*') 
-    	->select('detailpenjualan.created_at AS created_at_detailpenjualan')
+		->select('detailpenjualan.created_at AS created_at_detailpenjualan')
 		->join('penjualan', 'detailpenjualan.PenjualanID = penjualan.PenjualanID')
 		->join('produk', 'detailpenjualan.ProdukID = produk.ProdukID')
 		->join('user', 'penjualan.user = user.id_user')
