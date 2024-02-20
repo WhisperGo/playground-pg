@@ -5,16 +5,16 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="header-title">
-                        <h4 class="card-title"><i class="faj-button fa-solid fa-magnifying-glass"></i>Cari Produk</h4>
+                        <h4 class="card-title"><i class="faj-button fa-solid fa-magnifying-glass"></i>Cari Permainan</h4>
                     </div>
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="form-group">
-                            <select class="choices form-select" id="produk" name="produk">
+                            <select class="choices form-select" id="permainan" name="permainan">
                                 <option disabled selected>- Pilih -</option>
-                                <?php foreach ($produk_list as $p) { ?>
-                                    <option value="<?=$p->ProdukID?>"><?= $p->NamaProduk?></option>
+                                <?php foreach ($permainan_list as $p) { ?>
+                                    <option value="<?=$p->id_permainan?>"><?= $p->nama_permainan?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -38,10 +38,11 @@
                                     <input type="text" class="form-control" readonly="readonly" name="tanggal" value="<?= date('d M Y') ?>" disabled style="margin-left: 20px;">
                                 </div>
                             </div>
+
                             <div class="form-group row mt-3">
                                 <label class="control-label col-sm-3 align-self-center mb-0" style="padding-right: 0px;">Customer :</label>
                                 <div class="col-sm-9">
-                                    <select class="form-select" id="pelanggan" name="pelanggan" required style="margin-left: 20px;" required>
+                                    <select class="form-select" id="pelanggan" name="pelanggan" style="margin-left: 20px;" required>
                                         <option>- Pilih -</option>
                                         <?php foreach ($pelanggan_list as $p) { ?>
                                             <option value="<?= $p->PelangganID ?>"><?= $p->NamaPelanggan ?></option>
@@ -50,8 +51,22 @@
                                 </div>
                             </div>
 
-                            <!-- Input hidden untuk menyimpan ProdukID -->
-                            <input type="hidden" name="produk_id[]" id="produk_id_hidden">
+                            <div class="form-group row mt-3">
+                                <label class="control-label col-sm-3 align-self-center mb-0">Durasi :</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" name="durasi" style="margin-left: 20px;" min="1" max="9" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mt-3">
+                                <label class="control-label col-sm-3 align-self-center mb-0">Total :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="total_harga_input" readonly="readonly" disabled style="margin-left: 20px;">
+                                </div>
+                            </div>
+
+                            <!-- Input hidden untuk menyimpan PermainanID -->
+                            <input type="hidden" name="permainan_id[]" id="permainan_id_hidden">
 
                             <!-- Input hidden untuk menyimpan total harga -->
                             <input type="hidden" name="total_harga" id="total_harga_hidden">
@@ -68,15 +83,14 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Produk</th>
+                                    <th>Nama Permainan</th>
                                     <th>Harga</th>
-                                    <th>Jumlah</th>
                                     <th>Subtotal</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Data produk akan ditambahkan di sini -->
+                                <!-- Data permainan akan ditambahkan di sini -->
                             </tbody>
                         </table>
                     </div>
@@ -88,170 +102,189 @@
 
 <script>
     $(document).ready(function() {
-        // Inisialisasi DataTables di luar AJAX
-        var table = $('#datatable').DataTable();
+    // Set nilai default untuk field durasi menjadi 1
+    $('[name="durasi"]').val(1);
 
-        // Fungsi untuk mengupdate nomor urut setelah penghapusan
-        function updateNomorUrut() {
-            $('#datatable tbody tr').each(function(index) {
-                $(this).find('td:eq(0)').text(index + 1);
-            });
+    // Panggil fungsi hitungSubtotal saat halaman dimuat dan saat nilai durasi berubah
+    hitungSubtotal();
+    hitungTotalHarga(); // Panggil fungsi hitungTotalHarga saat halaman dimuat
 
-            // Jika tabel kosong, hapus tulisan "1" yang muncul
-            if (table.rows().count() == 0) {
-                $('#datatable tbody').html('<tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No data available in table</td></tr>');
-            }
-        }
-
-        // Variabel untuk nomor urut
-        var nomorUrut = 1;
-
-        // Fungsi untuk memformat harga sebagai mata uang dan menghapus .00 di belakangnya
-        function formatCurrency(amount) {
-            // Mengubah tipe data harga menjadi mata uang
-            var currency = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
-            // Menghapus .00 di belakangnya
-            return currency.replace(/\,00$/, '');
-        }
-
-        // Hitung total harga
-        function hitungTotalHarga() {
-            var total = 0;
+    // Fungsi untuk menghitung subtotal berdasarkan durasi yang dipilih
+    function hitungSubtotal() {
+        var durasi = parseInt($('[name="durasi"]').val());
+        if (!isNaN(durasi)) { // Periksa apakah durasi adalah angka yang valid
             $('#datatable tbody tr').each(function() {
-                var subtotalText = $(this).find('.subtotal').text();
-                var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, ''));
-                total += subtotal;
+                var hargaText = $(this).find('td:eq(2)').text();
+                var harga = parseFloat(hargaText.replace(/[^\d]/g, '')); // Ambil harga permainan dari kolom ke-3 dan ubah menjadi angka
+                // Periksa apakah harga adalah angka yang valid
+                if (!isNaN(harga)) {
+                    var subtotal = durasi * harga; // Hitung subtotal berdasarkan durasi dan harga permainan
+                    $(this).find('.subtotal').text('Rp ' + subtotal.toLocaleString('id-ID')); // Tampilkan subtotal dalam format mata uang
+                } else {
+                    $(this).find('.subtotal').text('Rp 0'); // Tampilkan subtotal sebagai 0 jika harga tidak valid
+                }
             });
-            return total;
+        } else {
+            $('#datatable tbody tr .subtotal').text('Rp 0'); // Jika durasi tidak valid, set semua subtotal menjadi 0
         }
+    }
 
-        // Tampilkan total harga
-        function tampilkanTotalHarga(total) {
-            $('#total_harga_hidden').val(total);
+    // Fungsi untuk menampilkan dan mengupdate total harga
+    function hitungTotalHarga() {
+        var total = 0;
+        $('#datatable tbody tr').each(function() {
+            var subtotalText = $(this).find('td:eq(3)').text(); // Ubah ke kolom keempat
+            var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, '')); // Ubah ke tipe data float
+            // Periksa apakah subtotal adalah angka yang valid
+            if (!isNaN(subtotal)) {
+                total += subtotal;
+            }
+        });
+        $('#total_harga_input').val('Rp ' + total.toLocaleString('id-ID')); // Tampilkan total harga dalam input readonly
+    }
+
+    // Hitung total harga
+    function hitungTotalHargaSubmit() {
+        var total = 0;
+        $('#datatable tbody tr').each(function() {
+            var subtotalText = $(this).find('td:eq(3)').text(); // Ubah ke kolom keempat
+            var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, '')); // Ubah ke tipe data float
+            total += subtotal;
+        });
+        return total;
+    }
+
+
+    // Tangani perubahan pada input durasi
+    $('[name="durasi"]').on('input', function() {
+        hitungSubtotal(); // Panggil fungsi untuk menghitung subtotal
+        hitungTotalHarga(); // Panggil fungsi untuk menghitung total harga
+    });
+
+    var table = $('#datatable').DataTable();
+
+    // Fungsi untuk mengupdate nomor urut setelah penghapusan
+    function updateNomorUrut() {
+        $('#datatable tbody tr').each(function(index) {
+            $(this).find('td:eq(0)').text(index + 1);
+        });
+
+        // Jika tabel kosong, hapus tulisan "1" yang muncul
+        if (table.rows().count() == 0) {
+            $('#datatable tbody').html('<tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No data available in table</td></tr>');
         }
+    }
 
-        // Tangani perubahan pada pilihan produk
-        $('#produk').on('change', function() {
-            var produkId = $(this).val();
+    // Variabel untuk nomor urut
+    var nomorUrut = 1;
 
-            // Kirim permintaan AJAX
+    // Fungsi untuk memformat harga sebagai mata uang dan menghapus .00 di belakangnya
+    function formatCurrency(amount) {
+        // Mengubah tipe data harga menjadi mata uang
+        var currency = new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR'
+        }).format(amount);
+        // Menghapus .00 di belakangnya
+        return currency.replace(/\,00$/, '');
+    }
+
+    // Tangani perubahan pada pilihan permainan
+    $('#permainan').on('change', function() {
+        var permainanId = $(this).val();
+
+        // Periksa apakah data sudah ada dalam tabel
+        var existingData = false;
+        $('#datatable tbody tr').each(function() {
+            var existingId = $(this).find('input[name="permainan_id[]"]').val();
+            if (existingId === permainanId) {
+                existingData = true;
+                return false; // Keluar dari loop jika data sudah ditemukan
+            }
+        });
+
+        if (!existingData) {
+            // Kirim permintaan AJAX hanya jika data belum ada dalam tabel
             $.ajax({
                 type: 'POST',
                 url: 'kasir/tambah_ke_keranjang', // Ganti dengan URL yang sesuai
-                data: { produk_id: produkId },
+                data: {
+                    permainan_id: permainanId
+                },
                 success: function(response) {
                     // Tambahkan item ke tabel pembayaran
                     var item = response.item;
                     var formattedHarga = formatCurrency(item.harga); // Format harga dengan tanda pemisah ribuan dan menghapus .00 di belakangnya
                     var newRow = [
                         nomorUrut++, // Nomor urut
-                        item.nama_produk,
+                        item.nama_permainan,
                         formattedHarga, // Harga yang diperoleh dari respons AJAX
-                        '<input type="number" class="form-control jumlah" value="1" min="1" name="jumlah" id="jumlah">', // Tambahkan input jumlah
                         '<span class="subtotal"></span>', // Tambahkan tempat untuk subtotal
-                        '<input type="hidden" name="produk_id[]" value="' + produkId + '">' + // Tambahkan input hidden untuk ProdukID
+                        '<input type="hidden" name="permainan_id[]" value="' + permainanId + '">' + // Tambahkan input hidden untuk PermainanID
                         '<button class="btn btn-danger hapus-item"><i class="fa-solid fa-trash"></i></button>'
-                        ];
+                    ];
                     table.row.add(newRow).draw(); // Tambahkan baris ke DataTables dan draw ulang tabel
 
-                    // Hitung subtotal untuk baris yang baru ditambahkan
-                    var row = table.row($(table.rows().nodes()).last()).node();
-                    var hargaText = $(row).find('td:eq(2)').text(); // Ambil harga dari kolom ke-3 (indeks dimulai dari 0)
-                    var jumlah = $(row).find('.jumlah').val();
-                    var harga = parseFloat(hargaText.replace(/[^\d]/g, '')); // Hapus karakter non-angka dari harga dan konversi ke angka
-                    var subtotal = jumlah * harga;
-                    var formattedSubtotal = 'Rp ' + subtotal.toLocaleString('id-ID');
-                    $(row).find('.subtotal').text(formattedSubtotal); // Update kolom subtotal dengan subtotal yang baru
-
-                    // Hitung dan tampilkan total harga setelah menambahkan produk baru
-                    var totalHarga = hitungTotalHarga();
-                    tampilkanTotalHarga(totalHarga);
+                    // Hitung subtotal dan total harga setelah menambahkan baris baru
+                    hitungSubtotal();
+                    hitungTotalHarga();
                 }
             });
-        });
+        }
+    });
 
-        // Tangani perubahan jumlah produk
-        $('#datatable').on('change', '.jumlah', function() {
-            var row = $(this).closest('tr');
-            var jumlah = $(this).val();
-            var hargaText = row.find('td:eq(2)').text(); // Ambil harga dari kolom ke-3 (indeks dimulai dari 0)
+    // Tangani klik pada tombol hapus item
+    $('#datatable').on('click', '.hapus-item', function() {
+        var row = $(this).closest('tr');
+        table.row(row).remove().draw(); // Hapus baris dari DataTables
+        updateNomorUrut(); // Perbarui nomor urut setelah penghapusan
 
-            // Hapus karakter non-angka dari harga dan konversi ke angka
-            var harga = parseFloat(hargaText.replace(/[^\d]/g, ''));
+        // Hitung dan tampilkan total harga setelah menghapus item
+        hitungTotalHarga();
+    });
 
-            // Hitung subtotal
-            var subtotal = jumlah * harga;
+    // Tangani klik tombol submit
+    $('#form-pembayaran').on('submit', function(e) {
+        e.preventDefault(); // Mencegah perilaku default formulir
 
-            // Format subtotal menjadi mata uang rupiah
-            var formattedSubtotal = 'Rp ' + subtotal.toLocaleString('id-ID');
+        // Persiapkan array untuk menyimpan data
+        var dataToSend = [];
 
-            // Update kolom subtotal dengan subtotal yang baru
-            row.find('.subtotal').text(formattedSubtotal);
-
-            // Hitung dan tampilkan total harga setelah perubahan jumlah produk
-            var totalHarga = hitungTotalHarga();
-            tampilkanTotalHarga(totalHarga);
-        });
-
-        // Tangani klik pada tombol hapus item
-        $('#datatable').on('click', '.hapus-item', function() {
-            var row = $(this).closest('tr');
-            table.row(row).remove().draw(); // Hapus baris dari DataTables
-            updateNomorUrut(); // Perbarui nomor urut setelah penghapusan
-
-            // Hitung dan tampilkan total harga setelah menghapus item
-            var totalHarga = hitungTotalHarga();
-            tampilkanTotalHarga(totalHarga);
-        });
-
-        // Tangani klik tombol submit
-        $('#form-pembayaran').on('submit', function(e) {
-            e.preventDefault(); // Mencegah perilaku default formulir
-
-            // Persiapkan array untuk menyimpan data
-            var dataToSend = [];
-
-            // Iterasi melalui setiap baris tabel
-            $('#datatable tbody tr').each(function() {
-                var rowData = {};
-                // Ambil data dari setiap input dan select dalam baris, kecuali input dengan type submit
-                $(this).find('input, select').each(function() {
-                    var columnName = $(this).attr('name');
-                    var columnValue = $(this).val();
-                    rowData[columnName] = columnValue;
-                });
-
-                // Ambil ProdukID dari input hidden
-                var produkId = $(this).find('input[name="produk_id[]"]').val();
-
-                // Tambahkan ProdukID ke dalam rowData
-                rowData['produk_id'] = produkId;
-
-                // Ambil nama produk dari kolom kedua dan harga dari kolom ketiga
-                var namaProduk = $(this).find('td:eq(1)').text();
-                var harga = $(this).find('td:eq(2)').text();
-
-                // Tambahkan nilai item.nama_produk dan formattedHarga ke dalam rowData
-                rowData['nama_produk'] = namaProduk;
-                rowData['formattedHarga'] = harga;
-
-                // Ambil nilai subtotal dari kolom keempat dan hapus simbol "Rp" serta tanda pemisah ribuan
-                var subtotal = $(this).find('td:eq(4)').text().replace('Rp ', '').replace(/\./g, '');
-                rowData['subtotal'] = subtotal;
-
-                // Tambahkan data baris ke array
-                dataToSend.push(rowData);
+        // Iterasi melalui setiap baris tabel
+        $('#datatable tbody tr').each(function() {
+            var rowData = {};
+            // Ambil data dari setiap input dan select dalam baris, kecuali input dengan type submit
+            $(this).find('input, select').each(function() {
+                var columnName = $(this).attr('name');
+                var columnValue = $(this).val();
+                rowData[columnName] = columnValue;
             });
 
-            // Tambahkan data ke input tersembunyi sebelum mengirimkan formulir
-            $('#form-pembayaran').append('<input type="hidden" name="data_table" value=\'' + JSON.stringify(dataToSend) + '\' />');
+            // Ambil PermainanID dari input hidden
+            var permainanId = $(this).find('input[name="permainan_id[]"]').val();
 
-            // Hitung total harga dan tambahkan ke dalam data1 sebelum mengirimkan formulir
-            var totalHarga = hitungTotalHarga();
-            $('#form-pembayaran').append('<input type="hidden" name="total_harga" value="' + totalHarga + '" />');
+            // Tambahkan PermainanID ke dalam rowData
+            rowData['permainan_id'] = permainanId;
 
-            // Lanjutkan dengan pengiriman formulir
-            this.submit();
+            // Ambil nilai subtotal dari kolom keempat dan hapus simbol "Rp" serta tanda pemisah ribuan
+            var subtotal = $(this).find('td:eq(3)').text().replace('Rp ', '').replace(/\./g, '');
+            rowData['subtotal'] = subtotal;
+
+            // Tambahkan data baris ke array
+            dataToSend.push(rowData);
         });
+
+        // Tambahkan data ke input tersembunyi sebelum mengirimkan formulir
+        $('#form-pembayaran').append('<input type="hidden" name="data_table" value=\'' + JSON.stringify(dataToSend) + '\' />');
+
+        // Hitung total harga dan tambahkan ke dalam data1 sebelum mengirimkan formulir
+        var totalHarga = hitungTotalHargaSubmit();
+        $('#form-pembayaran').append('<input type="hidden" name="total_harga" value="' + totalHarga + '" />');
+
+        // Lanjutkan dengan pengiriman formulir
+        this.submit();
     });
+});
+
+
 </script>

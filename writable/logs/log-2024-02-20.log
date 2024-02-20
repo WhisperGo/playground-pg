@@ -108,3 +108,139 @@ ERROR - 2024-02-20 12:52:21 --> Table 'playground_pg.detailpenjualan' doesn't ex
 ERROR - 2024-02-20 13:21:13 --> Table 'playground_pg.permaianan' doesn't exist
 ERROR - 2024-02-20 13:22:09 --> Table 'playground_pg.permaianan' doesn't exist
 ERROR - 2024-02-20 13:23:29 --> Table 'playground_pg.permaianan' doesn't exist
+CRITICAL - 2024-02-20 20:16:29 --> Class 'App\Models\M_produk' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-20 20:16:47 --> Class 'App\Models\M_produk' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-20 20:17:11 --> Table 'playground_pg.produk' doesn't exist
+CRITICAL - 2024-02-20 20:17:11 --> Class 'App\Models\M_detail_penjualan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-20 20:17:33 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 20:17:33 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 20:50:37 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 20:50:37 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 20:50:59 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 20:50:59 --> Table 'playground_pg.detailpenjualan' doesn't exist
+CRITICAL - 2024-02-20 20:58:47 --> number_format() expects parameter 1 to be float, string given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'number_format()...', 'C:\\xampp\\htdocs...', 32, Array)
+#1 C:\xampp\htdocs\playground-pg\app\Views\hopeui\permainan\view.php(32): number_format('', 0, ',', '.')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/permaina...', Array, true)
+#5 C:\xampp\htdocs\playground-pg\app\Controllers\Permainan.php(20): view('hopeui/permaina...', Array)
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Permainan->index()
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Permainan))
+#8 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2024-02-20 21:46:01 --> Table 'playground_pg.produk' doesn't exist
+CRITICAL - 2024-02-20 21:46:01 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#1 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(21): CodeIgniter\BaseModel->findAll()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->index()
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#4 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2024-02-20 21:47:05 --> Call to undefined method App\Models\M_permainan::tampilProduk
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(23): CodeIgniter\Model->__call('tampilProduk', Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->index()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-20 22:14:51 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\kasir\view.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 16, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/kasir/vi...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(29): view('hopeui/kasir/vi...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->index()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-20 22:14:53 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\kasir\view.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 16, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/kasir/vi...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(29): view('hopeui/kasir/vi...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->index()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-20 22:21:00 --> Class 'App\Controllers\M_produk' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->index()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-20 22:21:08 --> Class 'App\Controllers\M_produk' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->tambah_ke_keranjang()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-20 22:21:10 --> Class 'App\Controllers\M_produk' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->tambah_ke_keranjang()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-20 22:43:39 --> Class 'App\Models\M_penjualan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->aksi_create()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-20 22:43:43 --> Class 'App\Models\M_penjualan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->aksi_create()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-20 23:32:24 --> Class 'App\Controllers\M_transaksi' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->aksi_create()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-20 23:33:01 --> Column 'ProdukID' cannot be null
+ERROR - 2024-02-20 23:34:53 --> Column 'ProdukID' cannot be null
+ERROR - 2024-02-20 23:41:38 --> Column 'permainan_id' cannot be null
+CRITICAL - 2024-02-20 23:45:46 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 91, Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->aksi_create()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}

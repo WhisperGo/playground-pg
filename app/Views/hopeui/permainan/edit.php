@@ -19,6 +19,11 @@
                            <input type="text" class="form-control" id="nama_permainan" name="nama_permainan" placeholder="Masukkan Nama Permainan" value="<?php echo $jojo->nama_permainan ?>" required>
                         </div>
 
+                        <div class="form-group">
+                           <label class="form-label" for="fname">Harga Permainan <small class="text-danger text-sm">*</small></label>
+                           <input type="text" class="form-control" id="harga_permainan" name="harga_permainan" placeholder="Masukkan Harga Permainan" value="<?php echo number_format($jojo->harga_permainan, 0, ',', '') ?>" required>
+                        </div>
+
                      </div>
                      <a href="javascript:history.back()" class="btn btn-danger mt-4">Cancel</a>
                      <button type="submit" class="btn btn-primary mt-4">Submit</button>

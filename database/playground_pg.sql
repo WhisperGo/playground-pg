@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 20 Feb 2024 pada 07.37
--- Versi server: 10.4.21-MariaDB
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 20 Feb 2024 pada 18.34
+-- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `playground_pg`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_transaksi`
+--
+
+CREATE TABLE `detail_transaksi` (
+  `id_detail` int(11) NOT NULL,
+  `transaksi_id` int(11) NOT NULL,
+  `permainan_id` int(11) NOT NULL,
+  `durasi` int(11) NOT NULL,
+  `subtotal` decimal(10,2) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `detail_transaksi`
+--
+
+INSERT INTO `detail_transaksi` (`id_detail`, `transaksi_id`, `permainan_id`, `durasi`, `subtotal`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(17, 12, 3, 2, '20000.00', '2024-02-21 00:30:41', NULL, NULL),
+(18, 12, 2, 2, '50000.00', '2024-02-21 00:30:41', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,6 +103,7 @@ INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon
 CREATE TABLE `permainan` (
   `id_permainan` int(11) NOT NULL,
   `nama_permainan` varchar(255) NOT NULL,
+  `harga_permainan` decimal(10,2) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -87,10 +113,12 @@ CREATE TABLE `permainan` (
 -- Dumping data untuk tabel `permainan`
 --
 
-INSERT INTO `permainan` (`id_permainan`, `nama_permainan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Mandi Bola', '2024-02-20 11:38:52', NULL, NULL),
-(2, 'Istana perosotan', '2024-02-20 11:38:52', NULL, NULL),
-(3, 'Ayunan', '2024-02-20 13:24:40', '2024-02-20 13:27:09', NULL);
+INSERT INTO `permainan` (`id_permainan`, `nama_permainan`, `harga_permainan`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Mandi Bola', '50000.00', '2024-02-20 11:38:52', NULL, NULL),
+(2, 'Istana perosotan', '25000.00', '2024-02-20 11:38:52', NULL, NULL),
+(3, 'Ayunan', '10000.00', '2024-02-20 13:24:40', '2024-02-20 13:27:09', NULL),
+(4, 'Jungkat-jungkit', '10000.00', '2024-02-20 20:57:58', NULL, NULL),
+(5, 'Tiang Gelantung', '10000.00', '2024-02-20 21:37:10', '2024-02-20 21:38:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -101,10 +129,11 @@ INSERT INTO `permainan` (`id_permainan`, `nama_permainan`, `created_at`, `update
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `pelanggan_id` int(11) NOT NULL,
-  `tanggal_transaksi` date NOT NULL DEFAULT current_timestamp(),
-  `permainan_id` int(11) NOT NULL,
+  `tanggal_transaksi` date NOT NULL,
   `jam_mulai` time NOT NULL,
   `jam_selesai` time NOT NULL,
+  `total_harga` decimal(10,2) NOT NULL,
+  `user` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
@@ -115,9 +144,26 @@ CREATE TABLE `transaksi` (
 -- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `permainan_id`, `jam_mulai`, `jam_selesai`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, '2024-02-20', 1, '09:00:00', '12:00:00', 1, '2024-02-20 09:39:32', NULL, NULL),
-(3, 1, '2024-02-19', 1, '09:00:00', '12:00:00', 2, '2024-02-20 09:39:32', NULL, NULL);
+INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `total_harga`, `user`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(12, 1, '2024-02-21', '00:30:41', '02:30:41', '70000.00', 1, 1, '2024-02-21 00:30:41', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi2`
+--
+
+CREATE TABLE `transaksi2` (
+  `id_transaksi` int(11) NOT NULL,
+  `pelanggan_id` int(11) NOT NULL,
+  `tanggal_transaksi` date NOT NULL DEFAULT current_timestamp(),
+  `permainan_id` int(11) NOT NULL,
+  `jam_selesai` time NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -178,6 +224,12 @@ INSERT INTO `website` (`id_website`, `nama_website`, `logo_website`, `logo_pdf`,
 --
 
 --
+-- Indeks untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id_detail`);
+
+--
 -- Indeks untuk tabel `level`
 --
 ALTER TABLE `level`
@@ -202,6 +254,12 @@ ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
+-- Indeks untuk tabel `transaksi2`
+--
+ALTER TABLE `transaksi2`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -216,6 +274,12 @@ ALTER TABLE `website`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
@@ -233,13 +297,19 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT untuk tabel `permainan`
 --
 ALTER TABLE `permainan`
-  MODIFY `id_permainan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_permainan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi2`
+--
+ALTER TABLE `transaksi2`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

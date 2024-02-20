@@ -84,12 +84,20 @@ $uri = service('uri');
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "permainan"){echo "active";}?>" href="<?=base_url('permainan')?>"><i class="fa-regular fa-gamepad"></i><span class="item-name">Data Permainan</span>
+            <a class="nav-link <?php if($uri->getSegment(1) == "data_level"){echo "active";}?>" href="<?=base_url('data_level')?>"><i class="fa-regular fa-layer-group"></i></i><span class="item-name">Data Level</span>
+            </a>
+          </li>
+
+          <li><hr class="hr-horizontal"></li>
+          <li class="nav-item static-item">
+            <a class="nav-link static-item disabled" tabindex="-1">
+              <span class="default-icon">Data Playground</span>
+              <!-- <span class="mini-icon">-</span> -->
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "data_level"){echo "active";}?>" href="<?=base_url('data_level')?>"><i class="fa-regular fa-layer-group"></i></i><span class="item-name">Data Level</span>
+            <a class="nav-link <?php if($uri->getSegment(1) == "permainan"){echo "active";}?>" href="<?=base_url('permainan')?>"><i class="fa-regular fa-gamepad"></i><span class="item-name">Data Permainan</span>
             </a>
           </li>
 
@@ -101,10 +109,10 @@ $uri = service('uri');
             </a>
           </li>
 
-          <!-- <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "kasir"){echo "active";}?>" href="<?=base_url('kasir')?>"><i class="fa-regular fa-cash-register"></i><span class="item-name">Kasir Penjualan</span>
+          <li class="nav-item">
+            <a class="nav-link <?php if($uri->getSegment(1) == "kasir"){echo "active";}?>" href="<?=base_url('kasir')?>"><i class="fa-regular fa-cash-register"></i><span class="item-name">Kasir Pembayaran</span>
             </a>
-          </li> -->
+          </li>
 
           <li class="nav-item">
             <a class="nav-link <?php if($uri->getSegment(1) == "transaksi" && $uri->getSegment(2) !== "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi')?>"><i class="fa-duotone fa-arrow-right-arrow-left"></i><span class="item-name">Data Transaksi</span>

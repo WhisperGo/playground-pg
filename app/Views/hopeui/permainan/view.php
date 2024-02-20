@@ -16,6 +16,7 @@
                      <tr>
                         <th>No</th>
                         <th>Nama Permainan</th>
+                        <th>Harga per jam</th>
                         <th>Action</th>
                      </tr>
                   </thead>
@@ -28,6 +29,7 @@
                        <tr>
                         <td><?= $no++ ?></td>
                         <td><?php echo $riz->nama_permainan ?></td> 
+                        <td>Rp <?= number_format($riz->harga_permainan, 2, ',', '.') ?></td>
                         <td>
                            <a href="<?php echo base_url('permainan/edit/'. $riz->id_permainan)?>" class="btn btn-warning my-1"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
 

@@ -47,10 +47,12 @@ public function aksi_create()
 { 
     if(session()->get('level')== 1) {
         $a= $this->request->getPost('nama_permainan');
+        $b= $this->request->getPost('harga_permainan');
 
         //Yang ditambah ke user
         $data1=array(
-            'nama_permainan'=>$a
+            'nama_permainan'=>$a,
+            'harga_permainan'=>$b
         );
 
         $model=new M_permainan();
@@ -86,12 +88,14 @@ public function aksi_edit()
 { 
     if(session()->get('level')== 1) {
        $a= $this->request->getPost('nama_permainan');
+       $b= $this->request->getPost('harga_permainan');
        $id= $this->request->getPost('id');
 
        //Yang ditambah ke user
        $where=array('id_permainan'=>$id);
        $data1=array(
         'nama_permainan'=>$a,
+        'harga_permainan'=>$b,
         'updated_at'=>date('Y-m-d H:i:s')
     );
        $model=new M_permainan();

@@ -1,0 +1,97 @@
+ERROR - 2024-02-21 00:31:58 --> Unknown column 'penjualan.PenjualanID' in 'where clause'
+CRITICAL - 2024-02-21 00:31:58 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:29 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:29 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:30 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:30 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:30 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:30 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:30 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:30 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:30 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:30 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:30 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:30 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:31 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:31 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:32:50 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:32:50 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-21 00:33:27 --> Unknown column 'produk.id_permainan' in 'on clause'
+CRITICAL - 2024-02-21 00:33:27 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Detail_transaksi.php(19): App\Models\M_detail_transaksi->join3id('detail_transaks...', 'transaksi', 'permainan', 'detail_transaks...', 'detail_transaks...', '12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Detail_transaksi->index('12')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Detail_transaksi))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-21 00:34:42 --> Class 'App\Models\M_penjualan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->cetak_invoice('12')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}

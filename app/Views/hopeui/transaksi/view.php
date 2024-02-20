@@ -5,7 +5,7 @@
 
             <div class="card-header d-flex justify-content-between">
                <div class="header-title">
-                  <a href="<?=base_url('transaksi/create')?>" class="btn btn-primary"><i class="faj-button fa-solid fa-plus"></i>Tambah</a>
+                  <a href="<?=base_url('kasir')?>" class="btn btn-primary"><i class="faj-button fa-solid fa-plus"></i>Tambah</a>
                </div>
             </div>
 
@@ -51,7 +51,7 @@
                               ?>
                               <a href="<?php echo base_url('transaksi/aksi_edit/' . $riz->id_transaksi) ?>" class="btn btn-success my-1"><i class="fa-regular fa-arrows-rotate" style="color: #ffffff;"></i></a>
                            <?php } ?>
-                           
+                           <a href="<?php echo base_url('detail_transaksi/'. $riz->id_transaksi)?>" class="btn btn-warning my-1"><i class="fa-regular fa-circle-info"></i></a>
                            <a href="<?php echo base_url('transaksi/delete/'. $riz->id_transaksi)?>" class="btn btn-danger my-1"><i class="fa-solid fa-trash"></i></a>
                         </td>
                      </tr>
