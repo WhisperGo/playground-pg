@@ -47,3 +47,57 @@ CRITICAL - 2024-02-20 10:02:48 --> Call to undefined function toString()
 #7 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
 #8 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
 #9 {main}
+ERROR - 2024-02-20 10:34:40 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 10:34:40 --> Table 'playground_pg.pelanggan' doesn't exist
+ERROR - 2024-02-20 10:34:40 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 10:34:58 --> Table 'playground_pg.pelanggan' doesn't exist
+CRITICAL - 2024-02-20 10:34:58 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Pelanggan.php(12): App\Models\M_pelanggan->tampil('pelanggan')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Pelanggan->index()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-20 11:13:56 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:13:56 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:18:24 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:18:24 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:18:31 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:18:31 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:19:12 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:19:12 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:22:11 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:22:11 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:23:01 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:23:01 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:24:23 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:24:23 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:24:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:24:53 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:25:52 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:25:52 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:26:16 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:26:16 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:26:28 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:26:28 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:26:47 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:26:47 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:36:47 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:36:47 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:42:05 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:42:05 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:42:06 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:42:06 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:42:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:42:53 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:43:39 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:43:39 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:44:32 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:44:32 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:50:38 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:50:38 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:53:18 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:53:18 --> Table 'playground_pg.detailpenjualan' doesn't exist
+ERROR - 2024-02-20 11:55:39 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-20 11:55:39 --> Table 'playground_pg.detailpenjualan' doesn't exist

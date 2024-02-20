@@ -10,7 +10,7 @@
       </div>
 
       <div class="overflow-hidden d-slider1 ">
-         <ul  class="p-0 m-0 mb-2 swiper-wrapper list-inline">
+         <ul class="p-0 m-0 mb-2 swiper-wrapper list-inline">
 
             <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="200">
                <div class="card-body">

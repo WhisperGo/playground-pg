@@ -12,7 +12,8 @@ class Aktivitas_playground extends BaseController
             $model = new M_transaksi();
 
             $on='transaksi.pelanggan_id = pelanggan.PelangganID';
-            $data['jojo'] = $model->join2aktivitas('transaksi', 'pelanggan', $on);
+            $on2='transaksi.permainan_id = permainan.id_permainan';
+            $data['jojo'] = $model->join3aktivitas('transaksi', 'pelanggan', 'permainan', $on, $on2);
 
             $data['title'] = 'Aktivitas Playground';
             $data['desc'] = 'Anda dapat melihat Aktivitas Playground di Menu ini.';
@@ -20,7 +21,6 @@ class Aktivitas_playground extends BaseController
             $data['subtitle2'] = 'Selesai Bermain';
 
             echo view('hopeui/partial/header', $data);
-            echo view('hopeui/partial/side_menu');
             echo view('hopeui/partial/top_menu');
             echo view('hopeui/aktivitas/view', $data);
             echo view('hopeui/partial/footer');

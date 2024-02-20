@@ -84,6 +84,11 @@ $uri = service('uri');
           </li>
 
           <li class="nav-item">
+            <a class="nav-link <?php if($uri->getSegment(1) == "permainan"){echo "active";}?>" href="<?=base_url('permainan')?>"><i class="fa-regular fa-gamepad"></i><span class="item-name">Data Permainan</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link <?php if($uri->getSegment(1) == "data_level"){echo "active";}?>" href="<?=base_url('data_level')?>"><i class="fa-regular fa-layer-group"></i></i><span class="item-name">Data Level</span>
             </a>
           </li>
@@ -107,7 +112,7 @@ $uri = service('uri');
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Aktivitas Playground</span>
+            <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
             </a>
           </li>
 

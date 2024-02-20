@@ -74,10 +74,3 @@
 </div>
 </div>
 </div>
-
-<!-- <script>
-   $(document).ready(function() {
-      $('#table2').DataTable({
-      });
-   });
-</script> -->
