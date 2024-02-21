@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Models\M_produk;
 use App\Models\M_pelanggan;
-use App\Models\M_detail_penjualan;
+use App\Models\M_detail_transaksi;
 
 class Dashboard extends BaseController
 {
@@ -16,7 +16,7 @@ class Dashboard extends BaseController
             $model2 = new M_pelanggan();
             $jumlah_pelanggan = $model2->hitungsemua();
 
-            $model3 = new M_detail_penjualan();
+            $model3 = new M_detail_transaksi();
             $jumlah_penjualan = $model3->hitungSemuaBulanIni();
 
             $data['title'] = 'Dashboard';

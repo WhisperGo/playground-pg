@@ -96,6 +96,26 @@ class Transaksi extends BaseController
         }
     }
 
+    public function aksi_edit_aktivitas($id)
+    {
+        if (session()->get('level') == 1) {
+
+            // Data yang akan disimpan
+            $data1 = array(
+                'status' => '2',
+            );
+
+            $where = array('id_transaksi' => $id);
+            $model = new M_transaksi();
+
+            $model->qedit('transaksi', $data1, $where);
+
+            return redirect()->to('aktivitas_playground');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+
     public function delete($id)
     { 
         if(session()->get('level')== 1 || session()->get('level')== 2) {

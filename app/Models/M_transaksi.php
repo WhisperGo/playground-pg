@@ -46,6 +46,15 @@ class M_transaksi extends Model
 		->getResult();
 	}
 
+	public function join2aktivitas($table1, $table2, $on)
+	{
+		return $this->db->table($table1)
+		->join($table2, $on, 'left')
+		->orderBy('transaksi.created_at', 'DESC')
+		->get()
+		->getResult();
+	}
+
 	public function join3aktivitas($table1, $table2, $table3, $on, $on2)
 	{
 		return $this->db->table($table1)

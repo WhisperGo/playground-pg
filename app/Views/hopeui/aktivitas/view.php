@@ -1,3 +1,11 @@
+<style>
+    /* Sembunyikan kolom Aksi */
+    .hide-column {
+        display: none;
+    }
+</style>
+
+
 <div class="conatiner-fluid content-inner mt-n5 py-0">
     <div class="row">
 
@@ -16,9 +24,8 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama Anak</th>
-                                <th>Permainan</th>
                                 <th>Durasi</th>
-                                <th>Aksi</th>
+                                <th class="hide-column">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +50,6 @@
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $riz->NamaPelanggan; ?></td>
-                                            <td><?php echo $riz->nama_permainan; ?></td>
 
                                             <?php
                                             // Hitung durasi transaksi yang masih berjalan
@@ -60,7 +66,9 @@
 
                                             <td><span id="countdown_<?php echo $riz->id_transaksi; ?>"><?php echo $hoursFormatted . ":" . $minutesFormatted . ":" . $secondsFormatted; ?></span></td>
 
-                                            <td><a href="<?php echo base_url('transaksi/aksi_edit/' . $riz->id_transaksi) ?>" class="btn btn-success my-1"><i class="fa-regular fa-arrows-rotate" style="color: #ffffff;"></i></a></td>
+                                            <!-- Tambahkan ID pada tombol edit -->
+                                            <td class="hide-column"><a id="edit_button_<?php echo $riz->id_transaksi; ?>" href="<?php echo base_url('transaksi/aksi_edit_aktivitas/' . $riz->id_transaksi) ?>" class="btn btn-warning my-1"><i class="fa-regular fa-arrows-rotate" style="color: #ffffff;"></i></a></td>
+
                                             
                                         </tr>
                                         <?php
@@ -91,7 +99,6 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama Anak</th>
-                                <th>Permainan</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -110,8 +117,7 @@
                                     <tr>
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $riz->NamaPelanggan; ?></td>
-                                        <td><?php echo $riz->nama_permainan; ?></td>
-                                        <td>Selesai</td>
+                                        <td><span class="badge rounded-pill bg-success">Selesai Bermain</span></td>
                                     </tr>
                                     <?php
                                 }
@@ -149,6 +155,16 @@
                 var secondsFormatted = seconds.toString().padStart(2, '0');
 
                 document.getElementById('countdown_' + id).innerHTML = hoursFormatted + ":" + minutesFormatted + ":" + secondsFormatted;
+
+                // Periksa apakah durasi telah mencapai 00:00:00
+                if (distance <= 0) {
+                    clearInterval(timerId); // Hentikan timer countdown
+                    // Aktifkan tombol edit secara otomatis
+                    var editButton = document.getElementById('edit_button_' + id);
+                    if (editButton) {
+                        editButton.click(); // Klik tombol edit
+                    }
+                }
             }
 
         // Panggil fungsi updateCountdown setiap detik
@@ -158,3 +174,5 @@
             updateCountdown();
         }
     </script>
+
+    

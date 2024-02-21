@@ -95,3 +95,53 @@ CRITICAL - 2024-02-21 00:34:42 --> Class 'App\Models\M_penjualan' not found
 #3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #5 {main}
+ERROR - 2024-02-21 13:10:22 --> Table 'playground_pg.produk' doesn't exist
+CRITICAL - 2024-02-21 13:10:22 --> Class 'App\Models\M_detail_penjualan' not found
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#5 {main}
+ERROR - 2024-02-21 13:11:33 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:11:43 --> Unknown column 'transaksi.permainan_id' in 'on clause'
+CRITICAL - 2024-02-21 13:11:43 --> Call to a member function getResult() on bool
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(16): App\Models\M_transaksi->join3aktivitas('transaksi', 'pelanggan', 'permainan', 'transaksi.pelan...', 'transaksi.perma...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+ERROR - 2024-02-21 13:14:15 --> Unknown column 'pelanggan.PelangganID' in 'on clause'
+CRITICAL - 2024-02-21 13:14:15 --> Call to a member function getResult() on bool
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(15): App\Models\M_transaksi->join2('transaksi', 'permainan', 'transaksi.pelan...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+ERROR - 2024-02-21 13:14:23 --> Unknown column 'pelanggan.PelangganID' in 'on clause'
+CRITICAL - 2024-02-21 13:14:23 --> Call to a member function getResult() on bool
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Aktivitas_playground.php(15): App\Models\M_transaksi->join2aktivitas('transaksi', 'permainan', 'transaksi.pelan...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Aktivitas_playground->index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2024-02-21 13:15:12 --> Class 'App\Models\M_penjualan' not found
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Kasir->cetak_invoice('12')
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#5 {main}
+ERROR - 2024-02-21 13:20:37 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:22:33 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:23:42 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:25:47 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:30:52 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:37:21 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 13:37:54 --> Table 'playground_pg.produk' doesn't exist

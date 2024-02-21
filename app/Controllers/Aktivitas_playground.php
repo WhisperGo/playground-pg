@@ -12,8 +12,7 @@ class Aktivitas_playground extends BaseController
             $model = new M_transaksi();
 
             $on='transaksi.pelanggan_id = pelanggan.PelangganID';
-            $on2='transaksi.permainan_id = permainan.id_permainan';
-            $data['jojo'] = $model->join3aktivitas('transaksi', 'pelanggan', 'permainan', $on, $on2);
+            $data['jojo'] = $model->join2aktivitas('transaksi', 'pelanggan', $on);
 
             $data['title'] = 'Aktivitas Playground';
             $data['desc'] = 'Anda dapat melihat Aktivitas Playground di Menu ini.';
