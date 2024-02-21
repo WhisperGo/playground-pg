@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 20 Feb 2024 pada 18.34
--- Versi server: 10.4.24-MariaDB
+-- Host: localhost
+-- Waktu pembuatan: 21 Feb 2024 pada 08.50
+-- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -44,7 +44,11 @@ CREATE TABLE `detail_transaksi` (
 
 INSERT INTO `detail_transaksi` (`id_detail`, `transaksi_id`, `permainan_id`, `durasi`, `subtotal`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (17, 12, 3, 2, '20000.00', '2024-02-21 00:30:41', NULL, NULL),
-(18, 12, 2, 2, '50000.00', '2024-02-21 00:30:41', NULL, NULL);
+(18, 12, 2, 2, '50000.00', '2024-02-21 00:30:41', NULL, NULL),
+(19, 13, 3, 1, '10000.00', '2024-02-21 13:22:58', NULL, NULL),
+(20, 13, 4, 1, '10000.00', '2024-02-21 13:22:58', NULL, NULL),
+(21, 16, 2, 1, '25000.00', '2024-02-21 14:29:43', NULL, NULL),
+(22, 16, 4, 1, '10000.00', '2024-02-21 14:29:43', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -145,25 +149,10 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `total_harga`, `user`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(12, 1, '2024-02-21', '00:30:41', '02:30:41', '70000.00', 1, 1, '2024-02-21 00:30:41', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `transaksi2`
---
-
-CREATE TABLE `transaksi2` (
-  `id_transaksi` int(11) NOT NULL,
-  `pelanggan_id` int(11) NOT NULL,
-  `tanggal_transaksi` date NOT NULL DEFAULT current_timestamp(),
-  `permainan_id` int(11) NOT NULL,
-  `jam_selesai` time NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(12, 1, '2024-02-21', '00:30:41', '02:30:41', '70000.00', 1, 2, '2024-02-21 00:30:41', NULL, NULL),
+(13, 3, '2024-02-21', '13:22:58', '13:37:00', '20000.00', 1, 2, '2024-02-21 13:22:58', NULL, NULL),
+(15, 3, '2024-02-21', '13:22:58', '14:37:00', '20000.00', 1, 2, '2024-02-21 13:22:58', NULL, NULL),
+(16, 2, '2024-02-21', '14:29:43', '15:29:43', '35000.00', 2, 1, '2024-02-21 14:29:43', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -187,7 +176,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-19 11:39:27', NULL, NULL);
+(1, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-19 11:39:27', NULL, NULL),
+(2, 'Admin 2', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-21 13:37:36', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -254,12 +244,6 @@ ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indeks untuk tabel `transaksi2`
---
-ALTER TABLE `transaksi2`
-  ADD PRIMARY KEY (`id_transaksi`);
-
---
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -279,7 +263,7 @@ ALTER TABLE `website`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
@@ -303,19 +287,13 @@ ALTER TABLE `permainan`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT untuk tabel `transaksi2`
---
-ALTER TABLE `transaksi2`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `website`
