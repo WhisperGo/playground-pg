@@ -145,3 +145,82 @@ ERROR - 2024-02-21 13:25:47 --> Table 'playground_pg.produk' doesn't exist
 ERROR - 2024-02-21 13:30:52 --> Table 'playground_pg.produk' doesn't exist
 ERROR - 2024-02-21 13:37:21 --> Table 'playground_pg.produk' doesn't exist
 ERROR - 2024-02-21 13:37:54 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:02:47 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:04:00 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:05:08 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:10:03 --> Table 'playground_pg.produk' doesn't exist
+CRITICAL - 2024-02-21 22:10:05 --> Invalid file: hopeui/partial/header_datatable.php
+#0 C:\xampp\htdocs\playground-pg\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('hopeui/partial/...')
+#1 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/partial/...', Array, true)
+#2 C:\xampp\htdocs\playground-pg\app\Controllers\Data_website.php(19): view('hopeui/partial/...', Array)
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Data_website->index()
+#4 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Data_website))
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+ERROR - 2024-02-21 22:17:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:32:13 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:32:16 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:32:17 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:33:30 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:34:12 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:34:48 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:34:57 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:35:08 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:35:18 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:35:31 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:35:36 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:35:52 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:35:59 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:36:07 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:36:32 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:38:14 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:39:18 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:39:31 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:41:08 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:41:33 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:41:56 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:43:05 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:43:24 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:43:44 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:43:54 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:45:26 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:45:28 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:45:42 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:45:49 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:46:44 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:47:09 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:47:14 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:47:15 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:47:27 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:48:51 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:48:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:48:58 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:08 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:09 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:12 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:12 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:13 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:13 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:14 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:49:14 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:51:43 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:51:53 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:52:23 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:52:40 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:53:02 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:55:32 --> Table 'playground_pg.produk' doesn't exist
+ERROR - 2024-02-21 22:59:15 --> Table 'playground_pg.produk' doesn't exist
+CRITICAL - 2024-02-21 22:59:15 --> Call to a member function table() on null
+#0 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/dashboar...', Array, true)
+#3 C:\xampp\htdocs\playground-pg\app\Controllers\Dashboard.php(31): view('hopeui/dashboar...', Array)
+#4 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+ERROR - 2024-02-21 23:00:06 --> Table 'playground_pg.produk' doesn't exist

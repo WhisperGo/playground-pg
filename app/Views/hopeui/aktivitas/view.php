@@ -9,8 +9,8 @@
 <div class="conatiner-fluid content-inner mt-n5 py-0">
     <div class="row">
 
-     <!-- Masih Bermain-->
-     <div class="col-sm-12 col-lg-6">
+       <!-- Masih Bermain-->
+       <div class="col-sm-12 col-lg-6">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <div class="header-title">
@@ -33,18 +33,24 @@
                             $no = 1;
                             $masih_bermain = []; // Array untuk transaksi yang masih berjalan
                             foreach ($jojo as $riz) {
-                                // Periksa apakah status transaksi adalah 1 (Masih Bermain)
+    // Periksa apakah status transaksi adalah 1 (Masih Bermain)
                                 if ($riz->status == 1) {
                                     $tanggal_transaksi = strtotime($riz->tanggal_transaksi);
                                     $jam_mulai = strtotime($riz->jam_mulai);
                                     $jam_selesai = strtotime($riz->jam_selesai);
 
-                                    // Menggabungkan tanggal dan waktu mulai transaksi
+        // Menggabungkan tanggal dan waktu mulai transaksi
                                     $waktu_mulai = strtotime(date("Y-m-d", $tanggal_transaksi) . " " . date("H:i:s", $jam_mulai));
-                                    // Menggabungkan tanggal dan waktu selesai transaksi
+
+        // Jika jam selesai lebih kecil dari jam mulai, tambahkan 1 hari pada tanggal transaksi
+                                    if ($jam_selesai < $jam_mulai) {
+                                        $tanggal_transaksi = strtotime("+1 day", $tanggal_transaksi);
+                                    }
+
+        // Menggabungkan tanggal dan waktu selesai transaksi
                                     $waktu_selesai = strtotime(date("Y-m-d", $tanggal_transaksi) . " " . date("H:i:s", $jam_selesai));
 
-                                    // Periksa apakah transaksi masih berjalan berdasarkan waktu sekarang
+        // Periksa apakah transaksi masih berjalan berdasarkan waktu sekarang
                                     if ($waktu_mulai <= time() && time() <= $waktu_selesai) {
                                         ?>
                                         <tr>
@@ -52,13 +58,13 @@
                                             <td><?php echo $riz->NamaPelanggan; ?></td>
 
                                             <?php
-                                            // Hitung durasi transaksi yang masih berjalan
+                // Hitung durasi transaksi yang masih berjalan
                                             $durasi = $waktu_selesai - time();
                                             $hours = floor($durasi / 3600);
                                             $minutes = floor(($durasi % 3600) / 60);
                                             $seconds = $durasi % 60;
 
-                                            // Format angka jam, menit, dan detik agar menampilkan dua digit
+                // Format angka jam, menit, dan detik agar menampilkan dua digit
                                             $hoursFormatted = str_pad($hours, 2, '0', STR_PAD_LEFT);
                                             $minutesFormatted = str_pad($minutes, 2, '0', STR_PAD_LEFT);
                                             $secondsFormatted = str_pad($seconds, 2, '0', STR_PAD_LEFT);
@@ -68,8 +74,6 @@
 
                                             <!-- Tambahkan ID pada tombol edit -->
                                             <td class="hide-column"><a id="edit_button_<?php echo $riz->id_transaksi; ?>" href="<?php echo base_url('transaksi/aksi_edit_aktivitas/' . $riz->id_transaksi) ?>" class="btn btn-warning my-1"><i class="fa-regular fa-arrows-rotate" style="color: #ffffff;"></i></a></td>
-
-                                            
                                         </tr>
                                         <?php
                                         $masih_bermain[] = $riz;
@@ -174,5 +178,3 @@
             updateCountdown();
         }
     </script>
-
-    

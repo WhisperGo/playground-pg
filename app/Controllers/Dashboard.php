@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\M_produk;
+use App\Models\M_permainan;
 use App\Models\M_pelanggan;
 use App\Models\M_detail_transaksi;
 
@@ -10,7 +10,7 @@ class Dashboard extends BaseController
     public function index()
     {
         if(session()->get('id') > 0) {
-            $model = new M_produk();
+            $model = new M_permainan();
             $jumlah_produk = $model->hitungsemua();
 
             $model2 = new M_pelanggan();
@@ -20,7 +20,7 @@ class Dashboard extends BaseController
             $jumlah_penjualan = $model3->hitungSemuaBulanIni();
 
             $data['title'] = 'Dashboard';
-            $data['desc'] = 'Selamat datang di Website GT Kasir. Selamat Bekerja!';
+            $data['desc'] = 'Selamat Datang di website kami!';
             $data['jumlah_produk'] = $jumlah_produk;
             $data['jumlah_pelanggan'] = $jumlah_pelanggan;
             $data['jumlah_penjualan'] = $jumlah_penjualan;

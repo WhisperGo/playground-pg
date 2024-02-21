@@ -12,7 +12,7 @@ class Data_level extends BaseController
         $data['jojo']=$model->tampil('level');
 
         $data['title']='Data Level';
-        $data['desc']='Anda dapat melihat Data User di Menu ini.';
+        $data['desc']='Anda dapat melihat Data Level di Menu ini.';
 
         echo view('hopeui/partial/header', $data);
         echo view('hopeui/partial/side_menu');

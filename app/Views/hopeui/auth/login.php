@@ -1,3 +1,21 @@
+<?php
+
+$db = \Config\Database::connect();
+// $builder = $db->table('website');
+// $namaweb = $builder->select('nama_website')
+// ->where('deleted_at', null)
+// ->get()
+// ->getRow();
+
+$builder = $db->table('website');
+$logo = $builder->select('logo_website')
+->where('deleted_at', null)
+->get()
+->getRow();
+
+?>
+
+
 <div class="wrapper">
    <section class="login-content">
       <div class="row m-0 align-items-center bg-white vh-100">            
@@ -8,61 +26,43 @@
                      <div class="card-body">
                         <a href="dashboard/index.html" class="navbar-brand d-flex align-items-center mb-3">
                            <!--Logo start-->
-                           <!--logo End-->
+                           <a class="navbar-brand">
+                            <img src="<?=base_url('logo/logo_website/'.$logo->logo_website)?>" width="25%">
+                         </a>
+                         <!--logo End-->
 
-                           <!--Logo start-->
-                           <div class="logo-main">
-                             <div class="logo-normal">
-                               <svg class="text-primary icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"/>
-                                 <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor"/>
-                                 <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor"/>
-                                 <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2" transform="rotate(45 10.5562 -0.556152)" fill="currentColor"/>
-                              </svg>
+                         <!-- <h4 class="logo-title ms-3"><?=$namaweb->nama_website?></h4> -->
+                      </a>
+                      <h2 class="mb-2 text-center">Sign In</h2>
+                      <p class="text-center">Login to stay connected.</p>
+
+                      <?php if (session()->has('error')): ?>
+                      <div class="alert alert-danger d-flex align-items-center" role="alert"><i class="faj-button fa-regular fa-circle-exclamation"></i>
+                        <?= session('error') ?></div>
+                     <?php endif; ?>
+
+                     <form action="<?= base_url('login/aksi_login')?>" method="post">
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="form-group">
+                                 <label for="text" class="form-label">Username</label>
+                                 <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
+                              </div>
                            </div>
-                           <div class="logo-mini">
-                            <svg class="text-primary icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"/>
-                              <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor"/>
-                              <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor"/>
-                              <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2" transform="rotate(45 10.5562 -0.556152)" fill="currentColor"/>
-                           </svg>
-                        </div>
-                     </div>
-                     <!--logo End-->
 
-                     <h4 class="logo-title ms-3">GT Kasir</h4>
-                  </a>
-                  <h2 class="mb-2 text-center">Sign In</h2>
-                  <p class="text-center">Login to stay connected.</p>
-
-                  <?php if (session()->has('error')): ?>
-                  <div class="alert alert-danger d-flex align-items-center" role="alert"><i class="faj-button fa-regular fa-circle-exclamation"></i>
-                     <?= session('error') ?></div>
-                  <?php endif; ?>
-
-                  <form action="<?= base_url('login/aksi_login')?>" method="post">
-                     <div class="row">
-                        <div class="col-lg-12">
-                           <div class="form-group">
-                              <label for="text" class="form-label">Username</label>
-                              <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
-                           </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                          <div class="form-group">
-                            <label for="password" class="form-label" style="flex: 1;">Password</label>
-                            <div style="position: relative; flex: 1;">
+                           <div class="col-lg-12">
+                            <div class="form-group">
+                             <label for="password" class="form-label" style="flex: 1;">Password</label>
+                             <div style="position: relative; flex: 1;">
                               <input type="password" class="form-control" id="password-input" placeholder="Masukkan Password" name="password">
                               <button type="button" class="btn btn-outline-primary" id="show-password-btn" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-                                <i class="fa-solid fa-eye"></i>
-                             </button>
-                          </div>
-                       </div>
-                    </div>
+                               <i class="fa-solid fa-eye"></i>
+                            </button>
+                         </div>
+                      </div>
+                   </div>
 
-                    <div class="col-lg-12 d-flex justify-content-between">
+                   <div class="col-lg-12 d-flex justify-content-between">
                      <div class="form-check mb-3">
                         <input type="checkbox" class="form-check-input" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">Remember Me</label>

@@ -1,3 +1,15 @@
+<?php
+
+$db = \Config\Database::connect();
+$builder = $db->table('website');
+$namaweb = $builder->select('nama_website')
+->where('deleted_at', null)
+->get()
+->getRow();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +68,7 @@
 <body>
     <div class="header">
         <img src="<?=base_url('logo/logo_pdf/logo_pdf_contoh.svg')?>"> 
-        <h3 class="judul mt-2">GT Kasir</h3>
+        <h3 class="judul mt-2"><?=$namaweb->nama_website?></h3>
     </div>
 
     <h3 class="text-center mb-4"><?= $title ?></h3>

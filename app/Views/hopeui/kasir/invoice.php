@@ -1,3 +1,14 @@
+<?php
+
+$db = \Config\Database::connect();
+$builder = $db->table('website');
+$namaweb = $builder->select('nama_website')
+->where('deleted_at', null)
+->get()
+->getRow();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +66,7 @@
     <div class="header">
         <img src="<?=base_url('logo/logo_pdf/logo_pdf_contoh.svg')?>"> 
         <h3 class="judul mt-2"><?=$title?></h3>
-        <h4 class="subjudul ">GT Kasir</h4>
+        <h4 class="subjudul "><?=$namaweb->nama_website?></h4>
     </div>
 
     <?php foreach ($jojo as $riz) { ?>

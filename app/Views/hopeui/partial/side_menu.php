@@ -2,16 +2,26 @@
 
 $uri = service('uri');
 
+$db = \Config\Database::connect();
+$builder = $db->table('website');
+$logo = $builder->select('logo_website')
+->where('deleted_at', null)
+->get()
+->getRow();
+
 ?>
 
 <aside class="sidebar sidebar-default sidebar-white sidebar-base navs-rounded-all ">
   <div class="sidebar-header d-flex align-items-center justify-content-start">
-    <a href="<?=base_url('dashboard')?>" class="navbar-brand">
+    
       <!--Logo start-->
+      <a href="<?=base_url('dashboard')?>" class="navbar-brand">
+        <img src="<?=base_url('logo/logo_website/'.$logo->logo_website)?>" width="35%">
+      </a>
       <!--logo End-->
 
       <!--Logo start-->
-      <div class="logo-main">
+<!--       <div class="logo-main">
         <div class="logo-normal">
           <svg class=" icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"/>
@@ -28,11 +38,11 @@ $uri = service('uri');
             <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2" transform="rotate(45 10.5562 -0.556152)" fill="currentColor"/>
           </svg>
         </div>
-      </div>
+      </div> -->
       <!--logo End-->
 
-      <h4 class="logo-title">GT Kasir</h4>
-    </a>
+      <!-- <h4 class="logo-title">GT Playground</h4> -->
+    
     <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
       <i class="icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +94,12 @@ $uri = service('uri');
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "data_level"){echo "active";}?>" href="<?=base_url('data_level')?>"><i class="fa-regular fa-layer-group"></i></i><span class="item-name">Data Level</span>
+            <a class="nav-link <?php if($uri->getSegment(1) == "data_level"){echo "active";}?>" href="<?=base_url('data_level')?>"><i class="fa-regular fa-layer-group"></i><span class="item-name">Data Level</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link <?php if($uri->getSegment(1) == "data_website"){echo "active";}?>" href="<?=base_url('data_website')?>"><i class="fa-regular fa-globe"></i><span class="item-name">Data Website</span>
             </a>
           </li>
 
@@ -98,6 +113,11 @@ $uri = service('uri');
 
           <li class="nav-item">
             <a class="nav-link <?php if($uri->getSegment(1) == "permainan"){echo "active";}?>" href="<?=base_url('permainan')?>"><i class="fa-regular fa-gamepad"></i><span class="item-name">Data Permainan</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
             </a>
           </li>
 
@@ -116,11 +136,6 @@ $uri = service('uri');
 
           <li class="nav-item">
             <a class="nav-link <?php if($uri->getSegment(1) == "transaksi" && $uri->getSegment(2) !== "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi')?>"><i class="fa-duotone fa-arrow-right-arrow-left"></i><span class="item-name">Data Transaksi</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
             </a>
           </li>
 
