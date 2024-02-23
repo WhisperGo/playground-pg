@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Feb 2024 pada 17.55
+-- Waktu pembuatan: 23 Feb 2024 pada 18.35
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -44,7 +44,11 @@ CREATE TABLE `detail_transaksi` (
 
 INSERT INTO `detail_transaksi` (`id_detail`, `transaksi_id`, `permainan_id`, `durasi`, `subtotal`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (23, 17, 3, 1, '10000.00', '2024-02-21 23:10:19', NULL, NULL),
-(24, 17, 2, 1, '25000.00', '2024-02-21 23:10:19', NULL, NULL);
+(24, 17, 2, 1, '25000.00', '2024-02-21 23:10:19', NULL, NULL),
+(25, 19, 3, 1, '10000.00', '2024-02-23 20:32:18', NULL, NULL),
+(26, 19, 2, 1, '25000.00', '2024-02-23 20:32:18', NULL, NULL),
+(27, 20, 3, 1, '10000.00', '2024-02-23 20:32:27', NULL, NULL),
+(33, 24, 3, 1, '10000.00', '2024-02-23 22:25:29', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +150,9 @@ CREATE TABLE `transaksi` (
 
 INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `total_harga`, `user`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (17, 2, '2024-02-21', '23:10:18', '00:10:18', '35000.00', 1, 2, '2024-02-21 23:10:19', '2024-02-21 23:19:37', '2024-02-21 23:19:37'),
-(18, 1, '2024-02-21', '23:00:00', '00:00:00', '35000.00', 1, 1, '2024-02-21 23:10:19', NULL, NULL);
+(19, 3, '2024-02-23', '20:32:18', '20:36:40', '35000.00', 1, 2, '2024-02-23 20:32:18', NULL, NULL),
+(20, 2, '2024-02-23', '20:32:27', '20:36:40', '35000.00', 1, 2, '2024-02-23 20:32:27', NULL, NULL),
+(24, 1, '2024-02-23', '22:25:29', '23:25:29', '10000.00', 1, 1, '2024-02-23 22:25:29', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -257,7 +263,7 @@ ALTER TABLE `website`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
@@ -281,7 +287,7 @@ ALTER TABLE `permainan`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

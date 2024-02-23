@@ -592,3 +592,15 @@ CRITICAL - 2024-02-23 22:24:55 --> Too few arguments to function App\Controllers
 #3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #5 {main}
+CRITICAL - 2024-02-23 23:43:55 --> count(): Parameter must be an array or an object that implements Countable
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\laporan_transaksi\print_windows_view.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', 'C:\\xampp\\htdocs...', 114, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Transaksi.php(167): view('hopeui/laporan_...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Transaksi->export_windows()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaksi))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

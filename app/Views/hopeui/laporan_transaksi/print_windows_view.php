@@ -7,6 +7,13 @@ $namaweb = $builder->select('nama_website')
 ->get()
 ->getRow();
 
+$builder = $db->table('website');
+$logo = $builder->select('*')
+->where('deleted_at', null)
+->get()
+->getRow();
+
+
 ?>
 
 
@@ -49,6 +56,7 @@ $namaweb = $builder->select('nama_website')
             border: 1px solid #000;
             padding: 8px;
             text-align: left;
+            color: #000000;
         }
         h3 {
             margin-top: 10px; /* Mengurangi margin-top h3 */
@@ -62,22 +70,25 @@ $namaweb = $builder->select('nama_website')
             flex: 1;
             text-align: center;
         }
+        p {
+            color: #000000;
+        }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <img src="<?=base_url('logo/logo_pdf/logo_pdf_contoh.svg')?>"> 
+        <img src="<?=base_url('logo/logo_pdf/'.$logo->logo_pdf)?>">
         <h3 class="judul mt-2"><?=$namaweb->nama_website?></h3>
     </div>
 
     <h3 class="text-center mb-4"><?= $title ?></h3>
     
     <?php if ($awal && $akhir) : ?>
-        <p class="text-center">Laporan detail penjualan dalam rentang tanggal berikut:</p>
+        <p class="text-center">Laporan detail transaksi dalam rentang tanggal berikut:</p>
         <p class="text-center">Periode : <?= date('d M Y', strtotime($awal)) . ' - ' . date('d M Y', strtotime($akhir))?></p>
     <?php elseif ($tanggal) : ?>
-       <p class="text-center">Laporan detail penjualan pada tanggal berikut:</p>
+       <p class="text-center">Laporan detail transaksi pada tanggal berikut:</p>
        <p class="text-center">Periode : <?= date('d M Y', strtotime($tanggal))?></p>
    <?php endif; ?>
 
@@ -87,33 +98,41 @@ $namaweb = $builder->select('nama_website')
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Produk</th>
-                <th>Jumlah Produk</th>
-                <th>Subtotal</th>
+                <th>Nama Permainan</th>
+                <th>Durasi</th>
+                <th>Tanggal Transaksi</th>
                 <th>Kasir</th>
-                <th>Tanggal Penjualan</th>
+                <th>Subtotal</th>
             </tr>
         </thead>
         <tbody>
-            <?php $no = 1; foreach ($penjualan as $riz) { ?>
-                <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $riz->NamaProduk ?></td>
-                    <td><?= $riz->JumlahProduk ?> buah</td>
-                    <td>Rp <?= number_format($riz->Subtotal, 2, ',', '.') ?></td>
-                    <td><?= $riz->username ?></td>
-                    <td><?= date('d F Y, H:i', strtotime($riz->created_at_detailpenjualan)) ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</div>
-
-<div class="jumlah-container mt-5">
-    <div class="jumlah-item">
-        <p>Jumlah penjualan: <?= count($penjualan) ?></p>
+            <?php 
+            $no = 1; 
+                $total_harga = 0; // Variabel untuk menyimpan total harga
+                foreach ($transaksi as $riz) { 
+                    $total_harga += $riz->subtotal; // Menambahkan subtotal ke total harga
+                    ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $riz->nama_permainan ?></td>
+                        <td><?= $riz->durasi ?> jam</td>
+                        <td><?= date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)) ?></td>
+                        <td><?= $riz->username ?></td>
+                        <td>Rp <?= number_format($riz->subtotal, 2, ',', '.') ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
-</div>
+
+    <div class="jumlah-container mt-5">
+        <div class="jumlah-item">
+            <p>Jumlah transaksi: <?= count($transaksi) ?></p>
+        </div>
+        <div class="jumlah-item">
+            <p>Grand Total: Rp <?= number_format($total_harga, 2, ',', '.') ?></p> <!-- Menampilkan total harga -->
+        </div>
+    </div>
 
 </div>
 </body>
@@ -122,3 +141,4 @@ $namaweb = $builder->select('nama_website')
 <script>
   window.print();
 </script>
+

@@ -135,14 +135,14 @@ class Transaksi extends BaseController
         if (session()->get('level') == 1) {
             $model=new M_transaksi();
 
-            $data['title'] = 'Laporan Penjualan';
-            $data['desc'] = 'Anda dapat mengprint Data Penjualan di Menu ini.';      
-            $data['subtitle'] = 'Print Laporan Penjualan';             
+            $data['title'] = 'Laporan Transaksi';
+            $data['desc'] = 'Anda dapat mengprint Data Transaksi di Menu ini.';      
+            $data['subtitle'] = 'Print Laporan Transaksi';             
 
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/partial/side_menu');
             echo view('hopeui/partial/top_menu');
-            echo view('hopeui/laporan_penjualan/menu_laporan', $data);
+            echo view('hopeui/laporan_transaksi/menu_laporan', $data);
             echo view('hopeui/partial/footer');
         }else {
             return redirect()->to('/');
@@ -158,13 +158,13 @@ class Transaksi extends BaseController
             $akhir = $this->request->getPost('akhir');
 
             // Get data absensi kantor berdasarkan filter
-            $data['penjualan'] = $model->getAllPenjualanPeriode($awal, $akhir);
+            $data['transaksi'] = $model->getAllTransaksiPeriode($awal, $akhir);
             $data['awal'] = $awal;
             $data['akhir'] = $akhir;
             
-            $data['title'] = 'Laporan Penjualan';
+            $data['title'] = 'Laporan Transaksi';
             echo view('hopeui/partial/header', $data);
-            echo view('hopeui/laporan_penjualan/print_windows_view', $data);
+            echo view('hopeui/laporan_transaksi/print_windows_view', $data);
             echo view('hopeui/partial/footer_print');  
         } else {
             return redirect()->to('/');
@@ -180,7 +180,7 @@ class Transaksi extends BaseController
             $akhir = $this->request->getPost('akhir');
 
             // Get data absensi kantor berdasarkan filter
-            $data['penjualan'] = $model->getAllPenjualanPeriode($awal, $akhir);
+            $data['transaksi'] = $model->getAllTransaksiPeriode($awal, $akhir);
             $data['awal'] = $awal;
             $data['akhir'] = $akhir;
             
@@ -188,13 +188,13 @@ class Transaksi extends BaseController
             $dompdf = new Dompdf();
 
             // Set the HTML content for the PDF
-            $data['title'] = 'Laporan Penjualan';
-            $dompdf->loadHtml(view('hopeui/laporan_penjualan/print_pdf_view',$data));
+            $data['title'] = 'Laporan Transaksi';
+            $dompdf->loadHtml(view('hopeui/laporan_transaksi/print_pdf_view',$data));
             $dompdf->setPaper('A4','landscape');
             $dompdf->render();
             
             // Generate file name with start and end date
-            $file_name = 'laporan_penjualan_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
+            $file_name = 'laporan_transaksi_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
 
             // Output the generated PDF (inline or attachment)
             $dompdf->stream($file_name, ['Attachment' => 0]);
@@ -212,7 +212,7 @@ class Transaksi extends BaseController
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
 
-            $penjualan = $model->getAllPenjualanPeriode($awal, $akhir);
+            $transaksi = $model->getAllTransaksiPeriode($awal, $akhir);
 
             $spreadsheet = new Spreadsheet();
 
@@ -221,7 +221,7 @@ class Transaksi extends BaseController
             $sheet->getDefaultRowDimension()->setRowHeight(20);
 
             $sheet->mergeCells('A1:F1');
-            $sheet->setCellValue('A1', 'Data Laporan Penjualan');
+            $sheet->setCellValue('A1', 'Data Laporan Transaksi');
 
             $periode = date('d F Y', strtotime($awal)) . ' - ' . date('d F Y', strtotime($akhir));
             $sheet->mergeCells('A2:F2');
@@ -231,28 +231,28 @@ class Transaksi extends BaseController
 
             // Set the header row values
             $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
-            $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Produk');
-            $sheet->setCellValueByColumnAndRow(3, 4, 'Jumlah Produk');
-            $sheet->setCellValueByColumnAndRow(4, 4, 'Subtotal');
+            $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Permainan');
+            $sheet->setCellValueByColumnAndRow(3, 4, 'Durasi');
+            $sheet->setCellValueByColumnAndRow(4, 4, 'Tanggal Transaksi');
             $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
-            $sheet->setCellValueByColumnAndRow(6, 4, 'Tanggal Penjualan');
+            $sheet->setCellValueByColumnAndRow(6, 4, 'Subtotal');
 
             // Fill the data into the worksheet
             $row = 5;
             $no = 1;
-            foreach ($penjualan as $riz) {
+            foreach ($transaksi as $riz) {
                 $sheet->setCellValueByColumnAndRow(1, $row, $no++);
-                $sheet->setCellValueByColumnAndRow(2, $row, $riz->NamaProduk);
-                $sheet->setCellValueByColumnAndRow(3, $row, $riz->JumlahProduk . ' buah');
+                $sheet->setCellValueByColumnAndRow(2, $row, $riz->nama_permainan);
+                $sheet->setCellValueByColumnAndRow(3, $row, $riz->durasi . ' jam');
 
                 // Mengganti koma dengan titik dan mengonversi ke float
-                $subtotal = str_replace(',', '', $riz->Subtotal);
+                $subtotal = str_replace(',', '', $riz->subtotal);
                 $subtotal = floatval($subtotal);
 
                 // Mengisi sel dengan nilai yang diformat sebagai accounting
-                $sheet->setCellValueByColumnAndRow(4, $row, $subtotal);
+                $sheet->setCellValueByColumnAndRow(4, $row, date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)));
                 $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
-                $sheet->setCellValueByColumnAndRow(6, $row, date('d F Y, H:i', strtotime($riz->created_at_detailpenjualan)));
+                $sheet->setCellValueByColumnAndRow(6, $row, $subtotal);
 
                 $row++;
             }
@@ -290,10 +290,10 @@ class Transaksi extends BaseController
             ];
 
 
-        $lastRow = count($penjualan) + 4; // Add 4 for the header rows
+        $lastRow = count($transaksi) + 4; // Add 4 for the header rows
         $sheet->getStyle('A4:F' . $lastRow)->applyFromArray($styleArray);
         $sheet->getStyle('A5:A' . $lastRow)->applyFromArray($alignmentArray);
-        $sheet->getStyle('D5:D' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
+        $sheet->getStyle('F5:F' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
 
         $sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -305,7 +305,7 @@ class Transaksi extends BaseController
         $spreadsheet->getActiveSheet()->setShowGridlines(false);
 
         // Generate file name with start and end date
-        $file_name = 'laporan_penjualan_' . str_replace('-', '', $awal) . '-' . str_replace('-', '', $akhir) . '.xlsx';
+        $file_name = 'laporan_transaksi_' . str_replace('-', '', $awal) . '-' . str_replace('-', '', $akhir) . '.xlsx';
 
         // Create the Excel writer and save the file
         $writer = new Xlsx($spreadsheet);
@@ -331,12 +331,12 @@ public function export_windows_per_hari()
         $tanggal = $this->request->getPost('tanggal');
 
             // Get data penjualan berdasarkan tanggal
-        $data['penjualan'] = $model->getAllPenjualanPerHari($tanggal);
+        $data['transaksi'] = $model->getAllTransaksiPerHari($tanggal);
         $data['tanggal'] = $tanggal;
 
-        $data['title'] = 'Laporan Penjualan';
+        $data['title'] = 'Laporan Transaksi';
         echo view('hopeui/partial/header', $data);
-        echo view('hopeui/laporan_penjualan/print_windows_view', $data);
+        echo view('hopeui/laporan_transaksi/print_windows_view', $data);
         echo view('hopeui/partial/footer_print');
     } else {
         return redirect()->to('/');
@@ -351,20 +351,20 @@ public function export_pdf_per_hari()
         $tanggal = $this->request->getPost('tanggal');
 
             // Get data penjualan berdasarkan tanggal
-        $data['penjualan'] = $model->getAllPenjualanPerHari($tanggal);
+        $data['transaksi'] = $model->getAllTransaksiPerHari($tanggal);
         $data['tanggal'] = $tanggal;
 
             // Load the dompdf library
         $dompdf = new Dompdf();
 
             // Set the HTML content for the PDF
-        $data['title'] = 'Laporan Penjualan';
-        $dompdf->loadHtml(view('hopeui/laporan_penjualan/print_pdf_view',$data));
+        $data['title'] = 'Laporan Transaksi';
+        $dompdf->loadHtml(view('hopeui/laporan_transaksi/print_pdf_view',$data));
         $dompdf->setPaper('A4','landscape');
         $dompdf->render();
 
             // Generate file name with start and end date
-        $file_name = 'laporan_penjualan_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
+        $file_name = 'laporan_transaksi_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
 
             // Output the generated PDF (inline or attachment)
         $dompdf->stream($file_name, ['Attachment' => 0]);
@@ -380,88 +380,88 @@ public function export_excel_per_hari()
 
         $tanggal = $this->request->getPost('tanggal');
 
-        $penjualan = $model->getAllPenjualanPerHari($tanggal);
+        $transaksi = $model->getAllTransaksiPerHari($tanggal);
 
         $spreadsheet = new Spreadsheet();
 
             // Get the active worksheet and set the default row height for header row
-        $sheet = $spreadsheet->getActiveSheet();
-        $sheet->getDefaultRowDimension()->setRowHeight(20);
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->getDefaultRowDimension()->setRowHeight(20);
 
-        $sheet->mergeCells('A1:F1');
-        $sheet->setCellValue('A1', 'Data Laporan Penjualan');
+            $sheet->mergeCells('A1:F1');
+            $sheet->setCellValue('A1', 'Data Laporan Transaksi');
 
-        $periode = date('d F Y', strtotime($tanggal));
-        $sheet->mergeCells('A2:F2');
-        $sheet->setCellValue('A2', 'Periode: ' . $periode);
+            $periode = date('d F Y', strtotime($tanggal));
+            $sheet->mergeCells('A2:F2');
+            $sheet->setCellValue('A2', 'Periode: ' . $periode);
 
             // $sheet->setCellValue('G3', 'Jumlah Penjualan : ' . count($penjualan));
 
             // Set the header row values
-        $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
-        $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Produk');
-        $sheet->setCellValueByColumnAndRow(3, 4, 'Jumlah Produk');
-        $sheet->setCellValueByColumnAndRow(4, 4, 'Subtotal');
-        $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
-        $sheet->setCellValueByColumnAndRow(6, 4, 'Tanggal Penjualan');
+            $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
+            $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Permainan');
+            $sheet->setCellValueByColumnAndRow(3, 4, 'Durasi');
+            $sheet->setCellValueByColumnAndRow(4, 4, 'Tanggal Transaksi');
+            $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
+            $sheet->setCellValueByColumnAndRow(6, 4, 'Subtotal');
 
             // Fill the data into the worksheet
-        $row = 5;
-        $no = 1;
-        foreach ($penjualan as $riz) {
-            $sheet->setCellValueByColumnAndRow(1, $row, $no++);
-            $sheet->setCellValueByColumnAndRow(2, $row, $riz->NamaProduk);
-            $sheet->setCellValueByColumnAndRow(3, $row, $riz->JumlahProduk . ' buah');
+            $row = 5;
+            $no = 1;
+            foreach ($transaksi as $riz) {
+                $sheet->setCellValueByColumnAndRow(1, $row, $no++);
+                $sheet->setCellValueByColumnAndRow(2, $row, $riz->nama_permainan);
+                $sheet->setCellValueByColumnAndRow(3, $row, $riz->durasi . ' jam');
 
                 // Mengganti koma dengan titik dan mengonversi ke float
-            $subtotal = str_replace(',', '', $riz->Subtotal);
-            $subtotal = floatval($subtotal);
+                $subtotal = str_replace(',', '', $riz->subtotal);
+                $subtotal = floatval($subtotal);
 
                 // Mengisi sel dengan nilai yang diformat sebagai accounting
-            $sheet->setCellValueByColumnAndRow(4, $row, $subtotal);
-            $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
-            $sheet->setCellValueByColumnAndRow(6, $row, date('d F Y, H:i', strtotime($riz->created_at_detailpenjualan)));
+                $sheet->setCellValueByColumnAndRow(4, $row, date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)));
+                $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
+                $sheet->setCellValueByColumnAndRow(6, $row, $subtotal);
 
-            $row++;
-        }
+                $row++;
+            }
 
         // Apply the Excel styling
-        $sheet->getStyle('A1')->getAlignment()
-        ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-        ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        $sheet->getStyle('A1')->getFont()->setSize(14)->setBold(true);
+            $sheet->getStyle('A1')->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
+            ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            $sheet->getStyle('A1')->getFont()->setSize(14)->setBold(true);
 
-        $sheet->getStyle('A2')->getFont()->setBold(true);
-        $sheet->getStyle('A2')->getAlignment()
-        ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-        ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            $sheet->getStyle('A2')->getFont()->setBold(true);
+            $sheet->getStyle('A2')->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
+            ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
-        $sheet->getStyle('A4:F4')->getFont()->setBold(true);
-        $sheet->getStyle('A4:F4')->getAlignment()
-        ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-        ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
+            $sheet->getStyle('A4:F4')->getFont()->setBold(true);
+            $sheet->getStyle('A4:F4')->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
+            ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
 
-        $borderArray = [
-            'borders' => [
-                'allBorders' => [
-                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
-                    'color' => ['argb' => 'FF000000'],
+            $styleArray = [
+                'borders' => [
+                    'allBorders' => [
+                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'color' => ['argb' => 'FF000000'],
+                    ],
                 ],
-            ],
-        ];
+            ];
 
-        $alignmentArray = [
-            'alignment' => [
-                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-            ],
-        ];
+            $alignmentArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                ],
+            ];
 
 
-        $lastRow = count($penjualan) + 4; // Add 4 for the header rows
-        $sheet->getStyle('A4:F' . $lastRow)->applyFromArray($borderArray);
+        $lastRow = count($transaksi) + 4; // Add 4 for the header rows
+        $sheet->getStyle('A4:F' . $lastRow)->applyFromArray($styleArray);
         $sheet->getStyle('A5:A' . $lastRow)->applyFromArray($alignmentArray);
-        $sheet->getStyle('D5:D' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
+        $sheet->getStyle('F5:F' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
 
         $sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -473,7 +473,7 @@ public function export_excel_per_hari()
         $spreadsheet->getActiveSheet()->setShowGridlines(false);
 
         // Generate file name with start and end date
-        $file_name = 'laporan_penjualan_' . str_replace('-', '', $tanggal) . '.xlsx';
+        $file_name = 'laporan_transaksi_' . str_replace('-', '', $tanggal) . '.xlsx';
 
         // Create the Excel writer and save the file
         $writer = new Xlsx($spreadsheet);

@@ -106,9 +106,9 @@ class M_transaksi extends Model
 	// --------------------------------------- REFRESH OTOMATIS --------------------------------------
 
 	public function getWaktuTerakhir()
-    {
-        return $this->db->table('transaksi')->selectMax('created_at')->get()->getRow()->created_at;
-    }
+	{
+		return $this->db->table('transaksi')->selectMax('created_at')->get()->getRow()->created_at;
+	}
 
 	public function hitungDataBaruSejakPermintaanSebelumnya($timestamp_terakhir)
 	{
@@ -122,33 +122,33 @@ class M_transaksi extends Model
 	
 	// ---------------------------------------- PRINT LAPORAN ----------------------------------------
 
-	public function getAllPenjualanPeriode($tanggal_awal, $tanggal_akhir)
+	public function getAllTransaksiPeriode($tanggal_awal, $tanggal_akhir)
 	{
-		return $this->db->table('detailpenjualan')
-		->select('detailpenjualan.*, penjualan.*, produk.*, user.*') 
-		->select('detailpenjualan.created_at AS created_at_detailpenjualan')
-		->join('penjualan', 'detailpenjualan.PenjualanID = penjualan.PenjualanID')
-		->join('produk', 'detailpenjualan.ProdukID = produk.ProdukID')
-		->join('user', 'penjualan.user = user.id_user')
-		->where('detailpenjualan.created_at >=', $tanggal_awal)
-		->where('detailpenjualan.created_at <=', $tanggal_akhir)
-		->where('detailpenjualan.deleted_at', null)
-		->orderBy('detailpenjualan.created_at', 'DESC')
+		return $this->db->table('detail_transaksi')
+		->select('detail_transaksi.*, transaksi.*, permainan.*, user.*') 
+		->select('detail_transaksi.created_at AS created_at_detail_transaksi')
+		->join('transaksi', 'detail_transaksi.transaksi_id = transaksi.id_transaksi')
+		->join('permainan', 'detail_transaksi.permainan_id = permainan.id_permainan')
+		->join('user', 'transaksi.user = user.id_user')
+		->where('detail_transaksi.created_at >=', $tanggal_awal)
+		->where('detail_transaksi.created_at <=', $tanggal_akhir)
+		->where('detail_transaksi.deleted_at', null)
+		->orderBy('detail_transaksi.created_at', 'DESC')
 		->get()
 		->getResult();
 	}
 
-	public function getAllPenjualanPerHari($tanggal)
+	public function getAllTransaksiPerHari($tanggal)
 	{
-		return $this->db->table('detailpenjualan')
-		->select('detailpenjualan.*, penjualan.*, produk.*, user.*')
-		->select('detailpenjualan.created_at AS created_at_detailpenjualan') 
-		->join('penjualan', 'detailpenjualan.PenjualanID = penjualan.PenjualanID')
-		->join('produk', 'detailpenjualan.ProdukID = produk.ProdukID')
-		->join('user', 'penjualan.user = user.id_user')
-		->where('DATE(detailpenjualan.created_at)', $tanggal)
-		->where('detailpenjualan.deleted_at', null)
-		->orderBy('detailpenjualan.created_at', 'DESC')
+		return $this->db->table('detail_transaksi')
+		->select('detail_transaksi.*, transaksi.*, permainan.*, user.*') 
+		->select('detail_transaksi.created_at AS created_at_detail_transaksi')
+		->join('transaksi', 'detail_transaksi.transaksi_id = transaksi.id_transaksi')
+		->join('permainan', 'detail_transaksi.permainan_id = permainan.id_permainan')
+		->join('user', 'transaksi.user = user.id_user')
+		->where('DATE(detail_transaksi.created_at)', $tanggal)
+		->where('detail_transaksi.deleted_at', null)
+		->orderBy('detail_transaksi.created_at', 'DESC')
 		->get()
 		->getResult();
 	}

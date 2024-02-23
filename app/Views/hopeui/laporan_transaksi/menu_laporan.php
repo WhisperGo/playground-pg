@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" id="printFormAwalAkhir" action="<?= base_url('penjualan/export') ?>">
+                    <form method="post" id="printFormAwalAkhir" action="<?= base_url('transaksi/export') ?>">
                         <div class="form-group">
                             <label class="form-label" for="email">Tanggal Awal:</label>
                             <input type="date" class="form-control" id="awal" name="awal" required>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" id="printFormTanggal" action="<?= base_url('penjualan/export') ?>">
+                    <form method="post" id="printFormTanggal" action="<?= base_url('transaksi/export') ?>">
                         <div class="form-group">
                             <label class="form-label" for="email">Tanggal :</label>
                             <input type="date" class="form-control" id="tanggal" name="tanggal" required>
@@ -58,10 +58,10 @@
     function setAction(action) {
         if (action === 'windows' || action === 'excel' || action === 'pdf') {
             document.getElementById("aksiAwalAkhir").value = "aksi_print_" + action;
-            document.getElementById("printFormAwalAkhir").action = "<?= base_url('penjualan/export') ?>_" + action;
+            document.getElementById("printFormAwalAkhir").action = "<?= base_url('transaksi/export') ?>_" + action;
         } else if (action === 'windows_per_hari' || action === 'excel_per_hari' || action === 'pdf_per_hari'){
             document.getElementById("aksiTanggal").value = "aksi_print_per_hari";
-            document.getElementById("printFormTanggal").action = "<?= base_url('penjualan/export') ?>_" + action;
+            document.getElementById("printFormTanggal").action = "<?= base_url('transaksi/export') ?>_" + action;
         }
     }
 </script>

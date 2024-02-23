@@ -7,14 +7,25 @@ $namaweb = $builder->select('nama_website')
 ->get()
 ->getRow();
 
+$builder = $db->table('website');
+$logo = $builder->select('*')
+->where('deleted_at', null)
+->get()
+->getRow();
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$title?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title><?=$title?></title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?=base_url('logo/favicon/'.$logo->favicon_website)?>" />
+  
+
     <style>
         .header {
             text-align: center;
@@ -61,13 +72,13 @@ $namaweb = $builder->select('nama_website')
     <h3 class="text-center mb-4"><?= $title ?></h3>
 
     <div class="custom-paragraph">
-    <?php if ($awal && $akhir) : ?>
-        <p class="text-center">Laporan detail penjualan dalam rentang tanggal berikut:</p>
-        <p class="text-center">Periode : <?= date('d M Y', strtotime($awal)) . ' - ' . date('d M Y', strtotime($akhir))?></p>
-    <?php elseif ($tanggal) : ?>
-       <p class="text-center">Laporan detail penjualan pada tanggal berikut:</p>
-       <p class="text-center">Periode : <?= date('d M Y', strtotime($tanggal))?></p>
-   <?php endif; ?>
+        <?php if ($awal && $akhir) : ?>
+            <p class="text-center">Laporan detail transaksi dalam rentang tanggal berikut:</p>
+            <p class="text-center">Periode : <?= date('d M Y', strtotime($awal)) . ' - ' . date('d M Y', strtotime($akhir))?></p>
+        <?php elseif ($tanggal) : ?>
+           <p class="text-center">Laporan detail transaksi pada tanggal berikut:</p>
+           <p class="text-center">Periode : <?= date('d M Y', strtotime($tanggal))?></p>
+       <?php endif; ?>
    </div>
 
    <div class="table-responsive">
@@ -75,31 +86,39 @@ $namaweb = $builder->select('nama_website')
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Produk</th>
-                <th>Jumlah Produk</th>
-                <th>Subtotal</th>
+                <th>Nama Permainan</th>
+                <th>Durasi</th>
+                <th>Tanggal Transaksi</th>
                 <th>Kasir</th>
-                <th>Tanggal Penjualan</th>
+                <th>Subtotal</th>
             </tr>
         </thead>
         <tbody>
-            <?php $no = 1; foreach ($penjualan as $riz) { ?>
-                <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $riz->NamaProduk ?></td>
-                    <td><?= $riz->JumlahProduk ?> buah</td>
-                    <td>Rp <?= number_format($riz->Subtotal, 2, ',', '.') ?></td>
-                    <td><?= $riz->username ?></td>
-                    <td><?= date('d F Y, H:i', strtotime($riz->created_at_detailpenjualan)) ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</div>
+         <?php 
+         $no = 1; 
+                $total_harga = 0; // Variabel untuk menyimpan total harga
+                foreach ($transaksi as $riz) { 
+                    $total_harga += $riz->subtotal; // Menambahkan subtotal ke total harga
+                    ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $riz->nama_permainan ?></td>
+                        <td><?= $riz->durasi ?> jam</td>
+                        <td><?= date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)) ?></td>
+                        <td><?= $riz->username ?></td>
+                        <td>Rp <?= number_format($riz->subtotal, 2, ',', '.') ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 
-<div class="jumlah-container mt-5">
+    <div class="jumlah-container mt-5">
+       <div class="jumlah-item">
+        <p>Jumlah transaksi: <?= count($transaksi) ?></p>
+    </div>
     <div class="jumlah-item">
-        <p>Jumlah penjualan: <?= count($penjualan) ?></p>
+        <p>Grand Total: Rp <?= number_format($total_harga, 2, ',', '.') ?></p> <!-- Menampilkan total harga -->
     </div>
 </div>
 

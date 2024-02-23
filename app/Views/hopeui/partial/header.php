@@ -1,3 +1,15 @@
+<?php
+
+$db = \Config\Database::connect();
+$builder = $db->table('website');
+$logo = $builder->select('*')
+->where('deleted_at', null)
+->get()
+->getRow();
+
+?>
+
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -6,8 +18,7 @@
   <title><?=$title?></title>
   
   <!-- Favicon -->
-  <!-- <link rel="shortcut icon" href="<?=base_url('assets/images/favicon.ico')?>" /> -->
-  <link rel="shortcut icon" href="<?=base_url('logo/favicon/favicon_contoh.svg')?>" />
+  <link rel="shortcut icon" href="<?=base_url('logo/favicon/'.$logo->favicon_website)?>" />
   
   <!-- Library / Plugin Css Build -->
   <link rel="stylesheet" href="<?=base_url('assets/css/core/libs.min.css')?>" />
