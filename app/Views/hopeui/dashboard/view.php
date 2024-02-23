@@ -30,12 +30,12 @@ $namaweb = $builder->select('nama_website')
                         <i class="fa-regular fa-database fa-xl card-slie-arrow" style="top: 55px;"></i>
                      </div>
                      <div class="progress-detail">
-                        <p class="mb-2">Total Produk</p>
-                        <h4 class="counter"><?= $jumlah_produk ?></h4>
+                        <p class="mb-2">Total Permainan</p>
+                        <h4 class="counter"><?= $jumlah_permainan ?></h4>
                      </div>
                   </div>
                   <div class="text-center">
-                     <a href="<?=base_url('produk')?>" class="btn btn-outline-primary rounded-pill mt-3">Detail Produk</a>
+                     <a href="<?=base_url('permainan')?>" class="btn btn-outline-primary rounded-pill mt-3">Detail Permainan</a>
                   </div>
                </div>
             </li>
@@ -64,12 +64,12 @@ $namaweb = $builder->select('nama_website')
                         <i class="fa-regular fa-user fa-xl card-slie-arrow" style="top: 55px;"></i>
                      </div>
                      <div class="progress-detail">
-                        <p class="mb-2">Total Penjualan</p>
-                        <h4 class="counter"><?= $jumlah_penjualan ?></h4>
+                        <p class="mb-2">Total Transaksi</p>
+                        <h4 class="counter"><?= $jumlah_transaksi ?></h4>
                      </div>
                   </div>
                   <div class="text-center">
-                     <a href="<?=base_url('penjualan')?>" class="btn btn-outline-success rounded-pill mt-3">Detail Penjualan</a>
+                     <a href="<?=base_url('transaksi')?>" class="btn btn-outline-success rounded-pill mt-3">Detail Transaksi</a>
                   </div>
                </div>
             </li>

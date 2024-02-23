@@ -7,6 +7,13 @@ $namaweb = $builder->select('nama_website')
 ->get()
 ->getRow();
 
+$builder = $db->table('website');
+$logo = $builder->select('*')
+->where('deleted_at', null)
+->get()
+->getRow();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +29,9 @@ $namaweb = $builder->select('nama_website')
             .no-print {
                 display: none !important;
             }
+        }
+        body {
+            padding: 20px; /* Tambahkan padding di seluruh area kiri, kanan, atas, dan bawah */
         }
         .header {
             text-align: center;
@@ -64,45 +74,45 @@ $namaweb = $builder->select('nama_website')
 
 <body>
     <div class="header">
-        <img src="<?=base_url('logo/logo_pdf/logo_pdf_contoh.svg')?>"> 
+        <img src="<?=base_url('logo/logo_pdf/'.$logo->logo_pdf)?>">
         <h3 class="judul mt-2"><?=$title?></h3>
         <h4 class="subjudul "><?=$namaweb->nama_website?></h4>
     </div>
 
     <?php foreach ($jojo as $riz) { ?>
-        <p>Kasir : <?=$riz->username?></p>
-        <p>Tanggal : <?=$riz->created_at?></p>
+        <p class="text-center">Kasir : <?=$riz->username?></p>
+        <p class="text-center">Tanggal : <?=$riz->created_at?></p>
 
 
-        <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p class="text-center">---------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
         <div class="table-responsive-lg">
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">Barang</th>
-                        <th class="text-center" scope="col">Qty</th>
+                        <th scope="col">Permainan</th>
+                        <th class="text-center" scope="col">Durasi</th>
                         <th class="text-center" scope="col">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($jojo2 as $data) { ?>
                         <tr>
-                            <td><?=$data->NamaProduk?></td>
-                            <td class="text-center"><?=$data->JumlahProduk?></td>
-                            <td class="text-center">Rp <?= number_format($data->Subtotal, 0, ',', '.') ?></td>
+                            <td><?=$data->nama_permainan?></td>
+                            <td class="text-center"><?=$data->durasi?> jam</td>
+                            <td class="text-center">Rp <?= number_format($data->subtotal, 0, ',', '.') ?></td>
                         </tr>
                     <?php } ?>
                     <tr>
                         <td class="total-label" colspan="2">Total :</td>
-                        <td class="text-center">Rp <?=number_format($riz->TotalHarga, 0, ',', '.')?></td>
+                        <td class="text-center">Rp <?=number_format($riz->total_harga, 0, ',', '.')?></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     <?php } ?>
 
-    <p class="mt-3">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+    <p class="text-center mt-3">---------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
     <h4 class="text-center mb-3">Terima Kasih Atas Kunjungan Anda</h4>
 
 </div>
@@ -112,3 +122,4 @@ $namaweb = $builder->select('nama_website')
 <script>
     window.print()
 </script>
+

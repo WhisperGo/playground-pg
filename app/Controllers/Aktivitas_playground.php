@@ -11,7 +11,13 @@ class Aktivitas_playground extends BaseController
         if (session()->get('level') == 1) {
             $model = new M_transaksi();
 
-            $on='transaksi.pelanggan_id = pelanggan.PelangganID';
+            // Mendapatkan waktu terakhir
+            $waktu_terakhir = $model->getWaktuTerakhir();
+
+            // Memanggil metode untuk menentukan apakah ada data baru
+            $data['ada_data_baru'] = $this->metode_pengambilan_data_baru($waktu_terakhir);
+
+            $on = 'transaksi.pelanggan_id = pelanggan.PelangganID';
             $data['jojo'] = $model->join2aktivitas('transaksi', 'pelanggan', $on);
 
             $data['title'] = 'Aktivitas Playground';
@@ -19,12 +25,29 @@ class Aktivitas_playground extends BaseController
             $data['subtitle1'] = 'Masih Bermain';
             $data['subtitle2'] = 'Selesai Bermain';
 
+            $data['waktu_terakhir'] = $waktu_terakhir;
+
             echo view('hopeui/partial/header', $data);
-            echo view('hopeui/partial/top_menu');
+            echo view('hopeui/partial/top_menu_special');
             echo view('hopeui/aktivitas/view', $data);
             echo view('hopeui/partial/footer');
         } else {
             return redirect()->to('/');
+        }
+    }
+
+    public function metode_pengambilan_data_baru($waktu_terakhir)
+    {
+        $model = new M_transaksi();
+
+        // Misalnya, hitung jumlah data baru yang dimasukkan sejak waktu terakhir pembaruan data
+        $jumlah_data_baru = $model->hitungDataBaruSejakPermintaanSebelumnya($waktu_terakhir);
+
+        // Jika ada data baru, kirimkan respon 'ada_data_baru' ke client
+        if ($jumlah_data_baru > 0) {
+            return 'ada_data_baru';
+        } else {
+            return 'tidak_ada_data_baru';
         }
     }
 

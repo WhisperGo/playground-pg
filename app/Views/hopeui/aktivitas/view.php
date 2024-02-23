@@ -178,3 +178,20 @@
             updateCountdown();
         }
     </script>
+
+    <script>
+        // Fungsi untuk melakukan polling AJAX setiap 5 detik
+        setInterval(function() {
+            $.ajax({
+                url: 'aktivitas_playground/metode_pengambilan_data_baru/<?= $waktu_terakhir ?>', // Menggunakan $waktu_terakhir dalam URL
+                type: 'GET',
+                success: function(response) {
+                    // Periksa apakah ada data baru
+                    if (response === 'ada_data_baru') {
+                        // Jika ada, reload halaman
+                        location.reload();
+                    }
+                }
+            });
+        }, 5000); // Setiap 5 detik
+    </script>

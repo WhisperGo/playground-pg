@@ -1,0 +1,594 @@
+CRITICAL - 2024-02-23 21:09:52 --> Call to undefined method App\Models\M_detail_transaksi::hitungSemuaBulanIni
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Dashboard.php(20): CodeIgniter\Model->__call('hitungSemuaBula...', Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-23 21:09:57 --> Unknown column 'tanggal_transaksi' in 'where clause'
+CRITICAL - 2024-02-23 21:13:27 --> Class 'App\Models\M_penjualan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->cetak_invoice('20')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:13:34 --> Class 'App\Models\M_penjualan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->cetak_invoice('20')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-23 21:15:20 --> Table 'playground_pg.penjualan' doesn't exist
+CRITICAL - 2024-02-23 21:15:20 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(115): App\Models\M_detail_transaksi->join3id('penjualan', 'pelanggan', 'user', 'penjualan.Pelan...', 'penjualan.user ...', '20')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->cetak_invoice('20')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-23 21:17:35 --> Unknown column 'transaksi.transaksi_id' in 'where clause'
+CRITICAL - 2024-02-23 21:17:35 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(115): App\Models\M_transaksi->join3id('transaksi', 'pelanggan', 'user', 'transaksi.pelan...', 'transaksi.user ...', '20')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->cetak_invoice('20')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-23 21:51:25 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:51:29 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:51:35 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:51:40 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:51:45 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:51:50 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:51:55 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:00 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:05 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:10 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:17 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:22 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:28 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:33 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:38 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:43 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:48 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:53 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:52:58 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:02 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:07 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:10 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:13 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:18 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:23 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:28 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:33 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:38 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:43 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:48 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:53 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:53:58 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 21:54:03 --> Call to a member function hitungDataBaruSejakPermintaanSebelumnya() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:08 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:14 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:19 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:24 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:29 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:34 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:39 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:44 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:49 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:21:55 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:00 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:05 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:10 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:15 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:20 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:25 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:30 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:35 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:40 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:45 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:50 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:22:55 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:00 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:05 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:10 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:15 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:20 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:25 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:30 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:35 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:40 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:45 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:50 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:23:55 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:00 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:05 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:10 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:15 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:20 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:25 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:30 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:35 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:40 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:45 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:50 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2024-02-23 22:24:55 --> Too few arguments to function App\Controllers\Aktivitas_playground::metode_pengambilan_data_baru(), 0 passed in C:\xampp\htdocs\playground-pg\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Aktivitas_playground->metode_pengambilan_data_baru()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Aktivitas_playground))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}

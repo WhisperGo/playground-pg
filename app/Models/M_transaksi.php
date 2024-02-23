@@ -78,6 +78,48 @@ class M_transaksi extends Model
 		->getResult();
 	}
 
+	public function join3id($table1, $table2, $table3, $on, $on2, $id)
+	{
+		return $this->db->table($table1)
+		->join($table2, $on, 'left')
+		->join($table3, $on2, 'left')
+		->where("$table1.deleted_at", null)
+		->where("$table2.deleted_at", null)
+		->where("$table3.deleted_at", null)
+		->where('transaksi.id_transaksi', $id)
+		->get()
+		->getResult();
+	}
+
+
+	public function hitungSemuaHariIni()
+	{
+	    $hariIni = date('Y-m-d'); // Mengambil tanggal hari ini
+	    $besok = date('Y-m-d', strtotime('+1 day')); // Mengambil tanggal besok
+
+	    return $this->where('deleted_at', null)
+	    ->where('created_at >=', $hariIni)
+	    ->where('created_at <', $besok)
+	    ->countAllResults();
+	}
+
+	// --------------------------------------- REFRESH OTOMATIS --------------------------------------
+
+	public function getWaktuTerakhir()
+    {
+        return $this->db->table('transaksi')->selectMax('created_at')->get()->getRow()->created_at;
+    }
+
+	public function hitungDataBaruSejakPermintaanSebelumnya($timestamp_terakhir)
+	{
+    // Lakukan penghitungan jumlah data baru berdasarkan timestamp terakhir
+		return $this->db->table('transaksi')
+		->where('deleted_at', null)
+		->where('created_at >', $timestamp_terakhir)
+		->countAllResults();
+	}
+
+	
 	// ---------------------------------------- PRINT LAPORAN ----------------------------------------
 
 	public function getAllPenjualanPeriode($tanggal_awal, $tanggal_akhir)

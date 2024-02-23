@@ -58,21 +58,9 @@ class M_detail_transaksi extends Model
 		->getResult();
 	}
 
-	public function hitungSemuaBulanIni()
-	{
-    $bulanIni = date('Y-m-01'); // Mengambil tanggal awal bulan ini
-    $bulanDepan = date('Y-m-01', strtotime('+1 month')); // Mengambil tanggal awal bulan depan
-
-    return $this->where('deleted_at', null)
-    ->where('created_at >=', $bulanIni)
-    ->where('created_at <', $bulanDepan)
-    ->countAllResults();
-}
-
-
 	//CI4 Model
-public function deletee($id)
-{
-	return $this->delete($id);
-}
+	public function deletee($id)
+	{
+		return $this->delete($id);
+	}
 }

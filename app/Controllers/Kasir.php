@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\M_penjualan;
-use App\Models\M_detail_penjualan;
 use App\Models\M_permainan;
 use App\Models\M_transaksi;
+use App\Models\M_detail_transaksi;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -108,18 +107,18 @@ class Kasir extends BaseController
     public function cetak_invoice($id)
     {
         if (session()->get('level') == 1) {
-            $model = new M_penjualan();
-            $model2 = new M_detail_penjualan();
+            $model = new M_transaksi();
+            $model2 = new M_detail_transaksi();
 
-            $on='penjualan.PelangganID = pelanggan.PelangganID';
-            $on2='penjualan.user = user.id_user';
-            $data['jojo'] = $model2->join3id('penjualan', 'pelanggan', 'user', $on, $on2, $id);
+            $on='transaksi.pelanggan_id = pelanggan.PelangganID';
+            $on2='transaksi.user = user.id_user';
+            $data['jojo'] = $model->join3id('transaksi', 'pelanggan', 'user', $on, $on2, $id);
 
-            $on='detailpenjualan.PenjualanID = penjualan.PenjualanID';
-            $on2='detailpenjualan.ProdukID = produk.ProdukID';
-            $data['jojo2'] = $model2->join3id('detailpenjualan', 'penjualan', 'produk', $on, $on2, $id);
+            $on='detail_transaksi.transaksi_id = transaksi.id_transaksi';
+            $on2='detail_transaksi.permainan_id = permainan.id_permainan';
+            $data['jojo2'] = $model2->join3id('detail_transaksi', 'transaksi', 'permainan', $on, $on2, $id);
 
-            $data['title'] = 'Invoice Belanja';
+            $data['title'] = 'Invoice Playground';
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/kasir/invoice', $data);
             echo view('hopeui/partial/footer_print');  
