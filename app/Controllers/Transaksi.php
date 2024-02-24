@@ -138,6 +138,7 @@ class Transaksi extends BaseController
             $data['title'] = 'Laporan Transaksi';
             $data['desc'] = 'Anda dapat mengprint Data Transaksi di Menu ini.';      
             $data['subtitle'] = 'Print Laporan Transaksi';             
+            $data['subtitle2'] = 'Print Laporan Transaksi Per Hari';             
 
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/partial/side_menu');
