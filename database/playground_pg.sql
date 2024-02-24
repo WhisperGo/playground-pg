@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 23 Feb 2024 pada 18.35
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Host: localhost:3306
+-- Waktu pembuatan: 25 Feb 2024 pada 00.28
+-- Versi server: 10.6.16-MariaDB-0ubuntu0.22.04.1
+-- Versi PHP: 8.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,19 +36,20 @@ CREATE TABLE `detail_transaksi` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `detail_transaksi`
 --
 
 INSERT INTO `detail_transaksi` (`id_detail`, `transaksi_id`, `permainan_id`, `durasi`, `subtotal`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(23, 17, 3, 1, '10000.00', '2024-02-21 23:10:19', NULL, NULL),
-(24, 17, 2, 1, '25000.00', '2024-02-21 23:10:19', NULL, NULL),
-(25, 19, 3, 1, '10000.00', '2024-02-23 20:32:18', NULL, NULL),
-(26, 19, 2, 1, '25000.00', '2024-02-23 20:32:18', NULL, NULL),
-(27, 20, 3, 1, '10000.00', '2024-02-23 20:32:27', NULL, NULL),
-(33, 24, 3, 1, '10000.00', '2024-02-23 22:25:29', NULL, NULL);
+(23, 17, 3, 1, 10000.00, '2024-02-21 23:10:19', NULL, NULL),
+(25, 19, 3, 1, 10000.00, '2024-02-23 20:32:18', NULL, NULL),
+(26, 19, 2, 1, 25000.00, '2024-02-23 20:32:18', NULL, NULL),
+(27, 20, 3, 1, 10000.00, '2024-02-23 20:32:27', NULL, NULL),
+(33, 24, 3, 1, 10000.00, '2024-02-23 22:25:29', NULL, NULL),
+(35, 26, 1, 2, 100000.00, '2024-02-25 00:00:17', NULL, NULL),
+(36, 26, 2, 2, 50000.00, '2024-02-25 00:00:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,7 @@ CREATE TABLE `level` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `level`
@@ -70,7 +71,7 @@ CREATE TABLE `level` (
 
 INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Administrator', '2024-02-19 11:38:28', NULL, NULL),
-(2, 'Ayunan', '2024-02-20 13:20:37', '2024-02-20 13:20:42', '2024-02-20 13:20:42');
+(2, 'Petugas', '2024-02-24 22:33:23', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,14 +88,14 @@ CREATE TABLE `pelanggan` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon`, `NamaOrangtua`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Thomas', 'Perumahan Orchid', '084597651452', 'Orang Tua Thomas', '2024-02-01 21:32:30', '2024-02-02 18:15:04', NULL),
+(1, 'Thomas', 'Perumahan Orchid', '084597651452', 'Orang Tua Thomas', '2024-02-01 21:32:30', '2024-02-24 23:10:33', NULL),
 (2, 'Kevin', 'Perumahan Kevin', '08154722', 'Orang Tua Kevin', '2024-02-02 20:14:38', '2024-02-02 21:09:58', NULL),
 (3, 'Doni', 'Perumahan Doni', '0147965', 'Orang tua Doni', '2024-02-19 18:32:08', '2024-02-19 18:34:59', NULL);
 
@@ -111,18 +112,18 @@ CREATE TABLE `permainan` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `permainan`
 --
 
 INSERT INTO `permainan` (`id_permainan`, `nama_permainan`, `harga_permainan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Mandi Bola', '50000.00', '2024-02-20 11:38:52', NULL, NULL),
-(2, 'Istana perosotan', '25000.00', '2024-02-20 11:38:52', NULL, NULL),
-(3, 'Ayunan', '10000.00', '2024-02-20 13:24:40', '2024-02-20 13:27:09', NULL),
-(4, 'Jungkat-jungkit', '10000.00', '2024-02-20 20:57:58', NULL, NULL),
-(5, 'Tiang Gelantung', '10000.00', '2024-02-20 21:37:10', '2024-02-20 21:38:31', NULL);
+(1, 'Mandi Bola', 50000.00, '2024-02-20 11:38:52', NULL, NULL),
+(2, 'Istana perosotan', 25000.00, '2024-02-20 11:38:52', NULL, NULL),
+(3, 'Ayunan', 10000.00, '2024-02-20 13:24:40', '2024-02-20 13:27:09', NULL),
+(4, 'Jungkat-jungkit', 10000.00, '2024-02-20 20:57:58', NULL, NULL),
+(5, 'Tiang Gelantung', 10000.00, '2024-02-20 21:37:10', '2024-02-20 21:38:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -142,17 +143,18 @@ CREATE TABLE `transaksi` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `total_harga`, `user`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(17, 2, '2024-02-21', '23:10:18', '00:10:18', '35000.00', 1, 2, '2024-02-21 23:10:19', '2024-02-21 23:19:37', '2024-02-21 23:19:37'),
-(19, 3, '2024-02-23', '20:32:18', '20:36:40', '35000.00', 1, 2, '2024-02-23 20:32:18', NULL, NULL),
-(20, 2, '2024-02-23', '20:32:27', '20:36:40', '35000.00', 1, 2, '2024-02-23 20:32:27', NULL, NULL),
-(24, 1, '2024-02-23', '22:25:29', '23:25:29', '10000.00', 1, 1, '2024-02-23 22:25:29', NULL, NULL);
+(17, 2, '2024-02-21', '23:10:18', '00:10:18', 35000.00, 1, 2, '2024-02-21 23:10:19', '2024-02-21 23:19:37', '2024-02-21 23:19:37'),
+(19, 3, '2024-02-23', '20:32:18', '20:36:40', 35000.00, 1, 2, '2024-02-23 20:32:18', NULL, NULL),
+(20, 2, '2024-02-23', '20:32:27', '20:36:40', 35000.00, 1, 2, '2024-02-23 20:32:27', NULL, NULL),
+(24, 1, '2024-02-23', '22:25:29', '23:25:29', 10000.00, 1, 2, '2024-02-23 22:25:29', NULL, NULL),
+(26, 1, '2024-02-25', '00:00:17', '00:05:20', 150000.00, 1, 2, '2024-02-25 00:00:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -169,7 +171,7 @@ CREATE TABLE `user` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user`
@@ -177,7 +179,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Admin', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-19 11:39:27', NULL, NULL),
-(2, 'Admin 2', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-21 13:37:36', NULL, NULL);
+(2, 'Admin 2', 'c4ca4238a0b923820dcc509a6f75849b', 1, 'default.png', '2024-02-21 13:37:36', NULL, NULL),
+(3, 'Petugas', 'c4ca4238a0b923820dcc509a6f75849b', 2, 'default.png', '2024-02-24 22:41:26', '2024-02-24 23:09:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +203,7 @@ CREATE TABLE `website` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `website`
@@ -263,13 +266,13 @@ ALTER TABLE `website`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
-  MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
@@ -287,13 +290,13 @@ ALTER TABLE `permainan`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `website`
