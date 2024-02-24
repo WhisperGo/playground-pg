@@ -11,8 +11,8 @@
 
 				<div class="card-body">
 					<div class="new-user-info">
-						<form action="<?= base_url('data_level/aksi_edit')?>" method="post">
-							<input type="hidden" name="id" value="<?php echo $jojo->id_level ?>">
+						<form action="<?= base_url('data_website/aksi_edit/')?>" method="post" class="row g-3" enctype="multipart/form-data">
+							<input type="hidden" name="id" value="<?php echo $jojo->id_website ?>">
 							<div class="row">
 
 								<div class="col-md-12">
