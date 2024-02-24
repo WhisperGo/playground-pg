@@ -112,7 +112,7 @@ public function edit($id)
         $data['desc'] = 'Anda dapat mengedit Data Website di Menu ini.';      
         $data['subtitle'] = 'Edit Data Website';  
 
-        echo view('hopeui/partial/header');
+        echo view('hopeui/partial/header', $data);
         echo view('hopeui/partial/side_menu');
         echo view('hopeui/partial/top_menu');
         echo view('hopeui/data_website/edit',$data);

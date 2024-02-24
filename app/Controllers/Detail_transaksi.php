@@ -11,7 +11,7 @@ class Detail_transaksi extends BaseController
 
     public function index($id)
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model = new M_detail_transaksi();
 
             $on='detail_transaksi.transaksi_id = transaksi.id_transaksi';

@@ -7,7 +7,7 @@ class Pelanggan extends BaseController
 {
     public function index()
     {
-        if(session()->get('level')== 1) {
+        if(session()->get('level') == 1 || session()->get('level') == 2) {
             $model=new M_pelanggan();
             $data['jojo']=$model->tampil('pelanggan');
 
@@ -27,7 +27,7 @@ class Pelanggan extends BaseController
 
     public function create()
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model=new M_pelanggan();
 
             $data['title']='Data Pelanggan';
@@ -46,7 +46,7 @@ class Pelanggan extends BaseController
 
     public function aksi_create()
     { 
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $a = $this->request->getPost('nama_pelanggan');
             $b = $this->request->getPost('alamat');
             $c = $this->request->getPost('nama_orangtua');
@@ -72,7 +72,7 @@ class Pelanggan extends BaseController
 
     public function edit($id)
     { 
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model=new M_pelanggan();
             $where=array('PelangganID'=>$id);
             $data['jojo']=$model->getWhere('pelanggan',$where);
@@ -93,7 +93,7 @@ class Pelanggan extends BaseController
 
     public function aksi_edit()
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $a = $this->request->getPost('nama_pelanggan');
             $b = $this->request->getPost('alamat');
             $c = $this->request->getPost('nama_orangtua');
@@ -122,7 +122,7 @@ class Pelanggan extends BaseController
 
     public function delete($id)
     { 
-        if(session()->get('level')== 1) {
+        if(session()->get('level') == 1 || session()->get('level') == 2) {
             $model=new M_pelanggan();
             $model->deletee($id);
             return redirect()->to('pelanggan');

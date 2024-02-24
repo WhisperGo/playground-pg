@@ -13,7 +13,7 @@ class Kasir extends BaseController
 
     public function index()
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model = new M_permainan();
 
             $data['title'] = 'Kasir Pembayaran';
@@ -59,7 +59,7 @@ class Kasir extends BaseController
 
     public function aksi_create()
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $a = $this->request->getPost('pelanggan');
             $b = date('Y-m-d');
             $c = date('H:i:s');
@@ -106,7 +106,7 @@ class Kasir extends BaseController
 
     public function cetak_invoice($id)
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model = new M_transaksi();
             $model2 = new M_detail_transaksi();
 

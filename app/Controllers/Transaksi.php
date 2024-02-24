@@ -12,7 +12,7 @@ class Transaksi extends BaseController
 
     public function index()
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model = new M_transaksi();
 
             $on='transaksi.pelanggan_id = pelanggan.PelangganID';
@@ -33,7 +33,7 @@ class Transaksi extends BaseController
 
     public function create()
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model=new M_transaksi();
 
             $data['title'] = 'Data Transaksi';
@@ -54,7 +54,7 @@ class Transaksi extends BaseController
 
     public function aksi_create()
     { 
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
             $a = $this->request->getPost('nama_pelanggan');
             $b = $this->request->getPost('jam_mulai');
             $c = $this->request->getPost('jam_selesai');
@@ -78,7 +78,7 @@ class Transaksi extends BaseController
 
     public function aksi_edit($id)
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
 
             // Data yang akan disimpan
             $data1 = array(
@@ -98,7 +98,7 @@ class Transaksi extends BaseController
 
     public function aksi_edit_aktivitas($id)
     {
-        if (session()->get('level') == 1) {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
 
             // Data yang akan disimpan
             $data1 = array(
