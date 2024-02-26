@@ -30,7 +30,7 @@ $logo = $builder->select('logo_website')
       <div class="container-fluid navbar-inner">
 
        <!--Logo start-->
-       <a href="<?=base_url('dashboard')?>" class="navbar-brand">
+       <a href="<?=base_url('transaksi')?>" class="navbar-brand">
         <img src="<?=base_url('logo/logo_website/'.$logo->logo_website)?>" width="35%">
       </a>
       <!--logo End-->

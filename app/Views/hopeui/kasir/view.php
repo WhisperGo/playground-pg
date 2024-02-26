@@ -40,12 +40,12 @@
                             </div>
 
                             <div class="form-group row mt-3">
-                                <label class="control-label col-sm-3 align-self-center mb-0" style="padding-right: 0px;">Customer :</label>
+                                <label class="control-label col-sm-3 align-self-center mb-0" style="padding-right: 0px;">Pelanggan :</label>
                                 <div class="col-sm-9">
                                     <select class="form-select" id="pelanggan" name="pelanggan" style="margin-left: 20px;" required>
                                         <option>- Pilih -</option>
                                         <?php foreach ($pelanggan_list as $p) { ?>
-                                            <option value="<?= $p->PelangganID ?>"><?= $p->NamaPelanggan ?></option>
+                                            <option value="<?= $p->PelangganID ?>"><?= $p->NamaPelanggan ?>, <?= $p->Email ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>

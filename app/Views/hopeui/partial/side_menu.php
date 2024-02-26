@@ -121,6 +121,11 @@ $logo = $builder->select('logo_website')
               </a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "histori_pelanggan"){echo "active";}?>" href="<?=base_url('histori_pelanggan')?>"><i class="fa-regular fa-history"></i><span class="item-name">Histori Pelanggan</span>
+              </a>
+            </li>
+
             <li><hr class="hr-horizontal"></li>
             <li class="nav-item static-item">
               <a class="nav-link static-item disabled" tabindex="-1">
@@ -136,6 +141,19 @@ $logo = $builder->select('logo_website')
 
             <li class="nav-item">
               <a class="nav-link <?php if($uri->getSegment(1) == "transaksi" && $uri->getSegment(2) !== "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi')?>"><i class="fa-duotone fa-arrow-right-arrow-left"></i><span class="item-name">Data Transaksi</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "durasi_bermain"){echo "active";}?>" href="<?=base_url('durasi_bermain')?>"><i class="fa-regular fa-stopwatch"></i><span class="item-name">Durasi Main</span>
+              </a>
+            </li>
+
+            <li><hr class="hr-horizontal"></li>
+            <li class="nav-item static-item">
+              <a class="nav-link static-item disabled" tabindex="-1">
+                <span class="default-icon">Data Keuangan</span>
+                <!-- <span class="mini-icon">-</span> -->
               </a>
             </li>
 
