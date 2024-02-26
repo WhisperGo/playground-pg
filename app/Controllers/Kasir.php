@@ -25,6 +25,7 @@ class Kasir extends BaseController
             $data['permainan_list'] = $model->tampil('permainan');
             $data['pelanggan_list'] = $model->tampil('pelanggan');
             $data['paket_list'] = $model2->tampil('paket_permainan');
+            $data['pajak_ppn'] = $this->getPajakPPN();
 
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/partial/side_menu');
@@ -70,9 +71,21 @@ class Kasir extends BaseController
             $d = $this->request->getPost('durasi');
             $jam_selesai = date('H:i:s', strtotime("+$d hour"));
 
-            $e = $this->request->getPost('total_harga');
-            $f = $this->request->getPost('bayar');
-            $g = $this->request->getPost('kembalian');
+            $e = $this->request->getPost('pajak');
+            $f = $this->request->getPost('total_harga');
+            $g = $this->request->getPost('bayar');
+            $h = $this->request->getPost('kembalian');
+            
+
+            // Periksa apakah pelanggan masih bermain pada tanggal transaksi yang sama
+            $model = new M_transaksi();
+            $statusPelanggan = $model->getStatusPelangganOnDate($a, $b);
+
+            // Jika status pelanggan masih bermain, tampilkan pesan kesalahan dan redirect kembali
+            if ($statusPelanggan == 1) {
+                session()->setFlashdata('errorKasir', 'Pelanggan ini masih bermain. Tidak bisa menambahkan transaksi baru.');
+                return redirect()->back();
+            }
 
         // Data yang akan disimpan
             $data1 = [
@@ -80,14 +93,14 @@ class Kasir extends BaseController
                 'tanggal_transaksi' => $b,
                 'jam_mulai' => $c,
                 'jam_selesai' => $jam_selesai,
-                'total_harga' => $e,
-                'bayar' => $f,
-                'kembalian' => $g,
+                'pajak_id' => $e,
+                'total_harga' => $f,
+                'bayar' => $g,
+                'kembalian' => $h,
                 'user' => session()->get('id'),
             ];
 
         // Simpan data ke dalam database
-            $model = new M_transaksi();
             $model->simpan('transaksi', $data1);
 
         // Ambil PenjualanID dari data yang baru saja disimpan
@@ -132,6 +145,21 @@ class Kasir extends BaseController
         } else {
             return redirect()->to('/');
         }
+    }
+
+
+    // ------------------------------------------ PAJAK PPN -------------------------------------------------
+
+    public function getPajakPPN()
+    {
+        $model2 = new M_paket_permainan();
+        $pajak_list = $model2->tampil('pajak');
+        foreach ($pajak_list as $pajak) {
+            if ($pajak->nama_pajak == 'PPN') {
+                return $pajak; // Mengembalikan persen pajak PPN jika ditemukan
+            }
+        }
+        // return 0; // Mengembalikan nilai default jika tidak ditemukan
     }
 
 }

@@ -166,11 +166,32 @@ class M_transaksi extends Model
 		->getResult();
 	}
 
+	// -------------------------------- CEK STATUS ---------------------------------------
+
+	public function getStatusPelangganOnDate($pelanggan_id, $tanggal)
+	{
+	    $builder = $this->db->table('transaksi');
+	    $builder->select('status');
+	    $builder->where('pelanggan_id', $pelanggan_id);
+	    $builder->where('tanggal_transaksi', $tanggal);
+	    $builder->orderBy('id_transaksi', 'DESC'); // Mengurutkan transaksi berdasarkan id_transaksi secara descending agar transaksi terbaru muncul pertama
+	    $builder->limit(1); // Hanya ambil satu transaksi terbaru
+
+	    $query = $builder->get();
+	    $result = $query->getRow();
+
+	    if ($result) {
+	        return $result->status; // Mengembalikan status dari transaksi terbaru
+	    } else {
+	        // Jika tidak ada transaksi pada tanggal tersebut, maka status default adalah 0 atau sesuai dengan kebutuhan Anda
+	        return null; // Misalnya mengembalikan status 0 jika tidak ada transaksi pada tanggal tersebut
+	    }
+	}
 
 
 	//CI4 Model
-	public function deletee($id)
-	{
-		return $this->delete($id);
-	}
+    public function deletee($id)
+    {
+    	return $this->delete($id);
+    }
 }

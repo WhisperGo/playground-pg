@@ -25,7 +25,16 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title"><i class="faj-button fa-regular fa-cart-shopping"></i>Pembayaran</h4>
+            <p><small class="text-danger text-sm">*</small>Catatan : Pajak PPN sebesar <?= $pajak_ppn->persen_pajak ?>%</p>
+
+            <?php if (session()->has('errorKasir')): ?>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="faj-button fa-regular fa-circle-exclamation fa-lg"></i>
+                <?= session('errorKasir') ?></div>
+            <?php endif; ?>
+
         </div>
+
         <div class="card-body">
             <form id="form-pembayaran" action="<?= base_url('kasir/aksi_create') ?>" method="post">
                 <div class="row">
@@ -80,11 +89,14 @@
 
                         <!-- Input hidden untuk menyimpan kembalian -->
                         <input type="hidden" name="kembalian" id="kembalian_hidden">
+
+                        <!-- Input hidden untuk menyimpan kembalian -->
+                        <input type="hidden" name="pajak" value="<?= $pajak_ppn->id_pajak ?>">
                     </div>
                 </div>
 
                 <!-- Tombol submit -->
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
             </form>
         </div>
     </div>
@@ -149,6 +161,8 @@
     // Fungsi untuk menampilkan dan mengupdate total harga
     function hitungTotalHarga() {
         var total = 0;
+        var totalSetelahPPN = 0; // Tambahkan variabel untuk menyimpan total harga setelah pajak PPN
+
         $('#datatable tbody tr').each(function() {
             var subtotalText = $(this).find('td:eq(3)').text(); // Ubah ke kolom keempat
             var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, '')); // Ubah ke tipe data float
@@ -157,7 +171,13 @@
                 total += subtotal;
             }
         });
-        $('#total_harga_input').val('Rp ' + total.toLocaleString('id-ID')); // Tampilkan total harga dalam input readonly
+
+        // Hitung pajak PPN (jika tersedia) dan tambahkan ke total harga
+        var pajakPPN = <?= $pajak_ppn->persen_pajak ?>; // Ambil nilai pajak PPN dari PHP menggunakan data yang disimpan di view
+        var pajakPPNAmount = total * (pajakPPN / 100); // Hitung jumlah pajak PPN
+        totalSetelahPPN = total + pajakPPNAmount; // Hitung total harga setelah pajak PPN
+
+        $('#total_harga_input').val('Rp ' + totalSetelahPPN.toLocaleString('id-ID')); // Tampilkan total harga dalam input readonly
     }
 
     // Hitung total harga

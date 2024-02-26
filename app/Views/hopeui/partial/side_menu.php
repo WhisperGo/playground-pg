@@ -158,7 +158,7 @@ $logo = $builder->select('logo_website')
             </li>
 
             <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('pajak')?>"><i class="fa-duotone fa-chart-pie"></i><span class="item-name">Data Pajak</span>
+              <a class="nav-link <?php if($uri->getSegment(1) == "pajak"){echo "active";}?>" href="<?=base_url('pajak')?>"><i class="fa-duotone fa-chart-pie"></i><span class="item-name">Data Pajak</span>
               </a>
             </li>
 

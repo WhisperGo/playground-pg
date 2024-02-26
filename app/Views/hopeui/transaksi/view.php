@@ -19,6 +19,7 @@
                            <th>Tanggal Transaksi</th>
                            <th>Jam Mulai</th>
                            <th>Jam Selesai</th>
+                           <th>Total Harga</th>
                            <th>Status</th>
                            <th>Aksi</th>
                         </tr>
@@ -35,6 +36,7 @@
                           <td><?= date('d M Y', strtotime($riz->tanggal_transaksi)) ?></td>
                           <td><?= date('H:i', strtotime($riz->jam_mulai)) ?></td>
                           <td><?= date('H:i', strtotime($riz->jam_selesai)) ?></td>
+                          <td>Rp <?= number_format($riz->total_harga, 0, ',', '.') ?></td>
                           <td>
                              <?php
                              if ($riz->status == 1) {
