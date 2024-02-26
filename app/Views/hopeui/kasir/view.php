@@ -2,7 +2,7 @@
 
     <!-- Cari Barang -->
     <div class="row">
-       <div class="card">
+     <div class="card">
         <div class="card-header">
             <h4 class="card-title"><i class="faj-button fa-solid fa-magnifying-glass"></i>Cari Permainan</h4>
         </div>
@@ -161,115 +161,118 @@
     // Fungsi untuk menampilkan dan mengupdate total harga
     function hitungTotalHarga() {
         var total = 0;
-        var totalSetelahPPN = 0; // Tambahkan variabel untuk menyimpan total harga setelah pajak PPN
 
+            // Iterasi melalui setiap baris dalam tabel
         $('#datatable tbody tr').each(function() {
-            var subtotalText = $(this).find('td:eq(3)').text(); // Ubah ke kolom keempat
-            var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, '')); // Ubah ke tipe data float
-            // Periksa apakah subtotal adalah angka yang valid
-            if (!isNaN(subtotal)) {
-                total += subtotal;
-            }
-        });
+                var subtotalText = $(this).find('td:eq(3)').text(); // Ambil nilai subtotal dari kolom keempat
+                var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, '')); // Ubah ke tipe data float
+                // Periksa apakah subtotal adalah angka yang valid
+                if (!isNaN(subtotal)) {
+                    total += subtotal;
+                }
+            });
 
-        // Hitung pajak PPN (jika tersedia) dan tambahkan ke total harga
-        var pajakPPN = <?= $pajak_ppn->persen_pajak ?>; // Ambil nilai pajak PPN dari PHP menggunakan data yang disimpan di view
-        var pajakPPNAmount = total * (pajakPPN / 100); // Hitung jumlah pajak PPN
-        totalSetelahPPN = total + pajakPPNAmount; // Hitung total harga setelah pajak PPN
+            // Hitung pajak PPN (jika tersedia) dan tambahkan ke total harga
+            var pajakPPN = <?= $pajak_ppn->persen_pajak ?>; // Ambil nilai pajak PPN dari PHP menggunakan data yang disimpan di view
+            var pajakPPNAmount = total * (pajakPPN / 100); // Hitung jumlah pajak PPN
+            var totalSetelahPPN = total + pajakPPNAmount; // Hitung total harga setelah pajak PPN
 
-        $('#total_harga_input').val('Rp ' + totalSetelahPPN.toLocaleString('id-ID')); // Tampilkan total harga dalam input readonly
-    }
+            $('#total_harga_input').val('Rp ' + totalSetelahPPN.toLocaleString('id-ID')); // Tampilkan total harga dalam input readonly
 
-    // Hitung total harga
-    function hitungTotalHargaSubmit() {
-        var total = 0;
-        $('#datatable tbody tr').each(function() {
+            // Kembalikan total harga
+            return totalSetelahPPN;
+        }
+
+        // Hitung total harga
+        function hitungTotalHargaSubmit() {
+            var total = 0;
+            $('#datatable tbody tr').each(function() {
             var subtotalText = $(this).find('td:eq(3)').text(); // Ubah ke kolom keempat
             var subtotal = parseFloat(subtotalText.replace(/[^\d]/g, '')); // Ubah ke tipe data float
             total += subtotal;
         });
-        return total;
-    }
-
-    // Set nilai default kembalian menjadi Rp 0 saat halaman dimuat
-    $('#kembalian_input').val('Rp 0');
-
-    // Fungsi untuk menghitung kembaliannya
-    function hitungKembalian() {
-        var totalHarga = hitungTotalHargaSubmit();
-        var pembayaran = parseFloat($('#bayar_input').val());
-        var kembalian;
-
-    // Periksa apakah pembayaran adalah angka yang valid
-        if (!isNaN(pembayaran)) {
-            kembalian = pembayaran - totalHarga;
-        } else {
-        // Set default kembalian menjadi Rp 0 jika pembayaran tidak valid atau tidak diisi
-            kembalian = 0;
+            return total;
         }
 
-        $('#kembalian_input').val('Rp ' + kembalian.toLocaleString('id-ID'));
-    }
+    // Set nilai default kembalian menjadi Rp 0 saat halaman dimuat
+        $('#kembalian_input').val('Rp 0');
+
+    // Fungsi untuk menghitung kembalian
+        function hitungKembalian() {
+            var totalHarga = hitungTotalHarga();
+            var pembayaran = parseFloat($('#bayar_input').val());
+            var kembalian;
+
+            // Periksa apakah pembayaran adalah angka yang valid
+            if (!isNaN(pembayaran)) {
+                kembalian = pembayaran - totalHarga;
+            } else {
+                // Set default kembalian menjadi Rp 0 jika pembayaran tidak valid atau tidak diisi
+                kembalian = 0;
+            }
+
+            $('#kembalian_input').val('Rp ' + kembalian.toLocaleString('id-ID'));
+        }
 
 
     // Tangani perubahan pada input pembayaran
-    $('#bayar_input').on('input', function() {
+        $('#bayar_input').on('input', function() {
         hitungKembalian(); // Panggil fungsi untuk menghitung kembaliannya
     });
 
 
     // Tangani perubahan pada input durasi
-    $('[name="durasi"]').on('input', function() {
+        $('[name="durasi"]').on('input', function() {
         hitungSubtotal(); // Panggil fungsi untuk menghitung subtotal
         hitungTotalHarga(); // Panggil fungsi untuk menghitung total harga
     });
 
-    var table = $('#datatable').DataTable();
+        var table = $('#datatable').DataTable();
 
     // Fungsi untuk mengupdate nomor urut setelah penghapusan
-    function updateNomorUrut() {
-        $('#datatable tbody tr').each(function(index) {
-            $(this).find('td:eq(0)').text(index + 1);
-        });
+        function updateNomorUrut() {
+            $('#datatable tbody tr').each(function(index) {
+                $(this).find('td:eq(0)').text(index + 1);
+            });
 
         // Jika tabel kosong, hapus tulisan "1" yang muncul
-        if (table.rows().count() == 0) {
-            $('#datatable tbody').html('<tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No data available in table</td></tr>');
+            if (table.rows().count() == 0) {
+                $('#datatable tbody').html('<tr class="odd"><td valign="top" colspan="6" class="dataTables_empty">No data available in table</td></tr>');
+            }
         }
-    }
 
     // Variabel untuk nomor urut
-    var nomorUrut = 1;
+        var nomorUrut = 1;
 
     // Fungsi untuk memformat harga sebagai mata uang dan menghapus .00 di belakangnya
-    function formatCurrency(amount) {
+        function formatCurrency(amount) {
         // Mengubah tipe data harga menjadi mata uang
-        var currency = new Intl.NumberFormat('id-ID', {
-            style: 'currency',
-            currency: 'IDR'
-        }).format(amount);
+            var currency = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(amount);
         // Menghapus .00 di belakangnya
-        return currency.replace(/\,00$/, '');
-    }
+            return currency.replace(/\,00$/, '');
+        }
 
     // Tangani perubahan pada pilihan permainan
-    $('#permainan').on('change', function() {
-        var permainanId = $(this).val();
+        $('#permainan').on('change', function() {
+            var permainanId = $(this).val();
 
         // Periksa apakah data sudah ada dalam tabel
-        var existingData = false;
-        $('#datatable tbody tr').each(function() {
-            var existingId = $(this).find('input[name="permainan_id[]"]').val();
-            if (existingId === permainanId) {
-                existingData = true;
+            var existingData = false;
+            $('#datatable tbody tr').each(function() {
+                var existingId = $(this).find('input[name="permainan_id[]"]').val();
+                if (existingId === permainanId) {
+                    existingData = true;
                 return false; // Keluar dari loop jika data sudah ditemukan
             }
         });
 
-        if (!existingData) {
+            if (!existingData) {
             // Kirim permintaan AJAX hanya jika data belum ada dalam tabel
-            $.ajax({
-                type: 'POST',
+                $.ajax({
+                    type: 'POST',
                 url: 'kasir/tambah_ke_keranjang', // Ganti dengan URL yang sesuai
                 data: {
                     permainan_id: permainanId
@@ -293,12 +296,12 @@
                     hitungTotalHarga();
                 }
             });
-        }
-    });
+            }
+        });
 
     // Tangani klik pada tombol hapus item
-    $('#datatable').on('click', '.hapus-item', function() {
-        var row = $(this).closest('tr');
+        $('#datatable').on('click', '.hapus-item', function() {
+            var row = $(this).closest('tr');
         table.row(row).remove().draw(); // Hapus baris dari DataTables
         updateNomorUrut(); // Perbarui nomor urut setelah penghapusan
 
@@ -307,7 +310,7 @@
     });
 
     // Tangani klik tombol submit
-    $('#form-pembayaran').on('submit', function(e) {
+        $('#form-pembayaran').on('submit', function(e) {
         e.preventDefault(); // Mencegah perilaku default formulir
 
         // Persiapkan array untuk menyimpan data
@@ -341,7 +344,7 @@
         $('#form-pembayaran').append('<input type="hidden" name="data_table" value=\'' + JSON.stringify(dataToSend) + '\' />');
 
         // Hitung total harga dan tambahkan ke dalam data1 sebelum mengirimkan formulir
-        var totalHarga = hitungTotalHargaSubmit();
+        var totalHarga = hitungTotalHarga();
         $('#form-pembayaran').append('<input type="hidden" name="total_harga" value="' + totalHarga + '" />');
 
         // Hitung kembalian dan tambahkan ke dalam formulir
@@ -354,7 +357,7 @@
         // Lanjutkan dengan pengiriman formulir
         this.submit();
     });
-});
+    });
 
 
 </script>

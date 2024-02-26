@@ -144,10 +144,10 @@ $logo = $builder->select('logo_website')
               </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link <?php if($uri->getSegment(1) == "durasi_bermain"){echo "active";}?>" href="<?=base_url('durasi_bermain')?>"><i class="fa-regular fa-stopwatch"></i><span class="item-name">Durasi Main</span>
               </a>
-            </li>
+            </li> -->
 
             <li><hr class="hr-horizontal"></li>
             <li class="nav-item static-item">
@@ -163,17 +163,17 @@ $logo = $builder->select('logo_website')
             </li>
 
             <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('pengeluaran')?>"><i class="fa-solid fa-chart-line-down"></i><span class="item-name">Data Pengeluaran</span>
+              <a class="nav-link <?php if($uri->getSegment(1) == "pengeluaran"){echo "active";}?>" href="<?=base_url('pengeluaran')?>"><i class="fa-solid fa-chart-line-down"></i><span class="item-name">Data Pengeluaran</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Laporan Transaksi</span>
+              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan" && $uri->getSegment(1) == "transaksi"){echo "active";}?>" href="<?=base_url('transaksi/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Laporan Transaksi</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Laporan Keuangan</span>
+              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan" && $uri->getSegment(1) == "laporan_keuangan"){echo "active";}?>" href="<?=base_url('laporan_keuangan/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Laporan Keuangan</span>
               </a>
             </li>
 

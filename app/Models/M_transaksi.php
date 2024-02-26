@@ -133,7 +133,7 @@ class M_transaksi extends Model
 	}
 
 	
-	// ---------------------------------------- PRINT LAPORAN ----------------------------------------
+	// ------------------------------------- PRINT LAPORAN TRANSAKSI --------------------------------------
 
 	public function getAllTransaksiPeriode($tanggal_awal, $tanggal_akhir)
 	{
@@ -166,14 +166,63 @@ class M_transaksi extends Model
 		->getResult();
 	}
 
+	// ------------------------------------- PRINT LAPORAN KEUANGAN --------------------------------------
+
+	public function getTotalHargaTransaksiPeriode($tanggal_awal, $tanggal_akhir)
+	{
+		return $this->db->table('transaksi')
+		->select('*')
+		->where('created_at >=', $tanggal_awal)
+		->where('created_at <=', $tanggal_akhir)
+		->orderBy('created_at', 'ASC')
+		->get()
+		->getResult();
+	}
+
+
+	public function getTotalPengeluaranPeriode($tanggal_awal, $tanggal_akhir)
+	{
+		return $this->db->table('pengeluaran')
+		->select('*')
+		->where('created_at >=', $tanggal_awal)
+		->where('created_at <=', $tanggal_akhir)
+		->orderBy('created_at', 'ASC')
+		->get()
+		->getResult();
+	}
+
+	public function getTotalHargaTransaksiPerHari($tanggal)
+	{
+		return $this->db->table('transaksi')
+		->select('*')
+		->where('DATE(tanggal_transaksi)', $tanggal)
+		->orderBy('created_at', 'ASC')
+		->get()
+		->getResult();
+	}
+
+
+	public function getTotalPengeluaranPerHari($tanggal)
+	{
+		return $this->db->table('pengeluaran')
+		->select('*')
+		->where('DATE(tanggal_pengeluaran)', $tanggal)
+		->orderBy('created_at', 'ASC')
+		->get()
+		->getResult();
+	}
+
+
+
+
 	// -------------------------------- CEK STATUS ---------------------------------------
 
 	public function getStatusPelangganOnDate($pelanggan_id, $tanggal)
 	{
-	    $builder = $this->db->table('transaksi');
-	    $builder->select('status');
-	    $builder->where('pelanggan_id', $pelanggan_id);
-	    $builder->where('tanggal_transaksi', $tanggal);
+		$builder = $this->db->table('transaksi');
+		$builder->select('status');
+		$builder->where('pelanggan_id', $pelanggan_id);
+		$builder->where('tanggal_transaksi', $tanggal);
 	    $builder->orderBy('id_transaksi', 'DESC'); // Mengurutkan transaksi berdasarkan id_transaksi secara descending agar transaksi terbaru muncul pertama
 	    $builder->limit(1); // Hanya ambil satu transaksi terbaru
 
@@ -190,8 +239,8 @@ class M_transaksi extends Model
 
 
 	//CI4 Model
-    public function deletee($id)
-    {
-    	return $this->delete($id);
-    }
+	public function deletee($id)
+	{
+		return $this->delete($id);
+	}
 }

@@ -9,3 +9,116 @@ CRITICAL - 2024-02-27 00:14:31 --> Object of class stdClass could not be convert
 #7 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #8 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #9 {main}
+CRITICAL - 2024-02-27 01:04:12 --> Class 'App\Models\M_pengeluaran' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Pengeluaran->index()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengeluaran))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-27 01:12:44 --> Unknown column 'id_paket' in 'where clause'
+CRITICAL - 2024-02-27 01:12:44 --> Call to a member function getRow() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Pengeluaran.php(71): App\Models\M_pengeluaran->getWhere('pengeluaran', Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Pengeluaran->edit('2')
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengeluaran))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-27 01:46:38 --> Call to undefined method App\Models\M_pengeluaran::getTotalPengeluaranPeriode
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(50): CodeIgniter\Model->__call('getTotalPengelu...', Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-27 01:47:00 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\laporan_keuangan\print_windows_view.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 109, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(55): view('hopeui/laporan_...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-27 01:47:47 --> count(): Parameter must be an array or an object that implements Countable
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\laporan_keuangan\print_windows_view.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', 'C:\\xampp\\htdocs...', 123, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(55): view('hopeui/laporan_...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-27 01:47:57 --> count(): Parameter must be an array or an object that implements Countable
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\laporan_keuangan\print_windows_view.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', 'C:\\xampp\\htdocs...', 123, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(55): view('hopeui/laporan_...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-27 01:52:20 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\playground-pg\app\Views\hopeui\laporan_keuangan\print_windows_view.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 109, Array)
+#1 C:\xampp\htdocs\playground-pg\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\playground-pg\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\playground-pg\system\Common.php(1089): CodeIgniter\View\View->render('hopeui/laporan_...', Array, true)
+#4 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(55): view('hopeui/laporan_...', Array)
+#5 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#6 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#7 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-02-27 01:54:19 --> Call to undefined method App\Models\M_pengeluaran::getTotalPengeluaranPeriode
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(50): CodeIgniter\Model->__call('getTotalPengelu...', Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-27 02:11:24 --> Class 'App\Controllers\M_laporan' not found
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+ERROR - 2024-02-27 02:11:35 --> Unknown column 'tanggal_pengeluaran' in 'field list'
+CRITICAL - 2024-02-27 02:11:35 --> Call to a member function getResultArray() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(46): App\Models\M_transaksi->getLaporanKeuangan('2024-02-01', '2024-02-29')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-27 02:12:35 --> Unknown column 'tanggal_pengeluaran' in 'field list'
+CRITICAL - 2024-02-27 02:12:35 --> Call to a member function getResultArray() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(46): App\Models\M_transaksi->getLaporanKeuangan('2024-02-01', '2024-02-29')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2024-02-27 02:20:47 --> Too few arguments to function App\Models\M_transaksi::getTotalHargaTransaksiPerHari(), 1 passed in C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php on line 223 and exactly 2 expected
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Laporan_keuangan.php(223): App\Models\M_transaksi->getTotalHargaTransaksiPerHari('2024-02-26')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_windows_per_hari()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
