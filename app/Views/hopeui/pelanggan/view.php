@@ -15,6 +15,7 @@
                   <thead>
                      <tr>
                         <th>No.</th>
+                        <th>Kode Pelanggan</th>
                         <th>Nama Pelanggan</th>
                         <th>Alamat</th>
                         <th>Nama Orangtua</th>
@@ -30,6 +31,7 @@
                       ?>
                       <tr>
                         <td><?= $no++ ?></td>
+                        <td><?php echo $riz->KodePelanggan ?></td>
                         <td><?php echo $riz->NamaPelanggan ?></td>
                         <td><?php echo $riz->Alamat ?></td>
                         <td><?php echo $riz->NamaOrangtua ?></td>

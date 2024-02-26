@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\M_permainan;
 use App\Models\M_transaksi;
 use App\Models\M_detail_transaksi;
+use App\Models\M_paket_permainan;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -15,6 +16,7 @@ class Kasir extends BaseController
     {
         if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model = new M_permainan();
+            $model2 = new M_paket_permainan();
 
             $data['title'] = 'Kasir Pembayaran';
             $data['desc'] = 'Pembayaran dilakukan melalui menu ini.';
@@ -22,6 +24,7 @@ class Kasir extends BaseController
 
             $data['permainan_list'] = $model->tampil('permainan');
             $data['pelanggan_list'] = $model->tampil('pelanggan');
+            $data['paket_list'] = $model2->tampil('paket_permainan');
 
             echo view('hopeui/partial/header', $data);
             echo view('hopeui/partial/side_menu');

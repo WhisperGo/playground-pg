@@ -117,12 +117,12 @@ $logo = $builder->select('logo_website')
             </li>
 
             <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
+              <a class="nav-link <?php if($uri->getSegment(1) == "paket_permainan"){echo "active";}?>" href="<?=base_url('paket_permainan')?>"><i class="fa-light fa-joystick"></i><span class="item-name">Paket Permainan</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(1) == "histori_pelanggan"){echo "active";}?>" href="<?=base_url('histori_pelanggan')?>"><i class="fa-regular fa-history"></i><span class="item-name">Histori Pelanggan</span>
+              <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
               </a>
             </li>
 

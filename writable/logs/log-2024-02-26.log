@@ -1,0 +1,9 @@
+ERROR - 2024-02-26 19:21:46 --> Column 'nama_level' cannot be null
+ERROR - 2024-02-26 19:22:11 --> Unknown column 'id_paket' in 'where clause'
+CRITICAL - 2024-02-26 19:28:00 --> Call to a member function tampil() on null
+#0 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->index()
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
