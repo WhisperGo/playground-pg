@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\M_pelanggan;
+use App\Models\M_transaksi;
 
 class Pelanggan extends BaseController
 {
@@ -127,6 +128,29 @@ class Pelanggan extends BaseController
             $model->deletee($id);
             return redirect()->to('pelanggan');
         }else {
+            return redirect()->to('/');
+        }
+    }
+
+    // ---------------------------------------- HISTORI PELANGGAN -----------------------------------------
+
+    public function histori($id)
+    {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
+            $model = new M_transaksi();
+
+            $on='transaksi.pelanggan_id = pelanggan.PelangganID';
+            $data['jojo'] = $model->join2idpelanggan('transaksi', 'pelanggan', $on, $id);
+
+            $data['title'] = 'Histori Pelanggan';
+            $data['desc'] = 'Anda dapat melihat Histori Pelanggan di Menu ini.';
+
+            echo view('hopeui/partial/header', $data);
+            echo view('hopeui/partial/side_menu');
+            echo view('hopeui/partial/top_menu');
+            echo view('hopeui/pelanggan/view_histori', $data);
+            echo view('hopeui/partial/footer');
+        } else {
             return redirect()->to('/');
         }
     }

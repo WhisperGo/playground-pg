@@ -45,9 +45,9 @@ $logo = $builder->select('*')
   <link rel="stylesheet" href="<?=base_url('assets/extensions/@fortawesome/fontawesome-pro/css/all.min.css')?>">
 
   <!-- JQuery + AJAX-->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="<?=base_url('assets/jquery/jquery-3.6.0.min.js')?>"></script>
+  <link rel="stylesheet" href="<?=base_url('assets/jquery/jquery-ui.css')?>">
+  <script src="<?=base_url('assets/jquery/jquery-ui.js')?>"></script>
 
   <!-- Choice JS -->
   <link rel="stylesheet" href="<?=base_url('assets/extensions/choices.js/public/assets/styles/choices.css')?>"/>

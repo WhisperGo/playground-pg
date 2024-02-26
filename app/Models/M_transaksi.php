@@ -50,6 +50,19 @@ class M_transaksi extends Model
 	{
 		return $this->db->table($table1)
 		->join($table2, $on, 'left')
+		->where('transaksi.deleted_at', null)
+		->orderBy('transaksi.created_at', 'DESC')
+		->get()
+		->getResult();
+	}
+
+	public function join2idpelanggan($table1, $table2, $on, $id)
+	{
+		return $this->db->table($table1)
+		->join($table2, $on, 'left')
+		->where("$table1.deleted_at", null)
+		->where("$table2.deleted_at", null)
+		->where('transaksi.pelanggan_id', $id)
 		->orderBy('transaksi.created_at', 'DESC')
 		->get()
 		->getResult();

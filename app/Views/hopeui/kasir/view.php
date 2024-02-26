@@ -1,122 +1,134 @@
-<div class="conatiner-fluid content-inner mt-n5 py-0">
+<div class="container-fluid content-inner mt-n5 py-0">
+
+    <!-- Cari Barang -->
     <div class="row">
-        <!-- Cari Barang -->
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="header-title">
-                        <h4 class="card-title"><i class="faj-button fa-solid fa-magnifying-glass"></i>Cari Permainan</h4>
-                    </div>
+       <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><i class="faj-button fa-solid fa-magnifying-glass"></i>Cari Permainan</h4>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <select class="choices form-select" id="permainan" name="permainan">
+                        <option disabled selected>- Pilih -</option>
+                        <?php foreach ($permainan_list as $p) { ?>
+                            <option value="<?=$p->id_permainan?>"><?= $p->nama_permainan?></option>
+                        <?php } ?>
+                    </select>
                 </div>
-                <div class="card-body">
-                    <form>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Bagian Pembayaran -->
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><i class="faj-button fa-regular fa-cart-shopping"></i>Pembayaran</h4>
+        </div>
+        <div class="card-body">
+            <form id="form-pembayaran" action="<?= base_url('kasir/aksi_create') ?>" method="post">
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="form-group">
-                            <select class="choices form-select" id="permainan" name="permainan">
-                                <option disabled selected>- Pilih -</option>
-                                <?php foreach ($permainan_list as $p) { ?>
-                                    <option value="<?=$p->id_permainan?>"><?= $p->nama_permainan?></option>
+                            <label class="control-label">Tanggal :</label>
+                            <input type="text" class="form-control" readonly="readonly" name="tanggal" value="<?= date('d M Y') ?>" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Pelanggan :</label>
+                            <select class="choices form-select" id="pelanggan" name="pelanggan" required>
+                                <option>- Pilih -</option>
+                                <?php foreach ($pelanggan_list as $p) { ?>
+                                    <option value="<?= $p->PelangganID ?>"><?= $p->KodePelanggan ?></option>
                                 <?php } ?>
                             </select>
                         </div>
-                    </form>
+
+                        <div class="form-group">
+                            <label class="control-label">Durasi :</label>
+                            <select class="form-select" id="durasi" name="durasi" required>
+                                <option>- Pilih -</option>
+                                <?php foreach ($paket_list as $p) { ?>
+                                    <option value="<?= $p->durasi_paket ?>"><?= $p->nama_paket ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Total :</label>
+                            <input type="text" class="form-control" id="total_harga_input" readonly="readonly" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Bayar :</label>
+                            <input type="text" class="form-control" id="bayar_input" name="bayar" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Kembalian :</label>
+                            <input type="text" class="form-control" id="kembalian_input" readonly="readonly" disabled>
+                        </div>
+
+                        <!-- Input hidden untuk menyimpan PermainanID -->
+                        <input type="hidden" name="permainan_id[]" id="permainan_id_hidden">
+
+                        <!-- Input hidden untuk menyimpan total harga -->
+                        <input type="hidden" name="total_harga" id="total_harga_hidden">
+
+                        <!-- Input hidden untuk menyimpan kembalian -->
+                        <input type="hidden" name="kembalian" id="kembalian_hidden">
+                    </div>
                 </div>
-            </div>
+
+                <!-- Tombol submit -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
+    </div>
 
-        <!-- Bagian Pembayaran -->
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="header-title">
-                        <h4 class="card-title"><i class="faj-button fa-regular fa-cart-shopping"></i>Pembayaran</h4>
 
-                        <!-- Form pembayaran -->
-                        <form id="form-pembayaran" action="<?= base_url('kasir/aksi_create') ?>" method="post">
-                            <div class="form-group row mt-3">
-                                <label class="control-label col-sm-3 align-self-center mb-0">Tanggal :</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" readonly="readonly" name="tanggal" value="<?= date('d M Y') ?>" disabled style="margin-left: 20px;">
-                                </div>
-                            </div>
-
-                            <div class="form-group row mt-3">
-                                <label class="control-label col-sm-3 align-self-center mb-0" style="padding-right: 0px;">Kode :</label>
-                                <div class="col-sm-9">
-                                    <select class="form-select" id="pelanggan" name="pelanggan" style="margin-left: 20px;" required>
-                                        <option disabled selected>- Pilih -</option>
-                                        <?php foreach ($pelanggan_list as $p) { ?>
-                                            <option value="<?= $p->PelangganID ?>"><?= $p->KodePelanggan ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mt-3">
-                                <label class="control-label col-sm-3 align-self-center mb-0">Durasi :</label>
-                                <div class="col-sm-9">
-                                    <select class="form-select" id="durasi" name="durasi" style="margin-left: 20px;" required>
-                                        <option disabled selected>- Pilih -</option>
-                                        <?php foreach ($paket_list as $p) { ?>
-                                            <option value="<?= $p->durasi_paket ?>"><?= $p->nama_paket ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mt-3">
-                                <label class="control-label col-sm-3 align-self-center mb-0">Total :</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="total_harga_input" readonly="readonly" disabled style="margin-left: 20px;">
-                                </div>
-                            </div>
-
-                            <!-- Input hidden untuk menyimpan PermainanID -->
-                            <input type="hidden" name="permainan_id[]" id="permainan_id_hidden">
-
-                            <!-- Input hidden untuk menyimpan total harga -->
-                            <input type="hidden" name="total_harga" id="total_harga_hidden">
-
-                            <!-- Tombol submit -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="datatable" class="table table-striped" data-toggle="data-table">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Permainan</th>
-                                    <th>Harga</th>
-                                    <th>Subtotal</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Data permainan akan ditambahkan di sini -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <!-- Tabel Kasir -->
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><i class="faj-button fa-regular fa-table"></i></i>Tabel Kasir</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="datatable" class="table table-striped" data-toggle="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Permainan</th>
+                            <th>Harga</th>
+                            <th>Subtotal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data permainan akan ditambahkan di sini -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
+
 <script>
     $(document).ready(function() {
     // Set nilai default untuk field durasi menjadi 1
-    $('[name="durasi"]').val(1);
+        // $('[name="durasi"]').val(1);
 
     // Panggil fungsi hitungSubtotal saat halaman dimuat dan saat nilai durasi berubah
-    hitungSubtotal();
-    hitungTotalHarga(); // Panggil fungsi hitungTotalHarga saat halaman dimuat
+        hitungSubtotal();
+        hitungTotalHarga(); // Panggil fungsi hitungTotalHarga saat halaman dimuat
 
     // Fungsi untuk menghitung subtotal berdasarkan durasi yang dipilih
-    function hitungSubtotal() {
-        var durasi = parseInt($('[name="durasi"]').val());
+        function hitungSubtotal() {
+            var durasi = parseInt($('[name="durasi"]').val());
         if (!isNaN(durasi)) { // Periksa apakah durasi adalah angka yang valid
             $('#datatable tbody tr').each(function() {
                 var hargaText = $(this).find('td:eq(2)').text();
@@ -158,6 +170,32 @@
         });
         return total;
     }
+
+    // Set nilai default kembalian menjadi Rp 0 saat halaman dimuat
+    $('#kembalian_input').val('Rp 0');
+
+    // Fungsi untuk menghitung kembaliannya
+    function hitungKembalian() {
+        var totalHarga = hitungTotalHargaSubmit();
+        var pembayaran = parseFloat($('#bayar_input').val());
+        var kembalian;
+
+    // Periksa apakah pembayaran adalah angka yang valid
+        if (!isNaN(pembayaran)) {
+            kembalian = pembayaran - totalHarga;
+        } else {
+        // Set default kembalian menjadi Rp 0 jika pembayaran tidak valid atau tidak diisi
+            kembalian = 0;
+        }
+
+        $('#kembalian_input').val('Rp ' + kembalian.toLocaleString('id-ID'));
+    }
+
+
+    // Tangani perubahan pada input pembayaran
+    $('#bayar_input').on('input', function() {
+        hitungKembalian(); // Panggil fungsi untuk menghitung kembaliannya
+    });
 
 
     // Tangani perubahan pada input durasi
@@ -227,7 +265,7 @@
                         '<span class="subtotal"></span>', // Tambahkan tempat untuk subtotal
                         '<input type="hidden" name="permainan_id[]" value="' + permainanId + '">' + // Tambahkan input hidden untuk PermainanID
                         '<button class="btn btn-danger hapus-item"><i class="fa-solid fa-trash"></i></button>'
-                    ];
+                        ];
                     table.row.add(newRow).draw(); // Tambahkan baris ke DataTables dan draw ulang tabel
 
                     // Hitung subtotal dan total harga setelah menambahkan baris baru
@@ -285,6 +323,13 @@
         // Hitung total harga dan tambahkan ke dalam data1 sebelum mengirimkan formulir
         var totalHarga = hitungTotalHargaSubmit();
         $('#form-pembayaran').append('<input type="hidden" name="total_harga" value="' + totalHarga + '" />');
+
+        // Hitung kembalian dan tambahkan ke dalam formulir
+        hitungKembalian();
+        var kembalian = $('#kembalian_input').val(); // Retrieve kembalian value from kembalian_input field
+        var kembalianconverted = parseFloat(kembalian.replace(/[^\d]/g, ''));
+        $('#form-pembayaran').append('<input type="hidden" name="kembalian" value="' + kembalianconverted + '" />');
+
 
         // Lanjutkan dengan pengiriman formulir
         this.submit();

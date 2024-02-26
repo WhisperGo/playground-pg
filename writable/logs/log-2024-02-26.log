@@ -7,3 +7,13 @@ CRITICAL - 2024-02-26 19:28:00 --> Call to a member function tampil() on null
 #3 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #4 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #5 {main}
+ERROR - 2024-02-26 21:51:17 --> Column 'pelanggan_id' cannot be null
+CRITICAL - 2024-02-26 21:51:17 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Kasir.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 97, Array)
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Kasir->aksi_create()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kasir))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+ERROR - 2024-02-26 22:13:05 --> Column 'permainan_id' cannot be null

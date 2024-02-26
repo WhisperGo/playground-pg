@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\M_transaksi;
+use App\Models\M_detail_transaksi;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -121,6 +122,7 @@ class Transaksi extends BaseController
         if(session()->get('level')== 1 || session()->get('level')== 2) {
             $model=new M_transaksi();
             $model->deletee($id);
+
             return redirect()->to('transaksi');
         }else {
             return redirect()->to('/');

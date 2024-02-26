@@ -37,6 +37,8 @@
                         <td><?php echo $riz->NamaOrangtua ?></td>
                         <td><?php echo $riz->NomorTelepon ?></td>
                         <td>
+                           <a href="<?php echo base_url('pelanggan/histori/'. $riz->PelangganID)?>" class="btn btn-success my-1"><i class="fa-regular fa-history" style="color: #ffffff;"></i></a>
+
                            <a href="<?php echo base_url('pelanggan/edit/'. $riz->PelangganID)?>" class="btn btn-warning my-1"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
 
                            <a href="<?php echo base_url('pelanggan/delete/'. $riz->PelangganID)?>" class="btn btn-danger my-1"><i class="fa-solid fa-trash"></i></a>

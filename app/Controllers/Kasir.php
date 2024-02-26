@@ -71,6 +71,8 @@ class Kasir extends BaseController
             $jam_selesai = date('H:i:s', strtotime("+$d hour"));
 
             $e = $this->request->getPost('total_harga');
+            $f = $this->request->getPost('bayar');
+            $g = $this->request->getPost('kembalian');
 
         // Data yang akan disimpan
             $data1 = [
@@ -79,6 +81,8 @@ class Kasir extends BaseController
                 'jam_mulai' => $c,
                 'jam_selesai' => $jam_selesai,
                 'total_harga' => $e,
+                'bayar' => $f,
+                'kembalian' => $g,
                 'user' => session()->get('id'),
             ];
 

@@ -158,7 +158,22 @@ $logo = $builder->select('logo_website')
             </li>
 
             <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('pajak')?>"><i class="fa-duotone fa-chart-pie"></i><span class="item-name">Data Pajak</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('pengeluaran')?>"><i class="fa-solid fa-chart-line-down"></i><span class="item-name">Data Pengeluaran</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Laporan Transaksi</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(2) == "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi/menu_laporan')?>"><i class="fa-light fa-file-invoice"></i><span class="item-name">Laporan Keuangan</span>
               </a>
             </li>
 
