@@ -353,7 +353,7 @@ public function export_pdf_per_hari()
 
         $tanggal = $this->request->getPost('tanggal');
 
-            // Get data penjualan berdasarkan tanggal
+        // Get data penjualan berdasarkan tanggal
         $data['transaksi'] = $model->getAllTransaksiPerHari($tanggal);
         $data['tanggal'] = $tanggal;
 

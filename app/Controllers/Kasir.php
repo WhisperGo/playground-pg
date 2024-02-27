@@ -139,10 +139,21 @@ class Kasir extends BaseController
             $on2='detail_transaksi.permainan_id = permainan.id_permainan';
             $data['jojo2'] = $model2->join3id('detail_transaksi', 'transaksi', 'permainan', $on, $on2, $id);
 
+            // Load the dompdf library
+            $dompdf = new Dompdf();
+
             $data['title'] = 'Invoice Playground';
-            echo view('hopeui/partial/header', $data);
-            echo view('hopeui/kasir/invoice', $data);
-            echo view('hopeui/partial/footer_print');  
+            $dompdf->loadHtml(view('hopeui/kasir/invoice',$data));
+            $dompdf->setPaper('A4','landscape');
+            $dompdf->render();
+
+             // Generate file name with start and end date
+            $file_name = 'invoice_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
+
+            // Output the generated PDF (inline or attachment)
+            $dompdf->stream($file_name, ['Attachment' => 0]);
+
+
         } else {
             return redirect()->to('/');
         }
