@@ -69,59 +69,71 @@ $logo = $builder->select('*')
         <h3 class="judul mt-2"><?=$namaweb->nama_website?></h3>
     </div>
 
-    <h3 class="text-center mb-4"><?= $title ?></h3>
-
     <div class="custom-paragraph">
-        <?php if ($awal && $akhir) : ?>
-            <p class="text-center">Laporan detail transaksi dalam rentang tanggal berikut:</p>
-            <p class="text-center">Periode : <?= date('d M Y', strtotime($awal)) . ' - ' . date('d M Y', strtotime($akhir))?></p>
-        <?php elseif ($tanggal) : ?>
-           <p class="text-center">Laporan detail transaksi pada tanggal berikut:</p>
-           <p class="text-center">Periode : <?= date('d M Y', strtotime($tanggal))?></p>
-       <?php endif; ?>
-   </div>
+    <h3 class="text-center mb-4"><?= $title ?></h3>
+    
+    <?php if ($awal && $akhir) : ?>
+        <p class="text-center">Laporan detail transaksi dalam rentang tanggal berikut:</p>
+        <p class="text-center">Periode : <?= date('d M Y', strtotime($awal)) . ' - ' . date('d M Y', strtotime($akhir))?></p>
+    <?php elseif ($tanggal) : ?>
+       <p class="text-center">Laporan detail transaksi pada tanggal berikut:</p>
+       <p class="text-center">Periode : <?= date('d M Y', strtotime($tanggal))?></p>
+   <?php endif; ?>
 
+
+   <!-- Table Section -->
    <div class="table-responsive">
     <table border="1">
         <thead>
             <tr>
-                <th>No.</th>
-                <th>Nama Permainan</th>
-                <th>Durasi</th>
-                <th>Tanggal Transaksi</th>
-                <th>Kasir</th>
-                <th>Subtotal</th>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Uang Masuk</th>
+                <th>Uang Keluar</th>
+                <th>Selisih</th>
             </tr>
         </thead>
         <tbody>
-         <?php 
-         $no = 1; 
-                $total_harga = 0; // Variabel untuk menyimpan total harga
-                foreach ($transaksi as $riz) { 
-                    $total_harga += $riz->subtotal; // Menambahkan subtotal ke total harga
-                    ?>
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $riz->nama_permainan ?></td>
-                        <td><?= $riz->durasi ?> jam</td>
-                        <td><?= date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)) ?></td>
-                        <td><?= $riz->username ?></td>
-                        <td>Rp <?= number_format($riz->subtotal, 2, ',', '.') ?></td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+            <?php $no = 1;?>
+            <?php $total_uang_masuk = 0; ?>
+            <?php foreach ($transaksi as $trx) : ?>
+                <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= date('d M Y H:i:s', strtotime($trx->created_at)) ?></td>
+                    <td>Rp <?= number_format($trx->total_harga, 0, ',', '.') ?></td>
+                    <td>0</td>
+                    <td>Rp <?= number_format($trx->total_harga, 0, ',', '.') ?></td>
+                </tr>
+                <?php $total_uang_masuk += $trx->total_harga; ?>
+            <?php endforeach; ?>
 
-    <div class="jumlah-container mt-5">
-       <div class="jumlah-item">
-        <p>Jumlah transaksi: <?= count($transaksi) ?></p>
-    </div>
-    <div class="jumlah-item">
-        <p>Grand Total: Rp <?= number_format($total_harga, 2, ',', '.') ?></p> <!-- Menampilkan total harga -->
-    </div>
+            <?php foreach ($pengeluaran as $peng) : ?>
+                <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= date('d M Y H:i:s', strtotime($peng->created_at)) ?></td>
+                    <td>0</td>
+                    <td>Rp <?= number_format($peng->jumlah_pengeluaran, 0, ',', '.') ?></td>
+                    <td>Rp <?= number_format($peng->jumlah_pengeluaran, 0, ',', '.') ?></td>
+                </tr>
+                <?php $total_uang_keluar += $peng->jumlah_pengeluaran; ?>
+            <?php endforeach; ?>
+        </tbody>
+
+        <tfoot> 
+            <tr>
+                <td colspan="2"><strong>Total :</strong></td>
+                <td>Rp <?= number_format($total_uang_masuk, 0, ',', '.') ?></td>
+                <td>Rp <?= number_format($total_uang_keluar, 0, ',', '.') ?></td>
+                <td>Rp <?= number_format($total_uang_masuk - $total_uang_keluar, 0, ',', '.') ?></td>
+            </tr>
+        </tfoot>
+
+    </table>
 </div>
 
-</div>
+<br>
+<br>
+
+
 </body>
 </html>

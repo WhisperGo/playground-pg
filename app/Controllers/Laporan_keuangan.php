@@ -68,8 +68,12 @@ class Laporan_keuangan extends BaseController
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
 
-            // Get data absensi kantor berdasarkan filter
-            $data['transaksi'] = $model->getAllTransaksiPeriode($awal, $akhir);
+            // Get total harga transaksi dalam rentang tanggal tertentu
+            $data['transaksi'] = $model->getTotalHargaTransaksiPeriode($awal, $akhir);
+
+            // Panggil model untuk mendapatkan total pengeluaran dalam rentang tanggal tertentu
+            $data['pengeluaran'] = $model->getTotalPengeluaranPeriode($awal, $akhir);
+
             $data['awal'] = $awal;
             $data['akhir'] = $akhir;
             
@@ -78,12 +82,12 @@ class Laporan_keuangan extends BaseController
 
             // Set the HTML content for the PDF
             $data['title'] = 'Laporan Keuangan';
-            $dompdf->loadHtml(view('hopeui/laporan_transaksi/print_pdf_view',$data));
+            $dompdf->loadHtml(view('hopeui/laporan_keuangan/print_pdf_view',$data));
             $dompdf->setPaper('A4','landscape');
             $dompdf->render();
             
             // Generate file name with start and end date
-            $file_name = 'laporan_transaksi_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
+            $file_name = 'laporan_keuangan_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
 
             // Output the generated PDF (inline or attachment)
             $dompdf->stream($file_name, ['Attachment' => 0]);
@@ -246,6 +250,7 @@ public function export_windows_per_hari()
 
         $data['awal'] = $awal;
         $data['akhir'] = $akhir;
+        $data['tanggal'] = $tanggal;
 
         $data['title'] = 'Laporan Keuangan';
         echo view('hopeui/partial/header', $data);
@@ -263,8 +268,14 @@ public function export_pdf_per_hari()
 
         $tanggal = $this->request->getPost('tanggal');
 
-            // Get data penjualan berdasarkan tanggal
-        $data['transaksi'] = $model->getAllTransaksiPerHari($tanggal);
+            // Get total harga transaksi dalam rentang tanggal tertentu
+        $data['transaksi'] = $model->getTotalHargaTransaksiPerHari($tanggal);
+
+            // Panggil model untuk mendapatkan total pengeluaran dalam rentang tanggal tertentu
+        $data['pengeluaran'] = $model->getTotalPengeluaranPerHari($tanggal);
+
+        $data['awal'] = $awal;
+        $data['akhir'] = $akhir;
         $data['tanggal'] = $tanggal;
 
             // Load the dompdf library
@@ -272,15 +283,16 @@ public function export_pdf_per_hari()
 
             // Set the HTML content for the PDF
         $data['title'] = 'Laporan Keuangan';
-        $dompdf->loadHtml(view('hopeui/laporan_transaksi/print_pdf_view',$data));
+        $dompdf->loadHtml(view('hopeui/laporan_keuangan/print_pdf_view',$data));
         $dompdf->setPaper('A4','landscape');
         $dompdf->render();
 
             // Generate file name with start and end date
-        $file_name = 'laporan_transaksi_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
+        $file_name = 'laporan_keuangan_' . str_replace('-', '', $awal) . '_' . str_replace('-', '', $akhir) . '.pdf';
 
             // Output the generated PDF (inline or attachment)
         $dompdf->stream($file_name, ['Attachment' => 0]);
+
     } else {
         return redirect()->to('/');
     }
@@ -293,7 +305,11 @@ public function export_excel_per_hari()
 
         $tanggal = $this->request->getPost('tanggal');
 
-        $transaksi = $model->getAllTransaksiPerHari($tanggal);
+            // Get total harga transaksi dalam rentang tanggal tertentu
+        $transaksi = $model->getTotalHargaTransaksiPerHari($tanggal);
+
+            // Panggil model untuk mendapatkan total pengeluaran dalam rentang tanggal tertentu
+        $pengeluaran = $model->getTotalPengeluaranPerHari($tanggal);
 
         $spreadsheet = new Spreadsheet();
 
@@ -302,7 +318,7 @@ public function export_excel_per_hari()
         $sheet->getDefaultRowDimension()->setRowHeight(20);
 
         $sheet->mergeCells('A1:F1');
-        $sheet->setCellValue('A1', 'Data Laporan Transaksi');
+        $sheet->setCellValue('A1', 'Data Laporan Keuangan');
 
         $periode = date('d F Y', strtotime($tanggal));
         $sheet->mergeCells('A2:F2');
@@ -312,31 +328,46 @@ public function export_excel_per_hari()
 
             // Set the header row values
         $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
-        $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Permainan');
-        $sheet->setCellValueByColumnAndRow(3, 4, 'Durasi');
-        $sheet->setCellValueByColumnAndRow(4, 4, 'Tanggal Transaksi');
-        $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
-        $sheet->setCellValueByColumnAndRow(6, 4, 'Subtotal');
+        $sheet->setCellValueByColumnAndRow(2, 4, 'Tanggal');
+        $sheet->setCellValueByColumnAndRow(3, 4, 'Uang Masuk');
+        $sheet->setCellValueByColumnAndRow(4, 4, 'Uang Keluar');
+        $sheet->setCellValueByColumnAndRow(5, 4, 'Selisih');
 
             // Fill the data into the worksheet
         $row = 5;
         $no = 1;
-        foreach ($transaksi as $riz) {
-            $sheet->setCellValueByColumnAndRow(1, $row, $no++);
-            $sheet->setCellValueByColumnAndRow(2, $row, $riz->nama_permainan);
-            $sheet->setCellValueByColumnAndRow(3, $row, $riz->durasi . ' jam');
-
-                // Mengganti koma dengan titik dan mengonversi ke float
-            $subtotal = str_replace(',', '', $riz->subtotal);
-            $subtotal = floatval($subtotal);
-
-                // Mengisi sel dengan nilai yang diformat sebagai accounting
-            $sheet->setCellValueByColumnAndRow(4, $row, date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)));
-            $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
-            $sheet->setCellValueByColumnAndRow(6, $row, $subtotal);
-
+        foreach ($transaksi as $trx) {
+            $sheet->setCellValue('A' . $row, $no++);
+            $sheet->setCellValue('B' . $row, date('d M Y H:i:s', strtotime($trx->created_at)));
+            $sheet->setCellValue('C' . $row, $trx->total_harga);
+            $sheet->setCellValue('D' . $row, '0');
+            $sheet->setCellValue('E' . $row, $trx->total_harga);
             $row++;
         }
+
+        foreach ($pengeluaran as $peng) {
+            $sheet->setCellValue('A' . $row, $no++);
+            $sheet->setCellValue('B' . $row, date('d M Y H:i:s', strtotime($peng->created_at)));
+            $sheet->setCellValue('C' . $row, '0');
+            $sheet->setCellValue('D' . $row, $peng->jumlah_pengeluaran);
+            $sheet->setCellValue('E' . $row, $peng->jumlah_pengeluaran);
+            $row++;
+        }
+
+            // Calculate total uang masuk dan total uang keluar
+        $total_uang_masuk = array_reduce($transaksi, function ($carry, $item) {
+            return $carry + $item->total_harga;
+        }, 0);
+
+        $total_uang_keluar = array_reduce($pengeluaran, function ($carry, $item) {
+            return $carry + $item->jumlah_pengeluaran;
+        }, 0);
+
+        // Add total row
+        $sheet->setCellValue('A' . $row, 'Total :');
+        $sheet->setCellValue('C' . $row, $total_uang_masuk);
+        $sheet->setCellValue('D' . $row, $total_uang_keluar);
+        $sheet->setCellValue('E' . $row, $total_uang_masuk - $total_uang_keluar);
 
         // Apply the Excel styling
         $sheet->getStyle('A1')->getAlignment()
@@ -349,11 +380,11 @@ public function export_excel_per_hari()
         ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
         ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
-        $sheet->getStyle('A4:F4')->getFont()->setBold(true);
-        $sheet->getStyle('A4:F4')->getAlignment()
+        $sheet->getStyle('A4:E4')->getFont()->setBold(true);
+        $sheet->getStyle('A4:E4')->getAlignment()
         ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
         ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
+        $sheet->getStyle('A4:E4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
 
         $styleArray = [
             'borders' => [
@@ -371,10 +402,10 @@ public function export_excel_per_hari()
         ];
 
 
-        $lastRow = count($transaksi) + 4; // Add 4 for the header rows
-        $sheet->getStyle('A4:F' . $lastRow)->applyFromArray($styleArray);
+        $lastRow = count($transaksi) + 5; // Add 4 for the header rows
+        $sheet->getStyle('A4:E' . $lastRow)->applyFromArray($styleArray);
         $sheet->getStyle('A5:A' . $lastRow)->applyFromArray($alignmentArray);
-        $sheet->getStyle('F5:F' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
+        $sheet->getStyle('C5:E' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
 
         $sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -386,7 +417,7 @@ public function export_excel_per_hari()
         $spreadsheet->getActiveSheet()->setShowGridlines(false);
 
         // Generate file name with start and end date
-        $file_name = 'laporan_transaksi_' . str_replace('-', '', $tanggal) . '.xlsx';
+        $file_name = 'laporan_transaksi_' . str_replace('-', '', $awal) . '-' . str_replace('-', '', $akhir) . '.xlsx';
 
         // Create the Excel writer and save the file
         $writer = new Xlsx($spreadsheet);
