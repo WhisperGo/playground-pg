@@ -9,52 +9,35 @@
             </div>
             <div class="card-body">
                <div class="new-user-info">
-                  <form action="<?= base_url('buku/aksi_edit')?>" method="post" enctype="multipart/form-data">
+                  <form action="<?= base_url('transaksi/aksi_edit')?>" method="post" enctype="multipart/form-data">
 
-                     <input type="hidden" name="id" value="<?php echo $jojo->id_buku ?>">
+                     <input type="hidden" name="id" value="<?php echo $jojo->id_transaksi ?>">
 
                      <div class="row">
                         <div class="form-group">
-                           <label class="form-label" for="fname">Judul Buku</label>
-                           <input type="text" class="form-control" id="judul_buku" name="judul_buku" placeholder="Masukkan Judul Buku" value="<?php echo $jojo->judul_buku ?>" required>
+                           <label class="form-label" for="fname">Jam Selesai</label>
+                           <input type="text" class="form-control" placeholder="Masukkan Judul Buku" value="<?php echo $jojo->jam_selesai ?>" readonly="readonly" disabled>
+                           <input type="hidden" name="jam_selesai" value="<?php echo $jojo->jam_selesai ?>">
                         </div>
 
-                        <div class="form-group" style="margin-bottom: 6px; margin-top: 6px;">
-                           <label for="Foto" class="form-label">Cover Buku (Opsional)</label>
-                           <input type="file" class="logo-perusahaan" id="cover_buku" name="cover_buku" accept="image/*">
-                        </div>
-                        <div id="preview">
-                           <label for="Foto" class="form-label">Cover Buku Lama</label><br>
-                           <?php if ($jojo->cover_buku): ?>
-                              <img src="<?=base_url('cover/'. $jojo->cover_buku)?>" width="10%" class="mb-3">
-                           <?php endif; ?>
-                        </div>
 
                         <div class="form-group">
-                           <label class="form-label" for="fname">Kategori Buku</label>
-                           <select class="form-select" id="kategori_buku" name="kategori_buku" required>
-                              <option>- Pilih -</option>
-                              <?php 
-                              foreach ($kategori as $k) {
-                                 $selected = ($jojo->kategori_buku == $k->id_kategori) ? 'selected' : '';
-                                 ?>
-                                 <option value="<?=$k->id_kategori?>" <?=$selected?>><?= $k->nama_kategori?></option>
-                              <?php } ?>
-                           </select>
-                        </div>
-
-                        <div class="form-group">
-                           <label class="form-label" for="fname">Stok Buku</label>
-                           <input type="text" class="form-control" id="stok_buku" name="stok_buku" placeholder="Masukkan Stok Buku" value="<?php echo $jojo->stok_buku ?>" required>
-                        </div>
-
+                          <label class="control-label">Durasi :</label>
+                          <select class="form-select" id="durasi" name="durasi" required>
+                            <option>- Pilih -</option>
+                            <?php foreach ($paket_list as $p) { ?>
+                              <option value="<?= $p->durasi_paket ?>"><?= $p->nama_paket ?></option>
+                           <?php } ?>
+                        </select>
                      </div>
-                     <a href="javascript:history.back()" class="btn btn-danger mt-4">Cancel</a>
-                     <button type="submit" class="btn btn-primary mt-4">Submit</button>
-                  </form>
-               </div>
+
+                  </div>
+                  <a href="javascript:history.back()" class="btn btn-danger mt-4">Cancel</a>
+                  <button type="submit" class="btn btn-primary mt-4">Submit</button>
+               </form>
             </div>
          </div>
       </div>
    </div>
+</div>
 </div>

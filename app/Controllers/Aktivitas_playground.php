@@ -96,7 +96,7 @@ class Aktivitas_playground extends BaseController
         }
     }
 
-    public function aksi_edit($id)
+    public function aksi_edit_status($id)
     {
         if (session()->get('level') == 1 || session()->get('level') == 2) {
 

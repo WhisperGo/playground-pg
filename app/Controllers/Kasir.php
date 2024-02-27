@@ -124,6 +124,12 @@ class Kasir extends BaseController
         }
     }
 
+
+    
+
+
+    // --------------------------------------- INVOICE --------------------------------------------------
+
     public function cetak_invoice($id)
     {
         if (session()->get('level') == 1 || session()->get('level') == 2) {

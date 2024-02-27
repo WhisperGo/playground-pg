@@ -77,7 +77,55 @@ class Transaksi extends BaseController
         }
     }
 
-    public function aksi_edit($id)
+    public function edit($id)
+    { 
+        if(session()->get('level')== 1) {
+            $model=new M_transaksi();
+            $where=array('id_transaksi'=>$id);
+            $data['jojo']=$model->getWhere('transaksi',$where);
+
+            $data['paket_list'] = $model->tampil('paket_permainan');
+
+            $data['title'] = 'Durasi Main';
+            $data['desc'] = 'Anda dapat menambah Durasi Main di Menu ini.';      
+            $data['subtitle'] = 'Tambah Durasi Main';  
+
+            echo view('hopeui/partial/header', $data);
+            echo view('hopeui/partial/side_menu');
+            echo view('hopeui/partial/top_menu');
+            echo view('hopeui/transaksi/edit', $data);
+            echo view('hopeui/partial/footer');
+        }else {
+            return redirect()->to('/');
+        }
+    }
+
+    public function aksi_edit()
+    {
+        if (session()->get('level') == 1 || session()->get('level') == 2) {
+            $a = $this->request->getPost('jam_selesai');
+            $b = $this->request->getPost('durasi');
+            $jam_selesai = date('H:i:s', strtotime("$a+$b hour"));
+            $id = $this->request->getPost('id');
+
+            // Data yang akan disimpan
+            $data1 = array(
+                'jam_selesai' => $jam_selesai,
+                'updated_at'=>date('Y-m-d H:i:s')
+            );
+
+            // Simpan data ke dalam database
+            $model = new M_transaksi();
+            $where=array('id_transaksi'=>$id);
+            $model->qedit('transaksi', $data1, $where);
+
+            return redirect()->to('transaksi');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+
+    public function aksi_edit_status($id)
     {
         if (session()->get('level') == 1 || session()->get('level') == 2) {
 
@@ -388,77 +436,77 @@ public function export_excel_per_hari()
         $spreadsheet = new Spreadsheet();
 
             // Get the active worksheet and set the default row height for header row
-            $sheet = $spreadsheet->getActiveSheet();
-            $sheet->getDefaultRowDimension()->setRowHeight(20);
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->getDefaultRowDimension()->setRowHeight(20);
 
-            $sheet->mergeCells('A1:F1');
-            $sheet->setCellValue('A1', 'Data Laporan Transaksi');
+        $sheet->mergeCells('A1:F1');
+        $sheet->setCellValue('A1', 'Data Laporan Transaksi');
 
-            $periode = date('d F Y', strtotime($tanggal));
-            $sheet->mergeCells('A2:F2');
-            $sheet->setCellValue('A2', 'Periode: ' . $periode);
+        $periode = date('d F Y', strtotime($tanggal));
+        $sheet->mergeCells('A2:F2');
+        $sheet->setCellValue('A2', 'Periode: ' . $periode);
 
             // $sheet->setCellValue('G3', 'Jumlah Penjualan : ' . count($penjualan));
 
             // Set the header row values
-            $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
-            $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Permainan');
-            $sheet->setCellValueByColumnAndRow(3, 4, 'Durasi');
-            $sheet->setCellValueByColumnAndRow(4, 4, 'Tanggal Transaksi');
-            $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
-            $sheet->setCellValueByColumnAndRow(6, 4, 'Subtotal');
+        $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
+        $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Permainan');
+        $sheet->setCellValueByColumnAndRow(3, 4, 'Durasi');
+        $sheet->setCellValueByColumnAndRow(4, 4, 'Tanggal Transaksi');
+        $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
+        $sheet->setCellValueByColumnAndRow(6, 4, 'Subtotal');
 
             // Fill the data into the worksheet
-            $row = 5;
-            $no = 1;
-            foreach ($transaksi as $riz) {
-                $sheet->setCellValueByColumnAndRow(1, $row, $no++);
-                $sheet->setCellValueByColumnAndRow(2, $row, $riz->nama_permainan);
-                $sheet->setCellValueByColumnAndRow(3, $row, $riz->durasi . ' jam');
+        $row = 5;
+        $no = 1;
+        foreach ($transaksi as $riz) {
+            $sheet->setCellValueByColumnAndRow(1, $row, $no++);
+            $sheet->setCellValueByColumnAndRow(2, $row, $riz->nama_permainan);
+            $sheet->setCellValueByColumnAndRow(3, $row, $riz->durasi . ' jam');
 
                 // Mengganti koma dengan titik dan mengonversi ke float
-                $subtotal = str_replace(',', '', $riz->subtotal);
-                $subtotal = floatval($subtotal);
+            $subtotal = str_replace(',', '', $riz->subtotal);
+            $subtotal = floatval($subtotal);
 
                 // Mengisi sel dengan nilai yang diformat sebagai accounting
-                $sheet->setCellValueByColumnAndRow(4, $row, date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)));
-                $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
-                $sheet->setCellValueByColumnAndRow(6, $row, $subtotal);
+            $sheet->setCellValueByColumnAndRow(4, $row, date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)));
+            $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
+            $sheet->setCellValueByColumnAndRow(6, $row, $subtotal);
 
-                $row++;
-            }
+            $row++;
+        }
 
         // Apply the Excel styling
-            $sheet->getStyle('A1')->getAlignment()
-            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-            ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-            $sheet->getStyle('A1')->getFont()->setSize(14)->setBold(true);
+        $sheet->getStyle('A1')->getAlignment()
+        ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
+        ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A1')->getFont()->setSize(14)->setBold(true);
 
-            $sheet->getStyle('A2')->getFont()->setBold(true);
-            $sheet->getStyle('A2')->getAlignment()
-            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-            ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A2')->getFont()->setBold(true);
+        $sheet->getStyle('A2')->getAlignment()
+        ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
+        ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
-            $sheet->getStyle('A4:F4')->getFont()->setBold(true);
-            $sheet->getStyle('A4:F4')->getAlignment()
-            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-            ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-            $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
+        $sheet->getStyle('A4:F4')->getFont()->setBold(true);
+        $sheet->getStyle('A4:F4')->getAlignment()
+        ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
+        ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
 
-            $styleArray = [
-                'borders' => [
-                    'allBorders' => [
-                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
-                        'color' => ['argb' => 'FF000000'],
-                    ],
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['argb' => 'FF000000'],
                 ],
-            ];
+            ],
+        ];
 
-            $alignmentArray = [
-                'alignment' => [
-                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                ],
-            ];
+        $alignmentArray = [
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ],
+        ];
 
 
         $lastRow = count($transaksi) + 4; // Add 4 for the header rows
