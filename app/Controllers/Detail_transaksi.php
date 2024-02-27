@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Detail_transaksi extends BaseController
 {
 
-    public function index($id)
+    public function view($id)
     {
         if (session()->get('level') == 1 || session()->get('level') == 2) {
             $model = new M_detail_transaksi();

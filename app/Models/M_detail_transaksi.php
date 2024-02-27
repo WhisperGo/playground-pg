@@ -7,7 +7,7 @@ class M_detail_transaksi extends Model
 {		
 	protected $table      = 'detail_transaksi';
 	protected $primaryKey = 'id_detail';
-	protected $allowedFields = ['transaksi_id', 'permainan_id', 'subtotal'];
+	protected $allowedFields = ['transaksi_id', 'permainan_id', 'durasi', 'subtotal'];
 	protected $useSoftDeletes = true;
 	protected $useTimestamps = true;
 

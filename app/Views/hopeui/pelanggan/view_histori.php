@@ -50,7 +50,7 @@
                          </td>
                          <td>
 
-                           <a href="<?php echo base_url('detail_transaksi/'. $riz->id_transaksi)?>" class="btn btn-warning my-1"><i class="fa-regular fa-circle-info"></i></a>
+                           <a href="<?php echo base_url('detail_transaksi/view/'. $riz->id_transaksi)?>" class="btn btn-warning my-1"><i class="fa-regular fa-circle-info"></i></a>
                         </td>
                      </tr>
                   <?php } ?>

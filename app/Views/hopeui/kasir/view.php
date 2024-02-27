@@ -25,7 +25,7 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title"><i class="faj-button fa-regular fa-cart-shopping"></i>Pembayaran</h4>
-            <p><small class="text-danger text-sm">*</small>Catatan : Pajak PPN sebesar <?= $pajak_ppn->persen_pajak ?>%</p>
+            <p><small class="text-danger text-sm">*</small> Catatan : Pajak PPN sebesar <?= $pajak_ppn->persen_pajak ?>%</p>
 
             <?php if (session()->has('errorKasir')): ?>
             <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -90,7 +90,7 @@
                         <!-- Input hidden untuk menyimpan kembalian -->
                         <input type="hidden" name="kembalian" id="kembalian_hidden">
 
-                        <!-- Input hidden untuk menyimpan kembalian -->
+                        <!-- Input hidden untuk menyimpan pajak -->
                         <input type="hidden" name="pajak" value="<?= $pajak_ppn->id_pajak ?>">
                     </div>
                 </div>

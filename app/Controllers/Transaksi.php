@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\M_transaksi;
 use App\Models\M_detail_transaksi;
+use App\Models\M_paket_permainan;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -78,13 +79,16 @@ class Transaksi extends BaseController
     }
 
     public function edit($id)
-    { 
-        if(session()->get('level')== 1) {
-            $model=new M_transaksi();
-            $where=array('id_transaksi'=>$id);
-            $data['jojo']=$model->getWhere('transaksi',$where);
+    {
+        if(session()->get('level') == 1) {
+            $model = new M_transaksi();
+            $model2 = new M_paket_permainan();
 
-            $data['paket_list'] = $model->tampil('paket_permainan');
+            $data['jojo'] = $model->getDataTransaksiById($id);
+            $data['permainan_list'] = $model->tampil('permainan');
+            $data['pelanggan_list'] = $model->tampil('pelanggan');
+            $data['paket_list'] = $model2->tampil('paket_permainan');
+            $data['pajak_ppn'] = $this->getPajakPPN();
 
             $data['title'] = 'Durasi Main';
             $data['desc'] = 'Anda dapat menambah Durasi Main di Menu ini.';      
@@ -95,7 +99,7 @@ class Transaksi extends BaseController
             echo view('hopeui/partial/top_menu');
             echo view('hopeui/transaksi/edit', $data);
             echo view('hopeui/partial/footer');
-        }else {
+        } else {
             return redirect()->to('/');
         }
     }
@@ -106,18 +110,46 @@ class Transaksi extends BaseController
             $a = $this->request->getPost('jam_selesai');
             $b = $this->request->getPost('durasi');
             $jam_selesai = date('H:i:s', strtotime("$a+$b hour"));
+
+            $c = $this->request->getPost('total_harga');
+            $d = $this->request->getPost('bayar_lama');
+            $e = $this->request->getPost('kembalian_lama');
+            $f = $this->request->getPost('total_harga_baru');
+            $g = $this->request->getPost('bayar_baru');
+            $h = $this->request->getPost('kembalian_baru');
             $id = $this->request->getPost('id');
 
-            // Data yang akan disimpan
+        // Data yang akan disimpan untuk transaksi
             $data1 = array(
                 'jam_selesai' => $jam_selesai,
+                'total_harga' => $c + $f,
+                'bayar' => $d + $g,
+                'kembalian' => $e + $h,
+                'user' => session()->get('id'),
+                'status' => 1,
                 'updated_at'=>date('Y-m-d H:i:s')
             );
 
-            // Simpan data ke dalam database
+        // Simpan data transaksi ke dalam database
             $model = new M_transaksi();
-            $where=array('id_transaksi'=>$id);
+            $where = array('id_transaksi'=>$id);
             $model->qedit('transaksi', $data1, $where);
+
+        // Ambil data detail transaksi berdasarkan transaksi_id
+            $detail_transaksi = $model->getDataDetailTransaksiByTransaksiId($id);
+
+        // Ubah durasi dan subtotal detail transaksi
+            foreach ($detail_transaksi as $detail) {
+                $durasi_baru = $detail->durasi + $b;
+                $subtotal_baru = $detail->subtotal + ($detail->subtotal * $b);
+                $data2 = array(
+                    'durasi' => $durasi_baru,
+                    'subtotal' => $subtotal_baru,
+                    'updated_at'=>date('Y-m-d H:i:s')
+                );
+                $where2 = array('transaksi_id'=>$id);
+                $model->qedit('detail_transaksi', $data2, $where2);
+            }
 
             return redirect()->to('transaksi');
         } else {
@@ -154,6 +186,7 @@ class Transaksi extends BaseController
             // Data yang akan disimpan
             $data1 = array(
                 'status' => '2',
+                'updated_at'=>date('Y-m-d H:i:s')
             );
 
             $where = array('id_transaksi' => $id);
@@ -179,6 +212,19 @@ class Transaksi extends BaseController
         }
     }
 
+    // ------------------------------------------ PAJAK PPN -------------------------------------------------
+
+    public function getPajakPPN()
+    {
+        $model2 = new M_paket_permainan();
+        $pajak_list = $model2->tampil('pajak');
+        foreach ($pajak_list as $pajak) {
+            if ($pajak->nama_pajak == 'PPN') {
+                return $pajak; // Mengembalikan persen pajak PPN jika ditemukan
+            }
+        }
+        // return 0; // Mengembalikan nilai default jika tidak ditemukan
+    }
 
     // --------------------------------------- PRINT LAPORAN --------------------------------------
 

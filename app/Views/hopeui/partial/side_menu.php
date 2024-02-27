@@ -149,11 +149,6 @@ $logo = $builder->select('logo_website')
               </a>
             </li>
 
-            <!-- <li class="nav-item">
-              <a class="nav-link <?php if($uri->getSegment(1) == "durasi_bermain"){echo "active";}?>" href="<?=base_url('durasi_bermain')?>"><i class="fa-regular fa-stopwatch"></i><span class="item-name">Durasi Main</span>
-              </a>
-            </li> -->
-
             <li><hr class="hr-horizontal"></li>
             <li class="nav-item static-item">
               <a class="nav-link static-item disabled" tabindex="-1">
@@ -193,72 +188,73 @@ $logo = $builder->select('logo_website')
 
 <?php }else if (session()->get('level')==2){ ?>
   <div class="sidebar-body pt-0 data-scrollbar">
-    <div class="sidebar-list">
-      <!-- Sidebar Menu Start -->
-      <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
-        <li class="nav-item static-item">
-          <a class="nav-link static-item disabled" tabindex="-1">
-            <span class="default-icon">Home</span>
-            <!-- <span class="mini-icon">-</span> -->
-          </a>
-        </li>
+        <div class="sidebar-list">
+          <!-- Sidebar Menu Start -->
+          <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
+            <li class="nav-item static-item">
+              <a class="nav-link static-item disabled" tabindex="-1">
+                <span class="default-icon">Home</span>
+                <!-- <span class="mini-icon">-</span> -->
+              </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link <?php if($uri->getSegment(1) == "dashboard"){echo "active";}?>" href="<?=base_url('dashboard')?>"><i class="faj-button fa-duotone fa-grid-2"></i><span class="item-name">Dashboard</span>
-          </a>
-        </li>
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "dashboard"){echo "active";}?>" href="<?=base_url('dashboard')?>"><i class="faj-button fa-duotone fa-grid-2"></i><span class="item-name">Dashboard</span>
+              </a>
+            </li>
 
-        <li><hr class="hr-horizontal"></li>
-        <li class="nav-item static-item">
-          <a class="nav-link static-item disabled" tabindex="-1">
-            <span class="default-icon">Data Master</span>
-            <!-- <span class="mini-icon">-</span> -->
-          </a>
-        </li>
+            <li><hr class="hr-horizontal"></li>
+            <li class="nav-item static-item">
+              <a class="nav-link static-item disabled" tabindex="-1">
+                <span class="default-icon">Data Master</span>
+                <!-- <span class="mini-icon">-</span> -->
+              </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link <?php if($uri->getSegment(1) == "pelanggan"){echo "active";}?>" href="<?=base_url('pelanggan')?>"><i class="fa-regular fa-list"></i><span class="item-name">Data Pelanggan</span>
-          </a>
-        </li>
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "pelanggan"){echo "active";}?>" href="<?=base_url('pelanggan')?>"><i class="fa-regular fa-list"></i><span class="item-name">Data Pelanggan</span>
+              </a>
+            </li>
 
-        <li><hr class="hr-horizontal"></li>
-        <li class="nav-item static-item">
-          <a class="nav-link static-item disabled" tabindex="-1">
-            <span class="default-icon">Data Playground</span>
-            <!-- <span class="mini-icon">-</span> -->
-          </a>
-        </li>
+            <li><hr class="hr-horizontal"></li>
+            <li class="nav-item static-item">
+              <a class="nav-link static-item disabled" tabindex="-1">
+                <span class="default-icon">Data Playground</span>
+                <!-- <span class="mini-icon">-</span> -->
+              </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
-          </a>
-        </li>
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "aktivitas_playground"){echo "active";}?>" href="<?=base_url('aktivitas_playground')?>"><i class="fa-regular fa-chart-line"></i><span class="item-name">Aktivitas Playground</span>
+              </a>
+            </li>
 
-        <li><hr class="hr-horizontal"></li>
-        <li class="nav-item static-item">
-          <a class="nav-link static-item disabled" tabindex="-1">
-            <span class="default-icon">Data Transaksi</span>
-            <!-- <span class="mini-icon">-</span> -->
-          </a>
-        </li>
+            <li><hr class="hr-horizontal"></li>
+            <li class="nav-item static-item">
+              <a class="nav-link static-item disabled" tabindex="-1">
+                <span class="default-icon">Data Transaksi</span>
+                <!-- <span class="mini-icon">-</span> -->
+              </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link <?php if($uri->getSegment(1) == "kasir"){echo "active";}?>" href="<?=base_url('kasir')?>"><i class="fa-regular fa-cash-register"></i><span class="item-name">Kasir Pembayaran</span>
-          </a>
-        </li>
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "kasir"){echo "active";}?>" href="<?=base_url('kasir')?>"><i class="fa-regular fa-cash-register"></i><span class="item-name">Kasir Pembayaran</span>
+              </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link <?php if($uri->getSegment(1) == "transaksi" && $uri->getSegment(2) !== "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi')?>"><i class="fa-duotone fa-arrow-right-arrow-left"></i><span class="item-name">Data Transaksi</span>
-          </a>
-        </li>
+            <li class="nav-item">
+              <a class="nav-link <?php if($uri->getSegment(1) == "transaksi" && $uri->getSegment(2) !== "menu_laporan"){echo "active";}?>" href="<?=base_url('transaksi')?>"><i class="fa-duotone fa-arrow-right-arrow-left"></i><span class="item-name">Data Transaksi</span>
+              </a>
+            </li>
 
-        <li class="nav-item mb-5"></li>
+            <li class="nav-item mb-5"></li>
+
+          </ul>
+        </li>
 
       </ul>
-    </li>
+    </div>
+  </div>
 
-  </ul>
-</div>
-</div>
 
 <?php } ?>

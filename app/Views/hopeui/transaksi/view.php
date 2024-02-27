@@ -51,12 +51,11 @@
                          <td>
 
                            <?php
-                           if ($riz->status == 1) {
-                              ?>
+                           if ($riz->status == 1) { ?>
                               <a href="<?php echo base_url('transaksi/aksi_edit_status/' . $riz->id_transaksi) ?>" class="btn btn-success my-1"><i class="fa-regular fa-arrows-rotate" style="color: #ffffff;"></i></a>
+                              <a href="<?php echo base_url('transaksi/edit/'. $riz->id_transaksi)?>" class="btn btn-secondary my-1"><i class="fa-solid fa-pen-to-square"></i></a>
                            <?php } ?>
-                           <a href="<?php echo base_url('transaksi/edit/'. $riz->id_transaksi)?>" class="btn btn-secondary my-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                           <a href="<?php echo base_url('detail_transaksi/'. $riz->id_transaksi)?>" class="btn btn-warning my-1"><i class="fa-regular fa-circle-info"></i></a>
+                           <a href="<?php echo base_url('detail_transaksi/view/'. $riz->id_transaksi)?>" class="btn btn-warning my-1"><i class="fa-regular fa-circle-info"></i></a>
                            <a href="<?php echo base_url('transaksi/delete/'. $riz->id_transaksi)?>" class="btn btn-danger my-1"><i class="fa-solid fa-trash"></i></a>
                         </td>
                      </tr>

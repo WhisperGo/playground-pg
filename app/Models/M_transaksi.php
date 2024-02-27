@@ -7,7 +7,7 @@ class M_transaksi extends Model
 {		
 	protected $table      = 'transaksi';
 	protected $primaryKey = 'id_transaksi';
-	protected $allowedFields = ['pelanggan_id', 'tanggal_transaksi', 'total_harga', 'user'];
+	protected $allowedFields = ['pelanggan_id', 'tanggal_transaksi', 'jam_mulai', 'jam_selesai', 'pajak_id', 'total_harga', 'bayar', 'kembalian', 'user', 'status'];
 	protected $useSoftDeletes = true;
 	protected $useTimestamps = true;
 
@@ -68,60 +68,94 @@ class M_transaksi extends Model
 		->getResult();
 	}
 
-	public function join3aktivitas($table1, $table2, $table3, $on, $on2)
+	public function getDataTransaksiById($id)
 	{
-		return $this->db->table($table1)
-		->join($table2, $on, 'left')
-		->join($table3, $on2, 'left')
+		return $this->db->table('transaksi')
+		->select('*')
+		->join('pelanggan', 'transaksi.pelanggan_id = pelanggan.PelangganID', 'left')
+		->where('transaksi.id_transaksi', $id)
+		->where('transaksi.deleted_at', null)
+		->where('pelanggan.deleted_at', null)
 		->orderBy('transaksi.created_at', 'DESC')
 		->get()
-		->getResult();
+		->getRow();
 	}
 
-	public function join3($table1, $table2, $table3, $on, $on2)
+	public function getDataTransaksiByIdRow($id)
 	{
-		return $this->db->table($table1)
-		->join($table2, $on, 'left')
-		->join($table3, $on2, 'left')
-		->where("$table1.deleted_at", null)
-		->where("$table2.deleted_at", null)
-		->where("$table3.deleted_at", null)
-		->orderBy('penjualan.created_at', 'DESC')
-		->get()
-		->getResult();
-	}
-
-	public function join3id($table1, $table2, $table3, $on, $on2, $id)
-	{
-		return $this->db->table($table1)
-		->join($table2, $on, 'left')
-		->join($table3, $on2, 'left')
-		->where("$table1.deleted_at", null)
-		->where("$table2.deleted_at", null)
-		->where("$table3.deleted_at", null)
+		return $this->db->table('transaksi')
+		->select('*')
+		->join('pelanggan', 'transaksi.pelanggan_id = pelanggan.PelangganID', 'left')
 		->where('transaksi.id_transaksi', $id)
+		->where('transaksi.deleted_at', null)
+		->where('pelanggan.deleted_at', null)
+		->orderBy('transaksi.created_at', 'DESC')
 		->get()
-		->getResult();
-	}
+        ->getRow(); // Menggunakan getRow() untuk mengambil satu baris data
+    }
 
-	public function join4id($table1, $table2, $table3, $table4, $on, $on2, $on3, $id)
-	{
-		return $this->db->table($table1)
-		->join($table2, $on, 'left')
-		->join($table3, $on2, 'left')
-		->join($table4, $on3, 'left')
-		->where("$table1.deleted_at", null)
-		->where("$table2.deleted_at", null)
-		->where("$table3.deleted_at", null)
-		->where("$table4.deleted_at", null)
-		->where('transaksi.id_transaksi', $id)
-		->get()
-		->getResult();
-	}
+    public function getDataDetailTransaksiByTransaksiId($transaksiId)
+    {
+    	return $this->db->table('detail_transaksi')
+    	->where('transaksi_id', $transaksiId)
+    	->get()
+    	->getResult();
+    }
+
+    public function join3aktivitas($table1, $table2, $table3, $on, $on2)
+    {
+    	return $this->db->table($table1)
+    	->join($table2, $on, 'left')
+    	->join($table3, $on2, 'left')
+    	->orderBy('transaksi.created_at', 'DESC')
+    	->get()
+    	->getResult();
+    }
+
+    public function join3($table1, $table2, $table3, $on, $on2)
+    {
+    	return $this->db->table($table1)
+    	->join($table2, $on, 'left')
+    	->join($table3, $on2, 'left')
+    	->where("$table1.deleted_at", null)
+    	->where("$table2.deleted_at", null)
+    	->where("$table3.deleted_at", null)
+    	->orderBy('penjualan.created_at', 'DESC')
+    	->get()
+    	->getResult();
+    }
+
+    public function join3id($table1, $table2, $table3, $on, $on2, $id)
+    {
+    	return $this->db->table($table1)
+    	->join($table2, $on, 'left')
+    	->join($table3, $on2, 'left')
+    	->where("$table1.deleted_at", null)
+    	->where("$table2.deleted_at", null)
+    	->where("$table3.deleted_at", null)
+    	->where('transaksi.id_transaksi', $id)
+    	->get()
+    	->getResult();
+    }
+
+    public function join4id($table1, $table2, $table3, $table4, $on, $on2, $on3, $id)
+    {
+    	return $this->db->table($table1)
+    	->join($table2, $on, 'left')
+    	->join($table3, $on2, 'left')
+    	->join($table4, $on3, 'left')
+    	->where("$table1.deleted_at", null)
+    	->where("$table2.deleted_at", null)
+    	->where("$table3.deleted_at", null)
+    	->where("$table4.deleted_at", null)
+    	->where('transaksi.id_transaksi', $id)
+    	->get()
+    	->getResult();
+    }
 
 
-	public function hitungSemuaHariIni()
-	{
+    public function hitungSemuaHariIni()
+    {
 	    $hariIni = date('Y-m-d'); // Mengambil tanggal hari ini
 	    $besok = date('Y-m-d', strtotime('+1 day')); // Mengambil tanggal besok
 
