@@ -238,6 +238,7 @@ class M_transaksi extends Model
 		$builder->select('status');
 		$builder->where('pelanggan_id', $pelanggan_id);
 		$builder->where('tanggal_transaksi', $tanggal);
+		$builder->where('deleted_at', null);
 	    $builder->orderBy('id_transaksi', 'DESC'); // Mengurutkan transaksi berdasarkan id_transaksi secara descending agar transaksi terbaru muncul pertama
 	    $builder->limit(1); // Hanya ambil satu transaksi terbaru
 

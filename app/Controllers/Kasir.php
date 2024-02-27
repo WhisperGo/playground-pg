@@ -69,13 +69,25 @@ class Kasir extends BaseController
             $c = date('H:i:s');
 
             $d = $this->request->getPost('durasi');
-            $jam_selesai = date('H:i:s', strtotime("+$d hour"));
+            $paketModel = new M_paket_permainan();
+            $paket = $paketModel->find($d);
+            
+            // Ambil nilai durasi paket
+            $durasiPaket = intval($paket['durasi_paket']);
+            
+            // Cek jika nama_paket adalah "sepuasnya"
+            if ($paket['nama_paket'] === "Sepuasnya") {
+                // Jika ya, durasi tidak perlu ditambah
+                $jam_selesai = ''; // Jam selesai sama dengan jam mulai
+            } else {
+                // Jika tidak, tambahkan durasi paket ke jam mulai
+                $jam_selesai = date('H:i:s', strtotime("+$durasiPaket hour"));
+            }
 
             $e = $this->request->getPost('pajak');
             $f = $this->request->getPost('total_harga');
             $g = $this->request->getPost('bayar');
             $h = $this->request->getPost('kembalian');
-            
 
             // Periksa apakah pelanggan masih bermain pada tanggal transaksi yang sama
             $model = new M_transaksi();
@@ -87,7 +99,7 @@ class Kasir extends BaseController
                 return redirect()->back();
             }
 
-        // Data yang akan disimpan
+            // Data yang akan disimpan
             $data1 = [
                 'pelanggan_id' => $a,
                 'tanggal_transaksi' => $b,
@@ -100,10 +112,10 @@ class Kasir extends BaseController
                 'user' => session()->get('id'),
             ];
 
-        // Simpan data ke dalam database
+            // Simpan data ke dalam database
             $model->simpan('transaksi', $data1);
 
-        // Ambil PenjualanID dari data yang baru saja disimpan
+            // Ambil PenjualanID dari data yang baru saja disimpan
             $transaksiid = $model->insertID();
 
             $dataFromTable = json_decode($this->request->getPost('data_table'), true);
@@ -123,9 +135,6 @@ class Kasir extends BaseController
             return redirect()->to('/');
         }
     }
-
-
-    
 
 
     // --------------------------------------- INVOICE --------------------------------------------------

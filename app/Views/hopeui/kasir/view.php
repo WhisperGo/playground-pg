@@ -59,7 +59,7 @@
                             <select class="form-select" id="durasi" name="durasi" required>
                                 <option>- Pilih -</option>
                                 <?php foreach ($paket_list as $p) { ?>
-                                    <option value="<?= $p->durasi_paket ?>"><?= $p->nama_paket ?></option>
+                                    <option value="<?= $p->id_paket ?>" data-durasi="<?= $p->durasi_paket ?>"><?= $p->nama_paket ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -140,7 +140,7 @@
 
     // Fungsi untuk menghitung subtotal berdasarkan durasi yang dipilih
         function hitungSubtotal() {
-            var durasi = parseInt($('[name="durasi"]').val());
+            var durasi = parseInt($('#durasi option:selected').data('durasi'));
         if (!isNaN(durasi)) { // Periksa apakah durasi adalah angka yang valid
             $('#datatable tbody tr').each(function() {
                 var hargaText = $(this).find('td:eq(2)').text();

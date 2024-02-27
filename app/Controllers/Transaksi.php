@@ -132,6 +132,8 @@ class Transaksi extends BaseController
             // Data yang akan disimpan
             $data1 = array(
                 'status' => '2',
+                'jam_selesai' => date('Y-m-d H:i:s'),
+                'updated_at'=>date('Y-m-d H:i:s')
             );
 
             $where = array('id_transaksi' => $id);
