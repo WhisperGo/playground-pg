@@ -58,12 +58,13 @@ $logo = $builder->select('*')
             border: 1px solid #000;
             padding: 8px;
             text-align: left;
+            color: #000000;
         }
         h3 {
             margin-top: 10px; /* Mengurangi margin-top h3 */
         }
         p {
-           color: !important;
+            color: #000000;
         }
         /* Tambahkan padding-right pada elemen td yang berisi TotalHarga */
         td.total-label {
@@ -92,6 +93,7 @@ $logo = $builder->select('*')
                     <tr>
                         <th scope="col">Permainan</th>
                         <th class="text-center" scope="col">Durasi</th>
+                        <th class="text-center" scope="col"><?= $riz->nama_pajak ?></th>
                         <th class="text-center" scope="col">Subtotal</th>
                     </tr>
                 </thead>
@@ -100,11 +102,12 @@ $logo = $builder->select('*')
                         <tr>
                             <td><?=$data->nama_permainan?></td>
                             <td class="text-center"><?=$data->durasi?> jam</td>
+                            <td class="text-center"><?=$riz->persen_pajak?>%</td>
                             <td class="text-center">Rp <?= number_format($data->subtotal, 0, ',', '.') ?></td>
                         </tr>
                     <?php } ?>
                     <tr>
-                        <td class="total-label" colspan="2">Total :</td>
+                        <td class="total-label" colspan="3">Total :</td>
                         <td class="text-center">Rp <?=number_format($riz->total_harga, 0, ',', '.')?></td>
                     </tr>
                 </tbody>

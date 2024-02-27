@@ -53,12 +53,17 @@ class Pelanggan extends BaseController
             $c = $this->request->getPost('nama_orangtua');
             $d = $this->request->getPost('no_telepon');
 
+            // Generate Kode Pelanggan sesuai format yang diminta: PLG+2 digit huruf acak + 2 digit angka acak
+            $kode_pelanggan = $this->generateUniqueKodePelanggan();
+
+
             // Data yang akan disimpan
             $data1 = array(
                 'NamaPelanggan' => $a,
                 'Alamat' => $b,
                 'NamaOrangtua' => $c,
-                'NomorTelepon' => $d
+                'NomorTelepon' => $d,
+                'KodePelanggan' => $kode_pelanggan
             );
 
             // Simpan data ke dalam database
@@ -154,5 +159,26 @@ class Pelanggan extends BaseController
             return redirect()->to('/');
         }
     }
+
+    // ------------------------------------------ KODE PELANGGAN ----------------------------------------------
+
+    // Fungsi untuk menghasilkan KodePelanggan yang unik
+    public function generateUniqueKodePelanggan()
+    {
+        $model = new M_pelanggan();
+
+        do {
+            // Generate Kode Pelanggan sesuai format yang diminta: PLG+2 digit huruf acak + 2 digit angka acak
+            $kode_pelanggan = 'PLG' . substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 2) . substr(str_shuffle('0123456789'), 0, 2);
+
+            // Periksa apakah KodePelanggan sudah ada dalam tabel pelanggan
+            $existing_pelanggan = $model->getWhere('pelanggan', ['KodePelanggan' => $kode_pelanggan]);
+
+            // Pastikan $existing_pelanggan bukan null sebelum memanggil getNumRows()
+        } while ($existing_pelanggan !== null && $existing_pelanggan->getNumRows() > 0); // Ulangi pembuatan KodePelanggan jika sudah ada yang sama
+
+        return $kode_pelanggan;
+    }
+
 
 }

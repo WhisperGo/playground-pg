@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 26 Feb 2024 pada 20.30
--- Versi server: 10.4.24-MariaDB
+-- Host: localhost
+-- Waktu pembuatan: 27 Feb 2024 pada 02.35
+-- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -43,8 +43,7 @@ CREATE TABLE `detail_transaksi` (
 --
 
 INSERT INTO `detail_transaksi` (`id_detail`, `transaksi_id`, `permainan_id`, `durasi`, `subtotal`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(68, 45, 3, 1, '10000.00', '2024-02-27 00:37:32', NULL, NULL),
-(69, 46, 2, 1, '25000.00', '2024-02-27 01:36:30', NULL, NULL);
+(70, 49, 3, 1, '10000.00', '2024-02-27 08:10:27', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -137,9 +136,8 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon`, `NamaOrangtua`, `KodePelanggan`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Thomas', 'Perumahan Orchid', '084597651452', 'Orang Tua Thomas', 'thomas@gmail.com', '2024-02-01 21:32:30', '2024-02-24 23:10:33', NULL),
-(2, 'Kevin', 'Perumahan Kevin', '08154722', 'Orang Tua Kevin', 'kevin@gmail.com', '2024-02-02 20:14:38', '2024-02-02 21:09:58', NULL),
-(3, 'Doni', 'Perumahan Doni', '0147965', 'Orang tua Doni', 'doni@gmail.com', '2024-02-19 18:32:08', '2024-02-19 18:34:59', NULL);
+(5, 'Ferdi', 'Perumahan Ferdi', '21903211', 'Orang tua Ferdi', 'PLGJA29', '2024-02-27 08:03:10', NULL, NULL),
+(6, 'Jofinson', 'Perumahan Jofinson', '28034234', 'Orang tua Jofinson', 'PLGHW15', '2024-02-27 08:07:51', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -218,10 +216,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `pajak_id`, `total_harga`, `bayar`, `kembalian`, `user`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(45, 3, '2024-02-27', '00:37:32', '01:37:32', 1, '10000.00', '10000.00', '0.00', 1, 2, '2024-02-27 00:37:32', NULL, NULL),
-(46, 2, '2024-02-27', '01:36:30', '02:36:30', 1, '27500.00', '27500.00', '0.00', 1, 2, '2024-02-27 01:36:30', NULL, NULL),
-(47, 2, '2024-02-24', '01:36:30', '02:36:30', 1, '100000.00', '27500.00', '0.00', 1, 2, '2024-02-24 01:36:30', NULL, NULL),
-(48, 2, '2024-02-25', '01:36:30', '02:36:30', 1, '50000.00', '27500.00', '0.00', 1, 2, '2024-02-25 01:36:30', NULL, NULL);
+(49, 6, '2024-02-27', '08:10:27', '09:10:27', 1, '11000.00', '15000.00', '4000.00', 1, 1, '2024-02-27 08:10:27', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -351,7 +346,7 @@ ALTER TABLE `website`
 -- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
@@ -375,7 +370,7 @@ ALTER TABLE `paket_permainan`
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `PelangganID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `PelangganID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengeluaran`
@@ -393,7 +388,7 @@ ALTER TABLE `permainan`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

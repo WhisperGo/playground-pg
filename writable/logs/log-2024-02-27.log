@@ -122,3 +122,57 @@ CRITICAL - 2024-02-27 02:20:47 --> Too few arguments to function App\Models\M_tr
 #4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #6 {main}
+CRITICAL - 2024-02-27 07:51:04 --> syntax error, unexpected ')'
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Router/Router.php(175): CodeIgniter\Router\Router->autoRoute('pelanggan')
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(726): CodeIgniter\Router\Router->handle('pelanggan')
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2024-02-27 07:51:46 --> Call to undefined method App\Models\M_pelanggan::getLastInsertedId
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(167): CodeIgniter\Model->__call('getLastInserted...', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(57): App\Controllers\Pelanggan->generate_kode_pelanggan()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Pelanggan->aksi_create()
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2024-02-27 07:53:18 --> Return value of CodeIgniter\Database\MySQLi\Connection::insertID() must be of the type int, null returned
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Model.php(726): CodeIgniter\Database\MySQLi\Connection->insertID()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(167): CodeIgniter\Model->__call('insertID', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(57): App\Controllers\Pelanggan->generate_kode_pelanggan()
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Pelanggan->aksi_create()
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#8 {main}
+ERROR - 2024-02-27 07:55:38 --> Unknown column 'id_pelanggan' in 'field list'
+CRITICAL - 2024-02-27 07:55:38 --> Call to a member function getRow() on bool
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(167): App\Models\M_pelanggan->getLastInsertedId()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(57): App\Controllers\Pelanggan->generate_kode_pelanggan()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Pelanggan->aksi_create()
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}
+CRITICAL - 2024-02-27 08:05:59 --> Call to a member function getNumRows() on null
+#0 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Pelanggan.php(57): App\Controllers\Pelanggan->generateUniqueKodePelanggan()
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Pelanggan->aksi_create()
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pelanggan))
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#6 {main}
+CRITICAL - 2024-02-27 08:27:49 --> count(): Parameter must be an array or an object that implements Countable
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', '/Applications/X...', 186, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/app/Controllers/Laporan_keuangan.php(186): count(NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(832): App\Controllers\Laporan_keuangan->export_excel()
+#3 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan_keuangan))
+#4 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
+#7 {main}

@@ -104,6 +104,21 @@ class M_transaksi extends Model
 		->getResult();
 	}
 
+	public function join4id($table1, $table2, $table3, $table4, $on, $on2, $on3, $id)
+	{
+		return $this->db->table($table1)
+		->join($table2, $on, 'left')
+		->join($table3, $on2, 'left')
+		->join($table4, $on3, 'left')
+		->where("$table1.deleted_at", null)
+		->where("$table2.deleted_at", null)
+		->where("$table3.deleted_at", null)
+		->where("$table4.deleted_at", null)
+		->where('transaksi.id_transaksi', $id)
+		->get()
+		->getResult();
+	}
+
 
 	public function hitungSemuaHariIni()
 	{

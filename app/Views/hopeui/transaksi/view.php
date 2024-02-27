@@ -15,6 +15,7 @@
                      <thead>
                         <tr>
                            <th>No.</th>
+                           <th>Kode Pelanggan</th>
                            <th>Nama Pelanggan</th>
                            <th>Tanggal Transaksi</th>
                            <th>Jam Mulai</th>
@@ -32,6 +33,7 @@
                          ?>
                          <tr>
                           <td><?= $no++ ?></td>
+                          <td><?= $riz->KodePelanggan ?></td>
                           <td><?= $riz->NamaPelanggan ?></td>
                           <td><?= date('d M Y', strtotime($riz->tanggal_transaksi)) ?></td>
                           <td><?= date('H:i', strtotime($riz->jam_mulai)) ?></td>

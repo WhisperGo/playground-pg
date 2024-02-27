@@ -132,7 +132,8 @@ class Kasir extends BaseController
 
             $on='transaksi.pelanggan_id = pelanggan.PelangganID';
             $on2='transaksi.user = user.id_user';
-            $data['jojo'] = $model->join3id('transaksi', 'pelanggan', 'user', $on, $on2, $id);
+            $on3='transaksi.pajak_id = pajak.id_pajak';
+            $data['jojo'] = $model->join4id('transaksi', 'pelanggan', 'user', 'pajak', $on, $on2, $on3, $id);
 
             $on='detail_transaksi.transaksi_id = transaksi.id_transaksi';
             $on2='detail_transaksi.permainan_id = permainan.id_permainan';

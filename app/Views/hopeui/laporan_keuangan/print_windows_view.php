@@ -112,9 +112,9 @@ $logo = $builder->select('*')
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= date('d M Y H:i:s', strtotime($trx->created_at)) ?></td>
-                    <td>Rp <?= number_format($trx->total_harga, 2, ',', '.') ?></td>
+                    <td>Rp <?= number_format($trx->total_harga, 0, ',', '.') ?></td>
                     <td>0</td>
-                    <td>Rp <?= number_format($trx->total_harga, 2, ',', '.') ?></td>
+                    <td>Rp <?= number_format($trx->total_harga, 0, ',', '.') ?></td>
                 </tr>
                 <?php $total_uang_masuk += $trx->total_harga; ?>
             <?php endforeach; ?>
@@ -124,8 +124,8 @@ $logo = $builder->select('*')
                     <td><?= $no++ ?></td>
                     <td><?= date('d M Y H:i:s', strtotime($peng->created_at)) ?></td>
                     <td>0</td>
-                    <td>Rp <?= number_format($peng->jumlah_pengeluaran, 2, ',', '.') ?></td>
-                    <td>Rp <?= number_format($peng->jumlah_pengeluaran, 2, ',', '.') ?></td>
+                    <td>Rp <?= number_format($peng->jumlah_pengeluaran, 0, ',', '.') ?></td>
+                    <td>Rp <?= number_format($peng->jumlah_pengeluaran, 0, ',', '.') ?></td>
                 </tr>
                 <?php $total_uang_keluar += $peng->jumlah_pengeluaran; ?>
             <?php endforeach; ?>
@@ -134,9 +134,9 @@ $logo = $builder->select('*')
         <tfoot> 
             <tr>
                 <td colspan="2"><strong>Total :</strong></td>
-                <td>Rp <?= number_format($total_uang_masuk, 2, ',', '.') ?></td>
-                <td>Rp <?= number_format($total_uang_keluar, 2, ',', '.') ?></td>
-                <td>Rp <?= number_format($total_uang_masuk - $total_uang_keluar, 2, ',', '.') ?></td>
+                <td>Rp <?= number_format($total_uang_masuk, 0, ',', '.') ?></td>
+                <td>Rp <?= number_format($total_uang_keluar, 0, ',', '.') ?></td>
+                <td>Rp <?= number_format($total_uang_masuk - $total_uang_keluar, 0, ',', '.') ?></td>
             </tr>
         </tfoot>
 

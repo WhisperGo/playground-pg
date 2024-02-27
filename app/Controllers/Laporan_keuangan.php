@@ -42,10 +42,10 @@ class Laporan_keuangan extends BaseController
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
 
-        // Get total harga transaksi dalam rentang tanggal tertentu
+            // Get total harga transaksi dalam rentang tanggal tertentu
             $data['transaksi'] = $model->getTotalHargaTransaksiPeriode($awal, $akhir);
 
-        // Panggil model untuk mendapatkan total pengeluaran dalam rentang tanggal tertentu
+            // Panggil model untuk mendapatkan total pengeluaran dalam rentang tanggal tertentu
             $data['pengeluaran'] = $model->getTotalPengeluaranPeriode($awal, $akhir);
 
             $data['awal'] = $awal;
@@ -101,7 +101,11 @@ class Laporan_keuangan extends BaseController
             $awal = $this->request->getPost('awal');
             $akhir = $this->request->getPost('akhir');
 
-            $transaksi = $model->getAllTransaksiPeriode($awal, $akhir);
+            // Get total harga transaksi dalam rentang tanggal tertentu
+            $transaksi = $model->getTotalHargaTransaksiPeriode($awal, $akhir);
+
+            // Panggil model untuk mendapatkan total pengeluaran dalam rentang tanggal tertentu
+            $pengeluaran = $model->getTotalPengeluaranPeriode($awal, $akhir);
 
             $spreadsheet = new Spreadsheet();
 
@@ -110,7 +114,7 @@ class Laporan_keuangan extends BaseController
             $sheet->getDefaultRowDimension()->setRowHeight(20);
 
             $sheet->mergeCells('A1:F1');
-            $sheet->setCellValue('A1', 'Data Laporan Transaksi');
+            $sheet->setCellValue('A1', 'Data Laporan Keuangan');
 
             $periode = date('d F Y', strtotime($awal)) . ' - ' . date('d F Y', strtotime($akhir));
             $sheet->mergeCells('A2:F2');
@@ -120,31 +124,46 @@ class Laporan_keuangan extends BaseController
 
             // Set the header row values
             $sheet->setCellValueByColumnAndRow(1, 4, 'No.');
-            $sheet->setCellValueByColumnAndRow(2, 4, 'Nama Permainan');
-            $sheet->setCellValueByColumnAndRow(3, 4, 'Durasi');
-            $sheet->setCellValueByColumnAndRow(4, 4, 'Tanggal Transaksi');
-            $sheet->setCellValueByColumnAndRow(5, 4, 'Kasir');
-            $sheet->setCellValueByColumnAndRow(6, 4, 'Subtotal');
+            $sheet->setCellValueByColumnAndRow(2, 4, 'Tanggal');
+            $sheet->setCellValueByColumnAndRow(3, 4, 'Uang Masuk');
+            $sheet->setCellValueByColumnAndRow(4, 4, 'Uang Keluar');
+            $sheet->setCellValueByColumnAndRow(5, 4, 'Selisih');
 
             // Fill the data into the worksheet
             $row = 5;
             $no = 1;
-            foreach ($transaksi as $riz) {
-                $sheet->setCellValueByColumnAndRow(1, $row, $no++);
-                $sheet->setCellValueByColumnAndRow(2, $row, $riz->nama_permainan);
-                $sheet->setCellValueByColumnAndRow(3, $row, $riz->durasi . ' jam');
-
-                // Mengganti koma dengan titik dan mengonversi ke float
-                $subtotal = str_replace(',', '', $riz->subtotal);
-                $subtotal = floatval($subtotal);
-
-                // Mengisi sel dengan nilai yang diformat sebagai accounting
-                $sheet->setCellValueByColumnAndRow(4, $row, date('d F Y, H:i', strtotime($riz->created_at_detail_transaksi)));
-                $sheet->setCellValueByColumnAndRow(5, $row, $riz->username);
-                $sheet->setCellValueByColumnAndRow(6, $row, $subtotal);
-
+            foreach ($transaksi as $trx) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, date('d M Y H:i:s', strtotime($trx->created_at)));
+                $sheet->setCellValue('C' . $row, $trx->total_harga);
+                $sheet->setCellValue('D' . $row, '0');
+                $sheet->setCellValue('E' . $row, $trx->total_harga);
                 $row++;
             }
+
+            foreach ($pengeluaran as $peng) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, date('d M Y H:i:s', strtotime($peng->created_at)));
+                $sheet->setCellValue('C' . $row, '0');
+                $sheet->setCellValue('D' . $row, $peng->jumlah_pengeluaran);
+                $sheet->setCellValue('E' . $row, $peng->jumlah_pengeluaran);
+                $row++;
+            }
+
+            // Calculate total uang masuk dan total uang keluar
+            $total_uang_masuk = array_reduce($transaksi, function ($carry, $item) {
+                return $carry + $item->total_harga;
+            }, 0);
+            
+            $total_uang_keluar = array_reduce($pengeluaran, function ($carry, $item) {
+                return $carry + $item->jumlah_pengeluaran;
+            }, 0);
+
+        // Add total row
+            $sheet->setCellValue('A' . $row, 'Total :');
+            $sheet->setCellValue('C' . $row, $total_uang_masuk);
+            $sheet->setCellValue('D' . $row, $total_uang_keluar);
+            $sheet->setCellValue('E' . $row, $total_uang_masuk - $total_uang_keluar);
 
         // Apply the Excel styling
             $sheet->getStyle('A1')->getAlignment()
@@ -157,11 +176,11 @@ class Laporan_keuangan extends BaseController
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
             ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
-            $sheet->getStyle('A4:F4')->getFont()->setBold(true);
-            $sheet->getStyle('A4:F4')->getAlignment()
+            $sheet->getStyle('A4:E4')->getFont()->setBold(true);
+            $sheet->getStyle('A4:E4')->getAlignment()
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
             ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-            $sheet->getStyle('A4:F4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
+            $sheet->getStyle('A4:E4')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('FFFF00');
 
             $styleArray = [
                 'borders' => [
@@ -179,10 +198,10 @@ class Laporan_keuangan extends BaseController
             ];
 
 
-        $lastRow = count($transaksi) + 4; // Add 4 for the header rows
-        $sheet->getStyle('A4:F' . $lastRow)->applyFromArray($styleArray);
+        $lastRow = count($transaksi) + 5; // Add 4 for the header rows
+        $sheet->getStyle('A4:E' . $lastRow)->applyFromArray($styleArray);
         $sheet->getStyle('A5:A' . $lastRow)->applyFromArray($alignmentArray);
-        $sheet->getStyle('F5:F' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
+        $sheet->getStyle('C5:E' . $lastRow)->getNumberFormat()->setFormatCode('_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)');
 
         $sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);

@@ -49,7 +49,7 @@
                             <select class="choices form-select" id="pelanggan" name="pelanggan" required>
                                 <option>- Pilih -</option>
                                 <?php foreach ($pelanggan_list as $p) { ?>
-                                    <option value="<?= $p->PelangganID ?>"><?= $p->KodePelanggan ?></option>
+                                    <option value="<?= $p->PelangganID ?>"><?= $p->KodePelanggan ?> - <?= $p->NamaPelanggan ?></option>
                                 <?php } ?>
                             </select>
                         </div>
