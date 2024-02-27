@@ -176,3 +176,12 @@ CRITICAL - 2024-02-27 08:27:49 --> count(): Parameter must be an array or an obj
 #5 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/public/index.php(37): CodeIgniter\CodeIgniter->run()
 #6 /Applications/XAMPP/xamppfiles/htdocs/playground-pg/system/Commands/Server/rewrite.php(43): require_once('/Applications/X...')
 #7 {main}
+ERROR - 2024-02-27 08:47:10 --> Table 'playground_pg.pengeluaran' doesn't exist
+CRITICAL - 2024-02-27 08:47:10 --> Call to a member function getResult() on bool
+#0 C:\xampp\htdocs\playground-pg\app\Controllers\Pengeluaran.php(12): App\Models\M_pengeluaran->tampil('pengeluaran')
+#1 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(832): App\Controllers\Pengeluaran->index()
+#2 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengeluaran))
+#3 C:\xampp\htdocs\playground-pg\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\playground-pg\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\playground-pg\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
