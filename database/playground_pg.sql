@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2024 at 09:15 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Waktu pembuatan: 27 Feb 2024 pada 16.42
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_transaksi`
+-- Struktur dari tabel `detail_transaksi`
 --
 
 CREATE TABLE `detail_transaksi` (
@@ -39,20 +39,17 @@ CREATE TABLE `detail_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_transaksi`
+-- Dumping data untuk tabel `detail_transaksi`
 --
 
 INSERT INTO `detail_transaksi` (`id_detail`, `transaksi_id`, `permainan_id`, `durasi`, `subtotal`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (70, 49, 3, 1, '10000.00', '2024-02-27 08:10:27', NULL, NULL),
-(75, 54, 3, 1, '10000.00', '2024-02-27 15:01:38', NULL, NULL),
-(76, 55, 3, 1, '10000.00', '2024-02-27 15:03:47', NULL, NULL),
-(77, 56, 3, 4, '50000.00', '2024-02-27 15:04:58', NULL, NULL),
-(78, 57, 3, 4, '10000.00', '2024-02-27 15:12:35', NULL, NULL);
+(78, 57, 3, 2, '20000.00', '2024-02-27 15:12:35', '2024-02-27 21:39:01', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -64,7 +61,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -74,7 +71,7 @@ INSERT INTO `level` (`id_level`, `nama_level`, `created_at`, `updated_at`, `dele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pajak`
+-- Struktur dari tabel `pajak`
 --
 
 CREATE TABLE `pajak` (
@@ -87,7 +84,7 @@ CREATE TABLE `pajak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pajak`
+-- Dumping data untuk tabel `pajak`
 --
 
 INSERT INTO `pajak` (`id_pajak`, `nama_pajak`, `persen_pajak`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -96,7 +93,7 @@ INSERT INTO `pajak` (`id_pajak`, `nama_pajak`, `persen_pajak`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paket_permainan`
+-- Struktur dari tabel `paket_permainan`
 --
 
 CREATE TABLE `paket_permainan` (
@@ -109,7 +106,7 @@ CREATE TABLE `paket_permainan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `paket_permainan`
+-- Dumping data untuk tabel `paket_permainan`
 --
 
 INSERT INTO `paket_permainan` (`id_paket`, `nama_paket`, `durasi_paket`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -121,7 +118,7 @@ INSERT INTO `paket_permainan` (`id_paket`, `nama_paket`, `durasi_paket`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -137,7 +134,7 @@ CREATE TABLE `pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data untuk tabel `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon`, `NamaOrangtua`, `KodePelanggan`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -147,7 +144,7 @@ INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -161,7 +158,7 @@ CREATE TABLE `pengeluaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id_pengeluaran`, `nama_pengeluaran`, `jumlah_pengeluaran`, `tanggal_pengeluaran`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -170,7 +167,7 @@ INSERT INTO `pengeluaran` (`id_pengeluaran`, `nama_pengeluaran`, `jumlah_pengelu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permainan`
+-- Struktur dari tabel `permainan`
 --
 
 CREATE TABLE `permainan` (
@@ -183,7 +180,7 @@ CREATE TABLE `permainan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `permainan`
+-- Dumping data untuk tabel `permainan`
 --
 
 INSERT INTO `permainan` (`id_permainan`, `nama_permainan`, `harga_permainan`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -196,7 +193,7 @@ INSERT INTO `permainan` (`id_permainan`, `nama_permainan`, `harga_permainan`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -217,20 +214,17 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `pelanggan_id`, `tanggal_transaksi`, `jam_mulai`, `jam_selesai`, `pajak_id`, `total_harga`, `bayar`, `kembalian`, `user`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(49, 6, '2024-02-27', '08:10:27', '13:00:00', 1, '11000.00', '15000.00', '4000.00', 1, 2, '2024-02-27 08:10:27', '2024-02-27 11:04:56', NULL),
-(54, 5, '2024-02-27', '15:01:38', '07:00:00', 1, '11000.00', '11000.00', '0.00', 1, 1, '2024-02-27 15:01:38', '2024-02-27 15:03:36', '2024-02-27 15:03:36'),
-(55, 5, '2024-02-27', '15:03:47', '07:00:00', 1, '11000.00', '11000.00', '0.00', 1, 1, '2024-02-27 15:03:47', '2024-02-27 15:05:07', '2024-02-27 15:05:07'),
-(56, 6, '2024-02-27', '15:04:58', '20:04:58', 1, '55000.00', '55000.00', '0.00', 1, 1, '2024-02-27 15:04:58', '2024-02-27 15:12:13', '2024-02-27 15:12:13'),
-(57, 6, '2024-02-27', '15:12:35', '15:14:47', 1, '11000.00', '11000.00', '0.00', 1, 2, '2024-02-27 15:12:35', '2024-02-27 15:14:47', NULL);
+(49, 6, '2024-02-27', '08:10:27', '13:00:00', 1, '11000.00', '15000.00', '4000.00', 1, 2, '2024-02-27 08:10:27', '2024-02-27 21:39:47', '2024-02-27 21:39:47'),
+(57, 6, '2024-02-27', '15:12:35', '21:39:36', 1, '22000.00', '22000.00', '0.00', 1, 2, '2024-02-27 15:12:35', '2024-02-27 21:39:36', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -245,7 +239,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -256,7 +250,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `foto`, `created
 -- --------------------------------------------------------
 
 --
--- Table structure for table `website`
+-- Struktur dari tabel `website`
 --
 
 CREATE TABLE `website` (
@@ -265,6 +259,8 @@ CREATE TABLE `website` (
   `logo_website` text DEFAULT NULL,
   `logo_pdf` text DEFAULT NULL,
   `favicon_website` text DEFAULT NULL,
+  `no_telepon_website` varchar(15) NOT NULL,
+  `email_website` varchar(255) NOT NULL,
   `komplek` text DEFAULT NULL,
   `jalan` text DEFAULT NULL,
   `kelurahan` text DEFAULT NULL,
@@ -277,136 +273,136 @@ CREATE TABLE `website` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `website`
+-- Dumping data untuk tabel `website`
 --
 
-INSERT INTO `website` (`id_website`, `nama_website`, `logo_website`, `logo_pdf`, `favicon_website`, `komplek`, `jalan`, `kelurahan`, `kecamatan`, `kota`, `kode_pos`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'GT Playground', 'logo_contoh.svg', 'logo_pdf_contoh.svg', 'favicon_contoh.svg', 'Komp. Pahlawan Mas', 'Jl. Raya Pahlawan No. 123', 'Kel. Sukajadi', 'Kec. Sukasari', 'Kota Batam', '29424', '2023-05-01 16:33:53', NULL, NULL);
+INSERT INTO `website` (`id_website`, `nama_website`, `logo_website`, `logo_pdf`, `favicon_website`, `no_telepon_website`, `email_website`, `komplek`, `jalan`, `kelurahan`, `kecamatan`, `kota`, `kode_pos`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'GT Playground', 'logo_contoh.svg', 'logo_pdf_contoh.svg', 'favicon_contoh.svg', '087154628519', 'gtplayground@gmail.com', 'Komp. Pahlawan Mas', 'Jl. Raya Pahlawan No. 123', 'Kel. Sukajadi', 'Kec. Sukasari', 'Kota Batam', '29424', '2023-05-01 16:33:53', NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `detail_transaksi`
+-- Indeks untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail`);
 
 --
--- Indexes for table `level`
+-- Indeks untuk tabel `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `pajak`
+-- Indeks untuk tabel `pajak`
 --
 ALTER TABLE `pajak`
   ADD PRIMARY KEY (`id_pajak`);
 
 --
--- Indexes for table `paket_permainan`
+-- Indeks untuk tabel `paket_permainan`
 --
 ALTER TABLE `paket_permainan`
   ADD PRIMARY KEY (`id_paket`);
 
 --
--- Indexes for table `pelanggan`
+-- Indeks untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`PelangganID`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id_pengeluaran`);
 
 --
--- Indexes for table `permainan`
+-- Indeks untuk tabel `permainan`
 --
 ALTER TABLE `permainan`
   ADD PRIMARY KEY (`id_permainan`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `website`
+-- Indeks untuk tabel `website`
 --
 ALTER TABLE `website`
   ADD PRIMARY KEY (`id_website`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `detail_transaksi`
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pajak`
+-- AUTO_INCREMENT untuk tabel `pajak`
 --
 ALTER TABLE `pajak`
   MODIFY `id_pajak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `paket_permainan`
+-- AUTO_INCREMENT untuk tabel `paket_permainan`
 --
 ALTER TABLE `paket_permainan`
   MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   MODIFY `PelangganID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `permainan`
+-- AUTO_INCREMENT untuk tabel `permainan`
 --
 ALTER TABLE `permainan`
   MODIFY `id_permainan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `website`
+-- AUTO_INCREMENT untuk tabel `website`
 --
 ALTER TABLE `website`
   MODIFY `id_website` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
